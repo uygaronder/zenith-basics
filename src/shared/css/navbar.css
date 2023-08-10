@@ -1,1 +1,66 @@
-/*# sourceMappingURL=navbar.css.map */
+#navbarMain {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: var(--default-padding);
+  border-bottom: var(--lighterBorder) 1px solid;
+  border-top: var(--lighterBorder) 1px solid;
+}
+#navbarMain .logoLink {
+  align-items: center;
+  display: flex;
+}
+#navbarMain .logoLink .logo {
+  max-height: 40px;
+}
+#navbarMain .navbarSearch {
+  flex: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--lightBorder);
+  overflow: hidden;
+  margin: 0 20px;
+  margin-right: 0;
+}
+#navbarMain .navbarSearch #categorySelect {
+  height: 100%;
+  border: none;
+  outline: none;
+  width: -moz-max-content;
+  width: max-content;
+  border-right: var(--lightBorder) 1px solid;
+  cursor: pointer;
+}
+#navbarMain .navbarSearch .searchBar {
+  width: 100%;
+  height: 100%;
+}
+#navbarMain .navbarSearch .searchBar input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding-left: 8px;
+  font-size: 110%;
+}
+#navbarMain .navbarSearch .searchButton {
+  padding: 10px 20px;
+  padding-bottom: 4px;
+  align-self: center;
+  height: 100%;
+  border-left: var(--lightBorder) 1px solid;
+  cursor: pointer;
+}
+#navbarMain .navbarSearch .searchButton img {
+  opacity: 0.5;
+}
+#navbarMain .navbarNotifications {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+#navbarMain .navbarNotifications span {
+  padding-top: 5px;
+  margin-left: 10px;
+}/*# sourceMappingURL=navbar.css.map */

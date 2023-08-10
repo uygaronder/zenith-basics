@@ -1,5 +1,8 @@
 :root{
     --default-padding: 1rem;
+
+    --lighterBorder: #ddd;
+    --lightBorder: #bbbbbb;
 }
 
 *{
@@ -11,7 +14,17 @@
     line-height: 1.5;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .svgSmall{
     width: 20px;
     height: 20px;
+}
+
+.svgMed{
+    width: 30px;
+    height: 30px;
 }
