@@ -1,0 +1,61 @@
+#NavbarSmall{
+    padding: 0px var(--default-padding-double);
+    border-bottom: var(--lighterBorder) 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    #smallLeftLinks{
+        display: flex;
+        align-items: center;
+        & > span{
+            padding: 0 12px;
+            cursor: pointer;
+        }
+        #categories{
+            display: flex;
+            text-align: center;
+            padding-right: 5px;
+            padding-left: 0;
+            .categoryLogo{
+                display: flex;
+                align-self: center;
+            }
+            p{
+                padding-left: 4px;
+            }
+        }
+    }
+    #smallRightLinks{
+        display: flex;
+        & > span{
+            padding: 0 16px;
+        }
+        & > span:last-of-type{
+            padding-right: 0;
+        }
+        .divider{
+            display: flex;
+            width: 1.5px;
+            background-color: var(--lightBorder);
+            opacity: .2;
+        }
+    }
+    section > * > *{
+        padding: 5px 0;
+        display: flex;
+        
+    }
+    #smallLeftLinks > span{
+        box-sizing: border-box;
+        border-left: transparent 1px solid;
+        border-right: transparent 1px solid;
+    }
+    #smallLeftLinks > span:hover{
+        box-sizing: border-box;
+        border-left: var(--lightBorder) 1px solid;
+        border-right: var(--lightBorder) 1px solid;
+    }
+    #smallLeftLinks > span:first-of-type:hover{
+        border-left: transparent 1px solid;
+    }
+}

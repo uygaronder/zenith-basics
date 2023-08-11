@@ -1,0 +1,58 @@
+#heroCategories {
+  padding: var(--default-padding-double) 0;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-around;
+}
+#heroCategories .heroCategory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 80px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+#heroCategories .heroCategory .heroCategoryImage {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+}
+#heroCategories .heroCategory .heroCategoryImage img {
+  width: 70px;
+  filter: grayscale(1);
+}
+#heroCategories .heroCategory .heroCategoryImage .filter {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.3;
+  left: 0;
+  top: 0;
+  transition: 0.2s ease;
+}
+#heroCategories .heroCategory .heroCategoryText {
+  font-weight: 600;
+  position: absolute;
+  bottom: -25px;
+}
+#heroCategories .heroCategory .heroCategoryText span {
+  font-size: 80%;
+}
+#heroCategories .heroCategory:hover .heroCategoryImage .filter {
+  opacity: 0;
+}
+#heroCategories .heroCategory:last-of-type .heroCategoryImage img {
+  width: 60px;
+}/*# sourceMappingURL=HeroCategories.css.map */

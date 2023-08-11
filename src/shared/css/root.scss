@@ -1,8 +1,23 @@
 :root{
+    
+    --default-padding-double: 2rem;
     --default-padding: 1rem;
+    --default-padding-half: .5rem;
+    
+    --default-padding-double: 4%;
+    --default-padding: 2%;
+    --default-padding-half: 1%;
 
     --lighterBorder: #ddd;
     --lightBorder: #bbbbbb;
+    --border: #1d242d;
+
+    --lightWhite: #e7e7e7;
+    --reddish: #ef4261;
+    --darkBlue: #1d242d;
+
+    --blackToReddish: invert(36%) sepia(77%) saturate(2627%) hue-rotate(326deg) brightness(97%) contrast(92%);
+    --blackToStarYellow: invert(52%) sepia(84%) saturate(997%) hue-rotate(1deg) brightness(106%) contrast(102%);
 }
 
 *{
@@ -25,6 +40,11 @@ a{
 }
 
 .svgMed{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+}
+
+.svgLarge{
+    width: 35px;
+    height: 35px;
 }

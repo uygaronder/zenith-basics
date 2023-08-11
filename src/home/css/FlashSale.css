@@ -1,0 +1,115 @@
+#flashSale {
+  background-color: var(--lightWhite);
+}
+#flashSale .saleUpper {
+  padding: var(--default-padding) var(--default-padding-double);
+  padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#flashSale .saleUpper .saleInfo {
+  display: flex;
+  align-items: center;
+}
+#flashSale .saleUpper .saleInfo .saleIcon {
+  display: flex;
+}
+#flashSale .saleUpper .saleInfo h3 {
+  margin: 0 10px;
+  display: flex;
+  font-size: 200%;
+  font-weight: 600;
+}
+#flashSale .saleUpper .saleTimer {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+  background-color: var(--reddish);
+  border-radius: 12px;
+  padding: 0 10px;
+  color: white;
+}
+#flashSale .saleUpper .saleTimer > * {
+  font-size: 125%;
+}
+#flashSale .saleUpper .saleTimer span {
+  margin: 0 4px;
+}
+#flashSale .saleUpper .saleTimer div {
+  font-weight: 700;
+}
+#flashSale .saleUpper #saleArrows {
+  display: flex;
+  width: 120px;
+}
+#flashSale .saleUpper #saleArrows .saleArrow {
+  min-height: 40px;
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+}
+#flashSale .saleUpper #saleArrows .saleArrow:first-of-type {
+  margin-right: 10px;
+}
+#flashSale .saleUpper #saleArrows .saleArrow .arrow {
+  position: relative;
+  display: flex;
+}
+#flashSale .saleUpper #saleArrows .saleArrow .arrow > * {
+  border-radius: 1px;
+  height: 2px;
+  background-color: black;
+}
+#flashSale .saleUpper #saleArrows .saleArrow .arrow span {
+  position: absolute;
+  width: 8px;
+  display: block;
+  top: calc(50% - 1px);
+}
+#flashSale .saleUpper #saleArrows .saleArrow .arrow div {
+  width: 15px;
+  border-radius: 2px;
+  margin: auto;
+}
+#flashSale .saleUpper #saleArrows .saleArrow .toLeft span {
+  transform: translateY(3px) rotate(45deg);
+}
+#flashSale .saleUpper #saleArrows .saleArrow .toLeft span:last-of-type {
+  transform: translateY(-3px) rotate(-45deg);
+}
+#flashSale .saleUpper #saleArrows .saleArrow .toRight span {
+  right: 0;
+  transform: translateY(3px) rotate(-45deg);
+}
+#flashSale .saleUpper #saleArrows .saleArrow .toRight span:last-of-type {
+  transform: translateY(-3px) rotate(45deg);
+}
+#flashSale .saleUpper #saleArrows .available {
+  background-color: var(--border);
+  color: white;
+  flex: 1;
+  display: flex;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#flashSale .saleUpper #saleArrows .available:hover {
+  opacity: 0.975;
+}
+#flashSale .saleUpper #saleArrows .available .arrow {
+  display: flex;
+  flex: 1;
+}
+#flashSale .saleUpper #saleArrows .available .arrow > * {
+  background-color: white;
+}
+#flashSale .saleUpper #saleArrows .available .arrow div {
+  flex: 1;
+}
+#flashSale #saleProducts {
+  padding: var(--default-padding) var(--default-padding-double);
+  padding-top: 0;
+  display: flex;
+  overflow: hidden;
+}/*# sourceMappingURL=FlashSale.css.map */

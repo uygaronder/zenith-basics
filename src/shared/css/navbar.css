@@ -2,9 +2,8 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: var(--default-padding);
+  padding: var(--default-padding) var(--default-padding-double);
   border-bottom: var(--lighterBorder) 1px solid;
-  border-top: var(--lighterBorder) 1px solid;
 }
 #navbarMain .logoLink {
   align-items: center;
@@ -63,4 +62,5 @@
 #navbarMain .navbarNotifications span {
   padding-top: 5px;
   margin-left: 10px;
+  opacity: 0.5;
 }/*# sourceMappingURL=navbar.css.map */

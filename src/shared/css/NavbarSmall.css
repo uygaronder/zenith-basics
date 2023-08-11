@@ -1,0 +1,60 @@
+#NavbarSmall {
+  padding: 0px var(--default-padding-double);
+  border-bottom: var(--lighterBorder) 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#NavbarSmall #smallLeftLinks {
+  display: flex;
+  align-items: center;
+}
+#NavbarSmall #smallLeftLinks > span {
+  padding: 0 12px;
+  cursor: pointer;
+}
+#NavbarSmall #smallLeftLinks #categories {
+  display: flex;
+  text-align: center;
+  padding-right: 5px;
+  padding-left: 0;
+}
+#NavbarSmall #smallLeftLinks #categories .categoryLogo {
+  display: flex;
+  align-self: center;
+}
+#NavbarSmall #smallLeftLinks #categories p {
+  padding-left: 4px;
+}
+#NavbarSmall #smallRightLinks {
+  display: flex;
+}
+#NavbarSmall #smallRightLinks > span {
+  padding: 0 16px;
+}
+#NavbarSmall #smallRightLinks > span:last-of-type {
+  padding-right: 0;
+}
+#NavbarSmall #smallRightLinks .divider {
+  display: flex;
+  width: 1.5px;
+  background-color: var(--lightBorder);
+  opacity: 0.2;
+}
+#NavbarSmall section > * > * {
+  padding: 5px 0;
+  display: flex;
+}
+#NavbarSmall #smallLeftLinks > span {
+  box-sizing: border-box;
+  border-left: transparent 1px solid;
+  border-right: transparent 1px solid;
+}
+#NavbarSmall #smallLeftLinks > span:hover {
+  box-sizing: border-box;
+  border-left: var(--lightBorder) 1px solid;
+  border-right: var(--lightBorder) 1px solid;
+}
+#NavbarSmall #smallLeftLinks > span:first-of-type:hover {
+  border-left: transparent 1px solid;
+}/*# sourceMappingURL=NavbarSmall.css.map */

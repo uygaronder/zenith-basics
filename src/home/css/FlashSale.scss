@@ -1,0 +1,120 @@
+#flashSale{
+    background-color: var(--lightWhite);
+    .saleUpper{
+        padding: var(--default-padding) var(--default-padding-double);
+        padding-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .saleInfo{
+            display: flex;
+            align-items: center;
+            .saleIcon{
+                display: flex;
+            }
+            h3{
+                margin: 0 10px;
+                display: flex;
+                font-size: 200%;
+                font-weight: 600;
+            }
+        }
+        .saleTimer{
+            display: flex;
+            align-items: center;
+            margin: 0 5px;
+            background-color: var(--reddish);
+            border-radius: 12px;
+            padding: 0 10px;
+            color: white;
+            & > *{
+                font-size: 125%;
+            }
+            span{
+                margin: 0 4px;
+            }
+            div{
+                font-weight: 700;
+            }
+        }
+        #saleArrows{
+            display: flex;
+            width: 120px;
+            .saleArrow{
+                min-height: 40px;
+                display: flex;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                padding: 10px;
+                &:first-of-type{
+                    margin-right: 10px;
+                }
+                .arrow{
+                    position: relative;
+                    display: flex;
+                    & > *{
+                        border-radius: 1px;
+                        height: 2px;
+                        background-color: black;
+                    }
+                    span{
+                        position: absolute;
+                        width: 8px;
+                        display: block;
+                        top: calc(50% - 1px);
+                    }
+                    div{
+                        width: 15px;
+                        border-radius: 2px;
+                        margin: auto;
+                    }
+                }
+                .toLeft{
+                    span{
+                        transform: translateY(3px) rotate(45deg);
+                        &:last-of-type{
+                            transform: translateY(-3px) rotate(-45deg);
+                        }
+                    }
+                }
+                .toRight{
+                    span{
+                        right: 0;
+                        transform: translateY(3px) rotate(-45deg);
+                        &:last-of-type{
+                            transform: translateY(-3px) rotate(45deg);
+                        }
+                    }
+                }
+            }    
+            .available{
+                background-color: var(--border);
+                color: white;
+                flex: 1;
+                display: flex;
+                cursor: pointer;
+                transition: .2s ease;
+                &:hover{
+                    opacity: .975;
+                }
+                .arrow{
+                    display: flex;
+                    flex: 1;
+                    & > *{
+                        background-color: white;
+                    }
+                    div{
+                        flex: 1;
+                    }
+                }
+            }
+        }   
+    }
+    #saleProducts{
+        padding: var(--default-padding) var(--default-padding-double);
+        padding-top: 0;
+        display: flex;
+        overflow: hidden;
+        
+    }
+}

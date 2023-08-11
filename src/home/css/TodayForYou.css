@@ -1,0 +1,45 @@
+#todayForYou #forYouUpper {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--default-padding) var(--default-padding-double);
+  padding-bottom: var(--default-padding-half);
+}
+#todayForYou #forYouUpper h3 {
+  font-size: 175%;
+  font-weight: 0;
+}
+#todayForYou #forYouUpper #upperButtons {
+  display: flex;
+  align-items: center;
+}
+#todayForYou #forYouUpper #upperButtons span {
+  border: 2px solid var(--lightBorder);
+  padding: 5px 15px;
+  margin-left: 10px;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 95%;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#todayForYou #forYouUpper #upperButtons .active {
+  background-color: var(--border);
+  border-color: var(--border);
+  color: white;
+}
+#todayForYou #forYourProductsContainer {
+  display: flex;
+  margin-top: 30px;
+  overflow: hidden;
+  padding-bottom: var(--default-padding-double);
+}
+#todayForYou #forYourProductsContainer .product {
+  margin-left: unset !important;
+}
+#todayForYou #forYourProductsContainer > div {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 0 var(--default-padding-double);
+}/*# sourceMappingURL=TodayForYou.css.map */

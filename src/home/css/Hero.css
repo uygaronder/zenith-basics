@@ -1,0 +1,99 @@
+#hero {
+  min-height: 60vh;
+  border-bottom: var(--lighterBorder) 1px solid;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+#hero #heroImages {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+#hero #heroImages .heroImage {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+#hero #heroImages .heroImage .blender {
+  width: 60%;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  background: transparent;
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 35%);
+}
+#hero #heroImages .heroImage img {
+  margin-left: auto;
+  filter: grayscale(1);
+  width: 60%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#hero #heroUpper {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+#hero #heroUpper #heroTexts {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#hero #heroUpper #heroTexts .heroText {
+  min-width: 100%;
+  padding: var(--default-padding) var(--default-padding-double);
+  padding-bottom: calc(var(--default-padding-double));
+}
+#hero #heroUpper #heroTexts .heroText span {
+  font-size: 110%;
+  font-weight: 600;
+  opacity: 0.5;
+}
+#hero #heroUpper #heroTexts .heroText span:last-of-type {
+  font-size: 120%;
+}
+#hero #heroUpper #heroTexts .heroText h1 {
+  font-size: 300%;
+  font-weight: 600;
+  margin-bottom: 10px;
+  opacity: 0.95;
+}
+#hero #heroUpper #heroTexts .heroText p {
+  font-size: 120%;
+  margin-bottom: 10px;
+}
+#hero #heroUpper #slideIndicatorContainer {
+  position: absolute;
+  bottom: 0;
+  padding: var(--default-padding) var(--default-padding-double);
+}
+#hero #heroUpper #slideIndicatorContainer #slideIndicator {
+  display: flex;
+  position: relative;
+}
+#hero #heroUpper #slideIndicatorContainer #slideIndicator span {
+  height: 12px;
+  width: 12px;
+  display: block;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+#hero #heroUpper #slideIndicatorContainer #slideIndicator .selector {
+  position: absolute;
+  background-color: #000;
+  margin-left: var(--default-padding-double);
+  left: 0px;
+  pointer-events: none;
+}
+#hero #heroUpper #slideIndicatorContainer #slideIndicator .option {
+  background-color: #a5a5a5;
+  cursor: pointer;
+}/*# sourceMappingURL=Hero.css.map */

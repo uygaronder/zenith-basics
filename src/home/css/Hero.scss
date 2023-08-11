@@ -1,0 +1,100 @@
+#hero{
+    min-height: 60vh;
+    border-bottom: var(--lighterBorder) 1px solid;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    #heroImages{
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        .heroImage{
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+            .blender{
+                width: 60%;
+                position: absolute;
+                right: 0;
+                height: 100%;
+                background: transparent;
+                background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 35%);
+            }
+            img{
+                margin-left: auto;
+                filter: grayscale(1);
+                width: 60%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    #heroUpper{
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        #heroTexts{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .heroText{
+                min-width: 100%;
+                padding: var(--default-padding) var(--default-padding-double);
+                padding-bottom: calc(var(--default-padding-double));
+                span{
+                    font-size: 110%;
+                    font-weight: 600;
+                    opacity: .5;
+                    &:last-of-type{
+                        font-size: 120%;
+                    }
+                }
+                h1{
+                    font-size: 300%;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    opacity: .95;
+                }
+                p{
+                    font-size: 120%;
+                    margin-bottom: 10px;
+                }
+            }
+            
+        }
+        #slideIndicatorContainer{
+            position: absolute;
+            bottom: 0;
+            padding: var(--default-padding) var(--default-padding-double);
+            #slideIndicator{
+                display: flex;
+                position: relative;
+                span{
+                    height: 12px;
+                    width: 12px;
+                    display: block;
+                    margin-right: 6px;
+                    border-radius: 50%;
+                }
+                .selector{
+                    position: absolute;
+                    background-color: #000;
+                    margin-left: var(--default-padding-double);
+                    left: 0px;
+                    pointer-events: none;
+                }
+                .option{
+                    background-color: #a5a5a5;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+}
