@@ -6,10 +6,16 @@ footer #footerUp {
   justify-content: space-between;
   padding: var(--default-padding-double);
 }
-footer #footerUp .logoContainer img {
+footer #footerUp #footerLogoTab {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+footer #footerUp #footerLogoTab .logoContainer img {
   height: 40px;
 }
-footer #footerUp .logoContainer h3 {
+footer #footerUp #footerLogoTab .logoContainer h3 {
   color: var(--lightWhite);
   font-size: 130%;
   font-weight: 400;

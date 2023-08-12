@@ -2,7 +2,7 @@ import React from 'react'
 
 import "../css/TodayForYou.css";
 
-import Product from "../../shared/components/product/Product";
+import ProductMicro from "../../shared/components/product/ProductMicro";
 
 const product ={
     renderType: "regular",
@@ -56,32 +56,32 @@ function TodayForYou() {
         </div>
         <div id='forYourProductsContainer'>
             <div id='bestSeller'>
-                <Product product={product} />
-                <Product product={productSale} />
-                <Product product={productLiked} />
-                <Product product={productSale} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={productSale} />
-                <Product product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={productSale} />
+                <ProductMicro product={productLiked} />
+                <ProductMicro product={productSale} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={productSale} />
+                <ProductMicro product={product} />
             </div>
             <div id='newArrivals'>
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
             </div>
             <div id='specialDiscount'>
-                <Product product={productSale} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={productSale} />
+                <ProductMicro product={productSale} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={productSale} />
             </div>
         </div>
     </section>

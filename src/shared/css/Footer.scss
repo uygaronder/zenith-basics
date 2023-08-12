@@ -4,17 +4,24 @@ footer{
         display: flex;
         justify-content: space-between;
         padding: var(--default-padding-double);
-        .logoContainer{
-            img{
-                height: 40px;
-            }
-            h3{
-                color: var(--lightWhite);
-                font-size: 130%;
-                font-weight: 400;
-                margin-top: var(--default-padding-half);
+        #footerLogoTab{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+            .logoContainer{
+                img{
+                    height: 40px;
+                }
+                h3{
+                    color: var(--lightWhite);
+                    font-size: 130%;
+                    font-weight: 400;
+                    margin-top: var(--default-padding-half);
+                }
             }
         }
+        
         .links{
             display: flex;
             flex-direction: column;

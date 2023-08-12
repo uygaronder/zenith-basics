@@ -7,8 +7,12 @@
   --default-padding-half: 1%;
   --lighterBorder: #ddd;
   --lightBorder: #bbbbbb;
-  --border: #1d242d;
   --lightWhite: #e7e7e7;
+  --border: #1d242d;
+  --borderGray: #c6c7cb;
+  --borderActive: #505050;
+  --white: #e7e7e7;
+  --green: #1ca071;
   --reddish: #ef4261;
   --darkBlue: #1d242d;
   --blackToReddish: invert(36%) sepia(77%) saturate(2627%) hue-rotate(326deg) brightness(97%) contrast(92%);
@@ -42,4 +46,22 @@ a {
 .svgLarge {
   width: 35px;
   height: 35px;
+}
+
+.dotDivider {
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: var(--border);
+  margin: 0 5px;
+  display: flex;
+}
+
+.lineDivider {
+  width: 2px;
+  height: 2ch;
+  background-color: var(--borderActive);
+  margin: 0 10px;
+  display: flex;
+  opacity: 0.5;
 }/*# sourceMappingURL=root.css.map */

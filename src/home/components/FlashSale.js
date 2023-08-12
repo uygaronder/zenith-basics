@@ -3,7 +3,7 @@ import "../css/FlashSale.css"
 
 import SaleIcon from "../../shared/res/svg/tag-solid.svg"
 
-import Product from "../../shared/components/product/Product"
+import ProductMicro from "../../shared/components/product/ProductMicro"
 
 const product ={
   renderType: "sale",
@@ -74,14 +74,14 @@ function Sale() {
           </div>
       </div>
       <div id='saleProducts'>
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={productLiked} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
+        <ProductMicro product={product} />
+        <ProductMicro product={product} />
+        <ProductMicro product={productLiked} />
+        <ProductMicro product={product} />
+        <ProductMicro product={product} />
+        <ProductMicro product={product} />
+        <ProductMicro product={product} />
+        <ProductMicro product={product} />
       </div>
     </section>
   )

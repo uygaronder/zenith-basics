@@ -1,0 +1,54 @@
+#productDetails {
+  padding: var(--default-padding-double);
+}
+#productDetails #productDetailsUpper #detailTabButtons {
+  margin-bottom: var(--default-padding);
+}
+#productDetails #productDetailsUpper #detailTabButtons .detailTabButton {
+  padding: var(--default-padding-half) var(--default-padding);
+  border: 1px solid var(--lightBorder);
+  border-radius: 6px;
+  margin-right: var(--default-padding-half);
+  cursor: pointer;
+}
+#productDetails #productDetailsUpper #detailTabButtons .detailTabButton span {
+  font-size: 100%;
+  font-weight: 600;
+}
+#productDetails #productTabs {
+  margin-top: 40px;
+}
+#productDetails #productTabs #description h3 {
+  font-size: 160%;
+  font-weight: 600;
+  margin-bottom: var(--default-padding-half);
+}
+#productDetails #productTabs #description #descriptionText {
+  line-height: 1.8;
+  margin: 15px 0;
+  opacity: 0.5;
+}
+#productDetails #productTabs #description #descriptionText p {
+  font-size: 130%;
+  font-weight: 600;
+}
+#productDetails #productTabs #description #features .feature {
+  display: flex;
+  align-items: center;
+}
+#productDetails #productTabs #description #features .feature h4 {
+  font-size: 130%;
+  font-weight: 600;
+  opacity: 0.5;
+  margin-right: 10px;
+  min-width: 7ch;
+}
+#productDetails #productTabs #description #features .feature span {
+  margin: 0 10px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+#productDetails #productTabs #description #features .feature p {
+  font-size: 130%;
+  font-weight: 500;
+}/*# sourceMappingURL=ProductDetails.css.map */

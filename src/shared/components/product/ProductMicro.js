@@ -1,13 +1,13 @@
 import React from 'react'
 
-import "../../css/Product.css"
+import "../../css/ProductMicro.css"
 
 import Heart from "../../res/svg/heart-solid.svg"
 import Star from "../../res/svg/star-solid.svg"
 
-function Product({product}) {
+function ProductMicro({product}) {
     return (
-        <div className='product'>
+        <div className='productMicro'>
             <div className='productImage'>
                 <img src={product.image} />
                 <span className='likeButton'>
@@ -43,4 +43,4 @@ function Product({product}) {
     )
 }
 
-export default Product
+export default ProductMicro
