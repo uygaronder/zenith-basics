@@ -6,6 +6,7 @@ import Heart from "../../res/svg/heart-solid.svg"
 import Star from "../../res/svg/star-solid.svg"
 
 function ProductMicro({product}) {
+    console.log(product)
     return (
         <div className='productMicro'>
             <div className='productImage'>
@@ -28,12 +29,12 @@ function ProductMicro({product}) {
                     <span className='productSold'>4K+ Sold</span>
                 </span> : null}
                 <div className='priceContainer'>
-                    {product.onSale ? <span className='productDiscount'>${product.sale.discountedPrice}</span> : null}
-                    {product.onSale ? <span className='productPrice onDiscount'>${product.price}</span> : <span className='productPrice'>${product.price}</span>}
+                    {product.sale.onSale ? <span className='productDiscount'>${product.sale.discountedPrice}</span> : null}
+                    {product.sale.onSale ? <span className='productPrice onDiscount'>${product.price}</span> : <span className='productPrice'>${product.price}</span>}
                 </div>
                 
             </div>
-            {product.renderType=="sale"&&product.sale&&product.sale.saleType == "flashSale" ? <span className='flashSaleCount'>
+            {product.sale&&product.sale.saleType == "flashSale" ? <span className='flashSaleCount'>
                 <span className='bar'>
                     <span className='progress' style={{width: product.sale.sold/product.sale.stock*100 + "%"}}></span>
                 </span>

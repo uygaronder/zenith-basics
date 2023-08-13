@@ -1,5 +1,5 @@
 import React from 'react'
-import "../css/FlashSale.css"
+import "../css/ProductSlider.css"
 
 import SaleIcon from "../../shared/res/svg/tag-solid.svg"
 
@@ -8,14 +8,31 @@ import ProductMicro from "../../shared/components/product/ProductMicro"
 const product ={
   renderType: "sale",
   productID: 1,
-  name: "Product Name",
+  name: "Product Name1",
   price: 100,
   description: "Product Description",
   image: require("../../home/res/cat-backpack.jpg"),
-  onSale: true,
   liked: false,
   sale:{
+      onSale: true,
       saleType: "flashSale",
+      discountedPrice: 70,
+      sold: 121,
+      stock: 300,
+  }
+}
+
+const productRegular ={
+  renderType: "regular",
+  productID: 1,
+  name: "Product Name2",
+  price: 100,
+  description: "Product Description",
+  image: require("../../home/res/cat-backpack.jpg"),
+  liked: false,
+  sale:{
+      onSale: false,
+      saleType: "none",
       discountedPrice: 70,
       sold: 121,
       stock: 300,
@@ -25,13 +42,13 @@ const product ={
 const productLiked ={
   renderType: "sale",
   productID: 1,
-  name: "Product Name",
+  name: "Product Name3",
   price: 100,
   description: "Product Description",
   image: require("../../home/res/cat-backpack.jpg"),
-  onSale: true,
   liked: true,
   sale:{
+      onSale: true,
       saleType: "flashSale",
       discountedPrice: 70,
       sold: 121,
@@ -39,12 +56,12 @@ const productLiked ={
   }
 }
 
-function Sale() {
+function ProductsSlider({type}) {
   return (
-    <section id='flashSale'>
+    <section id='productSlider'>
       <div className='saleUpper'>
           <div className='saleInfo'>
-              <span className='saleIcon'>
+            {type === "flashSale" ? <><span className='saleIcon'>
                   <img className='svgLarge' src={SaleIcon} />
               </span>
               <h3>Flash Sale!</h3>
@@ -54,7 +71,8 @@ function Sale() {
                 <span>11</span>
                 <div>:</div>
                 <span>42</span>
-              </span>
+              </span></> : <><h3>Best Sellers</h3></>}
+              
           </div>
           <div id='saleArrows'>
             <span className='saleArrow'>
@@ -74,6 +92,7 @@ function Sale() {
           </div>
       </div>
       <div id='saleProducts'>
+        {type === "flashSale" ? <>
         <ProductMicro product={product} />
         <ProductMicro product={product} />
         <ProductMicro product={productLiked} />
@@ -82,9 +101,19 @@ function Sale() {
         <ProductMicro product={product} />
         <ProductMicro product={product} />
         <ProductMicro product={product} />
+        </> : <>
+        <ProductMicro product={productRegular}/>
+        <ProductMicro product={productRegular}/>
+        <ProductMicro product={productRegular}/>
+        <ProductMicro product={productRegular}/>
+        <ProductMicro product={productRegular}/>
+        <ProductMicro product={productRegular}/>
+        <ProductMicro product={productRegular}/>
+        </>
+        }
       </div>
     </section>
   )
 }
 
-export default Sale
+export default ProductsSlider

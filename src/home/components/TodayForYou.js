@@ -7,12 +7,18 @@ import ProductMicro from "../../shared/components/product/ProductMicro";
 const product ={
     renderType: "regular",
     productID: 1,
-    name: "Product Name",
+    name: "Product Name2",
     price: 100,
     description: "Product Description",
     image: require("../../home/res/cat-backpack.jpg"),
-    onSale: false,
     liked: false,
+    sale:{
+        onSale: true,
+        saleType: "none",
+        discountedPrice: 70,
+        sold: 121,
+        stock: 300,
+    }
 }
 
 const productSale ={
@@ -25,7 +31,7 @@ const productSale ={
     onSale: true,
     liked: false,
     sale:{
-        saleType: "flashSale",
+        saleType: "none",
         discountedPrice: 70,
         sold: 121,
         stock: 300,
@@ -35,12 +41,18 @@ const productSale ={
 const productLiked ={
     renderType: "regular",
     productID: 1,
-    name: "Product Name",
+    name: "Product Name2",
     price: 100,
     description: "Product Description",
     image: require("../../home/res/cat-backpack.jpg"),
-    onSale: false,
-    liked: true,
+    liked: false,
+    sale:{
+        onSale: false,
+        saleType: "none",
+        discountedPrice: 70,
+        sold: 121,
+        stock: 300,
+    }
 }
 
 function TodayForYou() {

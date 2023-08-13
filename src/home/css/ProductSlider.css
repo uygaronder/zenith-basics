@@ -1,27 +1,27 @@
-#flashSale {
+#productSlider {
   background-color: var(--lightWhite);
 }
-#flashSale .saleUpper {
+#productSlider .saleUpper {
   padding: var(--default-padding) var(--default-padding-double);
   padding-bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#flashSale .saleUpper .saleInfo {
+#productSlider .saleUpper .saleInfo {
   display: flex;
   align-items: center;
 }
-#flashSale .saleUpper .saleInfo .saleIcon {
+#productSlider .saleUpper .saleInfo .saleIcon {
   display: flex;
 }
-#flashSale .saleUpper .saleInfo h3 {
+#productSlider .saleUpper .saleInfo h3 {
   margin: 0 10px;
   display: flex;
   font-size: 200%;
   font-weight: 600;
 }
-#flashSale .saleUpper .saleTimer {
+#productSlider .saleUpper .saleTimer {
   display: flex;
   align-items: center;
   margin: 0 5px;
@@ -30,63 +30,63 @@
   padding: 0 10px;
   color: white;
 }
-#flashSale .saleUpper .saleTimer > * {
+#productSlider .saleUpper .saleTimer > * {
   font-size: 125%;
 }
-#flashSale .saleUpper .saleTimer span {
+#productSlider .saleUpper .saleTimer span {
   margin: 0 4px;
 }
-#flashSale .saleUpper .saleTimer div {
+#productSlider .saleUpper .saleTimer div {
   font-weight: 700;
 }
-#flashSale .saleUpper #saleArrows {
+#productSlider .saleUpper #saleArrows {
   display: flex;
   width: 120px;
 }
-#flashSale .saleUpper #saleArrows .saleArrow {
+#productSlider .saleUpper #saleArrows .saleArrow {
   min-height: 40px;
   display: flex;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 10px;
 }
-#flashSale .saleUpper #saleArrows .saleArrow:first-of-type {
+#productSlider .saleUpper #saleArrows .saleArrow:first-of-type {
   margin-right: 10px;
 }
-#flashSale .saleUpper #saleArrows .saleArrow .arrow {
+#productSlider .saleUpper #saleArrows .saleArrow .arrow {
   position: relative;
   display: flex;
 }
-#flashSale .saleUpper #saleArrows .saleArrow .arrow > * {
+#productSlider .saleUpper #saleArrows .saleArrow .arrow > * {
   border-radius: 1px;
   height: 2px;
   background-color: black;
 }
-#flashSale .saleUpper #saleArrows .saleArrow .arrow span {
+#productSlider .saleUpper #saleArrows .saleArrow .arrow span {
   position: absolute;
   width: 8px;
   display: block;
   top: calc(50% - 1px);
 }
-#flashSale .saleUpper #saleArrows .saleArrow .arrow div {
+#productSlider .saleUpper #saleArrows .saleArrow .arrow div {
   width: 15px;
   border-radius: 2px;
   margin: auto;
 }
-#flashSale .saleUpper #saleArrows .saleArrow .toLeft span {
+#productSlider .saleUpper #saleArrows .saleArrow .toLeft span {
   transform: translateY(3px) rotate(45deg);
 }
-#flashSale .saleUpper #saleArrows .saleArrow .toLeft span:last-of-type {
+#productSlider .saleUpper #saleArrows .saleArrow .toLeft span:last-of-type {
   transform: translateY(-3px) rotate(-45deg);
 }
-#flashSale .saleUpper #saleArrows .saleArrow .toRight span {
+#productSlider .saleUpper #saleArrows .saleArrow .toRight span {
   right: 0;
   transform: translateY(3px) rotate(-45deg);
 }
-#flashSale .saleUpper #saleArrows .saleArrow .toRight span:last-of-type {
+#productSlider .saleUpper #saleArrows .saleArrow .toRight span:last-of-type {
   transform: translateY(-3px) rotate(45deg);
 }
-#flashSale .saleUpper #saleArrows .available {
+#productSlider .saleUpper #saleArrows .available {
   background-color: var(--border);
   color: white;
   flex: 1;
@@ -94,22 +94,22 @@
   cursor: pointer;
   transition: 0.2s ease;
 }
-#flashSale .saleUpper #saleArrows .available:hover {
+#productSlider .saleUpper #saleArrows .available:hover {
   opacity: 0.975;
 }
-#flashSale .saleUpper #saleArrows .available .arrow {
+#productSlider .saleUpper #saleArrows .available .arrow {
   display: flex;
   flex: 1;
 }
-#flashSale .saleUpper #saleArrows .available .arrow > * {
+#productSlider .saleUpper #saleArrows .available .arrow > * {
   background-color: white;
 }
-#flashSale .saleUpper #saleArrows .available .arrow div {
+#productSlider .saleUpper #saleArrows .available .arrow div {
   flex: 1;
 }
-#flashSale #saleProducts {
+#productSlider #saleProducts {
   padding: var(--default-padding) var(--default-padding-double);
   padding-top: 0;
   display: flex;
   overflow: hidden;
-}/*# sourceMappingURL=FlashSale.css.map */
+}/*# sourceMappingURL=ProductSlider.css.map */
