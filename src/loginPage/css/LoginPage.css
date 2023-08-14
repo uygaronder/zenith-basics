@@ -1,0 +1,80 @@
+#loginPage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  margin: auto;
+  min-width: 30%;
+  padding: 20px 0;
+}
+#loginPage .loginBox {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 20px 15px;
+  width: 100%;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
+#loginPage .loginBox h1 {
+  font-size: 180%;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+#loginPage .loginBox .inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+#loginPage .loginBox .inputContainer input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+#loginPage .loginBox .inputContainer input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}
+#loginPage .loginBox .inputContainer p {
+  font-size: 85%;
+  font-weight: 600;
+  margin: 5px 0;
+}
+#loginPage .loginBox .continueButton {
+  padding: 5px 0;
+  text-align: center;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+#loginPage .loginBox .continueButton:hover {
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}
+#loginPage .loginDownText {
+  position: relative;
+  display: flex;
+  margin: 20px 0;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: center;
+}
+#loginPage .loginDownText p {
+  opacity: 0.5;
+  font-size: 90%;
+  font-weight: 600;
+  background-color: white;
+}
+#loginPage .linkToOther {
+  width: 100%;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  padding: 5px 20px;
+  border-radius: 8px;
+}
+#loginPage .linkToOther:hover {
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}/*# sourceMappingURL=LoginPage.css.map */
