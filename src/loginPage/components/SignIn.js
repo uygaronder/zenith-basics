@@ -8,11 +8,11 @@ function SignIn() {
         <h1>Sign in</h1>
         <span className='inputContainer'>
           <p>Email</p>
-          <input type='email' name='email' placeholder='First and Last Name' />
+          <input type='email' name='email' />
         </span>
         <span className='inputContainer'>
           <p>Password</p>
-          <input type='password' name='password' placeholder='At least 6 characters' />
+          <input type='password' name='password' />
         </span>
         <span className='continueButton'>Continue</span>
       </span>

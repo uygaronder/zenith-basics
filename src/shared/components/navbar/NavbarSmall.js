@@ -2,6 +2,7 @@ import React from 'react'
 import '../../css/NavbarSmall.css'
 
 import Bars from "../../res/svg/bars-solid.svg"
+import { Link } from 'react-router-dom'
 
 function NavbarSmall() {
   return (
@@ -25,11 +26,11 @@ function NavbarSmall() {
         </section>
         <section id='smallRightLinks'>
             <span>
-                <a href='/'>Sign In</a>
+                <Link to={"login/register"}>Register</Link>
             </span>
             <div className='divider' />
             <span>
-                <a href='/'>Login</a>
+              <Link to={"login/login"}>Login</Link>
             </span>
         </section>
         

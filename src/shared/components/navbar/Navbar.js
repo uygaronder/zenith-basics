@@ -28,10 +28,10 @@ function Navbar() {
         </div>
         <div className='navbarNotifications'>
             <span>
-                <img className='svgMed' src={Cart} />
+                <img className='svgMed' src={Notifications} />
             </span>
             <span>
-                <img className='svgMed' src={Notifications} />
+                <img className='svgMed' src={Cart} />
             </span>
         </div>
     </nav>
