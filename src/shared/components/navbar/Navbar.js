@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../../css/navbar.css'
 
 import LogoBlack from "../../res/logo/zenithbasics-high-resolution-logo-black-on-transparent-background.png"
@@ -7,7 +8,7 @@ import Cart from "../../res/svg/cart-shopping-solid.svg"
 import Notifications from "../../res/svg/bell-solid.svg"
 
 function Navbar() {
-  return (
+    return (
     <nav id='navbarMain'>
         <div className='navbar__logo'>
             <a href='/' className='logoLink'>
@@ -15,7 +16,7 @@ function Navbar() {
             </a>
         </div>
         <div className='navbarSearch'>
-            <select name='searchType' id='categorySelect'>
+            <select name='searchType' id='categorySelect' >
                 <option value=''>All</option>
                 <option value=''>All but longer</option>
             </select>

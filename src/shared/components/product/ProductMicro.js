@@ -6,7 +6,6 @@ import Heart from "../../res/svg/heart-solid.svg"
 import Star from "../../res/svg/star-solid.svg"
 
 function ProductMicro({product}) {
-    console.log(product)
     return (
         <div className='productMicro'>
             <div className='productImage'>

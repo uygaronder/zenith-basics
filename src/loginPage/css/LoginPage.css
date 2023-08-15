@@ -40,13 +40,28 @@
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 }
 #loginPage .loginBox .inputContainer input.invalid {
-  border: 1px solid red !important;
-  box-shadow: 0px 0px 6px 0px rgba(255, 0, 0, 0.5) !important;
+  border: 1px solid var(--reddish) !important;
+  box-shadow: 0px 0px 6px 0px rgba(255, 56, 56, 0.5) !important;
 }
 #loginPage .loginBox .inputContainer p {
   font-size: 85%;
   font-weight: 600;
   margin: 5px 0;
+}
+#loginPage .loginBox .inputContainer span {
+  height: 0px;
+  overflow: hidden;
+  transition: 0.2s ease;
+  font-size: 75%;
+  font-weight: 600;
+  color: var(--reddish);
+}
+#loginPage .loginBox .inputContainer span:before {
+  content: "! ";
+  font-style: italic;
+}
+#loginPage .loginBox .inputContainer span.shown {
+  height: 2ch;
 }
 #loginPage .loginBox .continueButton {
   padding: 5px 0;
@@ -58,6 +73,16 @@
 }
 #loginPage .loginBox .continueButton:hover {
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}
+#loginPage .loginBox #keepSignedIn {
+  display: flex;
+  align-items: center;
+}
+#loginPage .loginBox #keepSignedIn p {
+  font-size: 85%;
+  font-weight: 600;
+  margin: 5px 0;
+  margin-right: 10px;
 }
 #loginPage .loginDownText {
   position: relative;
