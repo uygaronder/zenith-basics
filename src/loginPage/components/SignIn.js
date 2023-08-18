@@ -38,6 +38,7 @@ function SignIn(emailRegex) {
     if(valid){
       fetch(`${process.env.REACT_APP_APIURL}/user/login`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -52,11 +53,26 @@ function SignIn(emailRegex) {
         if(data.message === 'success'){
           window.location.href = '/'
         } else {
-          passwordWarning.current.innerHTML = data.message;
-          passwordWarning.current.classList.add('shown')
+          window.alert(data.message)
         }
-      })
+      }
+        
+      )
     }
+  }
+
+  const handleAuthClick = () => {
+    fetch(`${process.env.REACT_APP_APIURL}/user/testAuth`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(res => res.json())
+    .then(data => {
+      window.alert(data.message)
+    })
   }
   
   return (
@@ -78,6 +94,7 @@ function SignIn(emailRegex) {
           <input type='checkbox' name='keepSignedIn' ref={keepMeSignedInRef} />
         </div>
         <span onClick={() => handleClick()} className='continueButton'>Continue</span>
+        <span onClick={() => handleAuthClick()} className='continueButton'>Continue</span>
       </span>
       <div className='loginDownText'>
         <p>New to Zenith Basics?</p>

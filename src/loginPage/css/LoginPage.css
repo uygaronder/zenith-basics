@@ -9,6 +9,8 @@
   margin: auto;
   min-width: 30%;
   padding: 20px 0;
+  height: 100%;
+  flex: 1;
 }
 #loginPage .loginBox {
   display: flex;

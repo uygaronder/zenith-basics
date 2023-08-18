@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../../css/NavbarSmall.css'
 
 import Bars from "../../res/svg/bars-solid.svg"
 import { Link } from 'react-router-dom'
 
 function NavbarSmall() {
+  console.log(localStorage.getItem("user"));
   return (
     <nav id='NavbarSmall'>
         <section id='smallLeftLinks'>

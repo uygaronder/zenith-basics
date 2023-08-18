@@ -8,8 +8,24 @@ import Home from './home/Home'
 import ProductPage from './productPage/ProductPage'
 import LoginPage from './loginPage/LoginPage'
 
+const user = () => {
+  fetch(`${process.env.REACT_APP_APIURL}/user/sendLoggedInUser`, {
+    method: 'GET',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    if(data.user) {
+      localStorage.setItem('user', JSON.stringify(data.user))
+    }
+  })
+}
 
 export default function ZenithBasics() {
+  user()
   return (
     <>
       <Navbar />
