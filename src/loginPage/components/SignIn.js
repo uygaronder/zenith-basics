@@ -60,20 +60,6 @@ function SignIn(emailRegex) {
       )
     }
   }
-
-  const handleAuthClick = () => {
-    fetch(`${process.env.REACT_APP_APIURL}/user/testAuth`, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-    .then(res => res.json())
-    .then(data => {
-      window.alert(data.message)
-    })
-  }
   
   return (
     <>
@@ -94,7 +80,6 @@ function SignIn(emailRegex) {
           <input type='checkbox' name='keepSignedIn' ref={keepMeSignedInRef} />
         </div>
         <span onClick={() => handleClick()} className='continueButton'>Continue</span>
-        <span onClick={() => handleAuthClick()} className='continueButton'>Continue</span>
       </span>
       <div className='loginDownText'>
         <p>New to Zenith Basics?</p>

@@ -4,8 +4,8 @@ import '../../css/NavbarSmall.css'
 import Bars from "../../res/svg/bars-solid.svg"
 import { Link } from 'react-router-dom'
 
-function NavbarSmall() {
-  console.log(localStorage.getItem("user"));
+function NavbarSmall(user) {
+  user = user.user;
   return (
     <nav id='NavbarSmall'>
         <section id='smallLeftLinks'>
@@ -25,6 +25,10 @@ function NavbarSmall() {
             <a href='/'>Customer Service</a>
           </span>
         </section>
+        {user ? 
+        <section id='smallNavUserInfo'>
+          <span>{user.name}</span>
+        </section>:
         <section id='smallRightLinks'>
             <span>
                 <Link to={"login/register"}>Register</Link>
@@ -33,7 +37,8 @@ function NavbarSmall() {
             <span>
               <Link to={"login/login"}>Login</Link>
             </span>
-        </section>
+        </section>}
+        
         
     </nav>
   )

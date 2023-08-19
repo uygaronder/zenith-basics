@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import NavbarSmall from './shared/components/navbar/NavbarSmall'
@@ -8,28 +8,32 @@ import Home from './home/Home'
 import ProductPage from './productPage/ProductPage'
 import LoginPage from './loginPage/LoginPage'
 
-const user = () => {
-  fetch(`${process.env.REACT_APP_APIURL}/user/sendLoggedInUser`, {
-    method: 'GET',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(res => res.json())
-  .then(data => {
-    if(data.user) {
-      localStorage.setItem('user', JSON.stringify(data.user))
-    }
-  })
-}
 
 export default function ZenithBasics() {
-  user()
+  const [user, setUser] = useState(null);
+
+  const fetchUser = () => {
+    fetch(`${process.env.REACT_APP_APIURL}/user/sendLoggedInUser`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      setUser(data.user)
+    })
+  }
+
+  useState(() => {
+    fetchUser()
+  }, [])
+
   return (
     <>
-      <Navbar />
-      <NavbarSmall />
+      <Navbar user={user}/>
+      <NavbarSmall user={user}/>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/product' element={<ProductPage />}/>
