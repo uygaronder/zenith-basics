@@ -6,7 +6,22 @@ import { Link } from 'react-router-dom'
 
 function NavbarSmall(user) {
   user = user.user;
+  const darkScreenRef = React.useRef();
+
+  function signOut(){
+    fetch(`${process.env.REACT_APP_APIURL}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        window.location.reload();
+      }
+    });
+  }
   return (
+    <>
     <nav id='NavbarSmall'>
         <section id='smallLeftLinks'>
           <span id='categories'>
@@ -28,6 +43,20 @@ function NavbarSmall(user) {
         {user ? 
         <section id='smallNavUserInfo'>
           <span>{user.name}</span>
+          <span id='userPopupContainer'>
+            <span id='userPopup'>
+              <span className='popupArrow'></span>
+              <div>
+                <h4>Your Account</h4>
+                <span>
+                  <Link to={"user/profile"}>Profile</Link>
+                </span>
+                <span>
+                  <span onClick={() => signOut()}>Sign Out</span>
+                </span>
+              </div>
+            </span>
+          </span>
         </section>:
         <section id='smallRightLinks'>
             <span>
@@ -41,6 +70,8 @@ function NavbarSmall(user) {
         
         
     </nav>
+    <span ref={darkScreenRef} id='darkScreen'></span>
+    </>
   )
 }
 

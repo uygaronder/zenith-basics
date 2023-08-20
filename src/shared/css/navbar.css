@@ -4,6 +4,8 @@
   justify-content: space-between;
   padding: var(--default-padding) var(--default-padding-double);
   border-bottom: var(--lighterBorder) 1px solid;
+  z-index: 100;
+  background-color: var(--whiterWhite);
 }
 #navbarMain .logoLink {
   align-items: center;

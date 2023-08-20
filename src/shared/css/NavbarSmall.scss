@@ -3,7 +3,9 @@
     border-bottom: var(--lighterBorder) 1px solid;
     display: flex;
     align-items: center;
+    background-color: var(--whiterWhite);
     justify-content: space-between;
+    z-index: 100;
     #smallLeftLinks{
         display: flex;
         align-items: center;
@@ -58,4 +60,44 @@
     #smallLeftLinks > span:first-of-type:hover{
         border-left: transparent 1px solid;
     }
+
+    #smallNavUserInfo{
+        position: relative;
+        #userPopupContainer{
+            #userPopup{
+                position: absolute;
+                top: calc(100% + 15px);
+                right: 0;
+                padding: 10px 0;
+                background-color: var(--white);
+                z-index: 100;
+                border-radius: 3px;
+                & > div{
+                    display: flex;
+                    flex-direction: column;
+                    & > *{
+                        padding: 0px 20px;
+                        white-space: nowrap;
+                    }
+                    & > span{
+                        padding: 5px 20px;
+                        cursor: pointer;
+                        & > *{
+                            font-size: 90%;
+                            opacity: .75;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#darkScreen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    z-index: 90;
 }
