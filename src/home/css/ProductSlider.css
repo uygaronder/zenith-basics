@@ -112,4 +112,6 @@
   padding-top: 0;
   display: flex;
   overflow: hidden;
+  scroll-behavior: smooth;
+  transition: 0.2s ease;
 }/*# sourceMappingURL=ProductSlider.css.map */

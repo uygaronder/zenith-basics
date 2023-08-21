@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 function NavbarSmall(user) {
   user = user.user;
   const darkScreenRef = React.useRef();
+  const categoriesPopupRef = React.useRef();
+  const categoriesDarkScreenRef = React.useRef();
 
   function signOut(){
     fetch(`${process.env.REACT_APP_APIURL}/user/logout?_method=DELETE`, {
@@ -21,11 +23,28 @@ function NavbarSmall(user) {
       }
     });
   }
+
+  function toggleDarkScreen(){
+    darkScreenRef.current.classList.toggle('darkScreenActive');
+    darkScreenRef.current.classList.contains('darkScreenActive') ? document.body.classList.add("no-scroll") : document.body.classList.remove("no-scroll");
+  }
+
+  function toggleUserPopup(){
+    document.getElementById('userPopupContainer').classList.toggle('userPopupActive');
+    toggleDarkScreen();
+  }
+
+  function toggleCategoriesPopup(){
+    categoriesDarkScreenRef.current.classList.toggle('categoriesDarkScreenActive');
+    categoriesDarkScreenRef.current.classList.contains('categoriesDarkScreenActive') ? document.body.classList.add("no-scroll") : document.body.classList.remove("no-scroll");
+    categoriesPopupRef.current.classList.toggle('categoriesPopupActive');
+  }
+
   return (
     <>
     <nav id='NavbarSmall'>
         <section id='smallLeftLinks'>
-          <span id='categories'>
+          <span id='categories' onClick={() => toggleCategoriesPopup()}>
             <span className='categoryLogo'>
               <img className='svgSmall' src={Bars} alt='Categories' />
             </span>
@@ -43,14 +62,14 @@ function NavbarSmall(user) {
         </section>
         {user ? 
         <section id='smallNavUserInfo'>
-          <span>{user.name}</span>
+          <span id='userName' onClick={() => toggleUserPopup()}>{user.name}</span>
           <span id='userPopupContainer'>
             <span id='userPopup'>
               <span className='popupArrow'></span>
               <div>
                 <h4>Your Account</h4>
                 <span>
-                  <Link to={"user/profile"}>Profile</Link>
+                  <Link onClick={() => toggleUserPopup()} to={"user/profile"}>Profile</Link>
                 </span>
                 <span>
                   <span onClick={() => signOut()}>Sign Out</span>
@@ -71,7 +90,11 @@ function NavbarSmall(user) {
         
         
     </nav>
-    <span ref={darkScreenRef} id='darkScreen'></span>
+    <span ref={categoriesPopupRef} id='categoriesPopup'>
+          <h2>Categories</h2>
+    </span>
+    <span onClick={() => toggleUserPopup()} ref={darkScreenRef} id='darkScreen'></span>
+    <span onClick={() => toggleCategoriesPopup()} ref={categoriesDarkScreenRef} id='categoriesDarkScreen'></span>
     </>
   )
 }

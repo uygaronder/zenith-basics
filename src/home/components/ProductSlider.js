@@ -55,6 +55,30 @@ const productLiked ={
       stock: 300,
   }
 }
+function slideProducts(e,direction){
+  if(e.target.classList.contains("available")) return;
+  const saleProducts = document.getElementById('saleProducts');
+  const saleProductsWidth = saleProducts.offsetWidth;
+  console.log(saleProductsWidth)
+  const saleProductsScrollLeft = saleProducts.scrollLeft;
+  const saleProductsScrollWidth = saleProducts.scrollWidth;
+  const saleProductsScrollRight = saleProductsScrollWidth - saleProductsWidth - saleProductsScrollLeft;
+  const saleProductsScrollLeftNew = saleProductsScrollLeft + saleProductsWidth;
+  const saleProductsScrollRightNew = saleProductsScrollRight - saleProductsWidth;
+  
+  if(direction === "left"){
+    if(saleProductsScrollLeft > 0){
+      saleProducts.scrollLeft = saleProductsScrollLeftNew;
+    }
+  }else if(direction === "right"){
+    if(saleProductsScrollRight > 0){
+      saleProducts.scrollLeft = saleProductsScrollLeftNew;
+    }
+  }
+}
+  
+
+
 
 function ProductsSlider({type}) {
   return (
@@ -74,15 +98,15 @@ function ProductsSlider({type}) {
               </span></> : <><h3>Best Sellers</h3></>}
               
           </div>
-          <div id='saleArrows'>
-            <span className='saleArrow'>
+          <div  id='saleArrows'>
+            <span onClick={(e) => slideProducts(e, "right")}  className='saleArrow'>
               <div className='arrow toLeft'>
                 <div></div>
                 <span></span>
                 <span></span>
               </div>
             </span>
-            <span className='saleArrow available'>
+            <span onClick={(e) => slideProducts(e, "right")} className='saleArrow available'>
               <div className='arrow toRight'>
                 <div></div>
                 <span></span>

@@ -115,6 +115,7 @@
         padding-top: 0;
         display: flex;
         overflow: hidden;
-        
+        scroll-behavior: smooth;
+        transition: .2s ease;
     }
 }
