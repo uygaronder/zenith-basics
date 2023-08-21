@@ -9,11 +9,12 @@ function NavbarSmall(user) {
   const darkScreenRef = React.useRef();
 
   function signOut(){
-    fetch(`${process.env.REACT_APP_APIURL}`, {
-      method: "GET",
+    fetch(`${process.env.REACT_APP_APIURL}/user/logout?_method=DELETE`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
     }).then((res) => {
       if (res.status === 200) {
         window.location.reload();
