@@ -59,13 +59,19 @@ function slideProducts(e,direction){
   if(e.target.classList.contains("available")) return;
   const saleProducts = document.getElementById('saleProducts');
   const saleProductsWidth = saleProducts.offsetWidth;
-  console.log(saleProductsWidth)
   const saleProductsScrollLeft = saleProducts.scrollLeft;
-  const saleProductsScrollWidth = saleProducts.scrollWidth;
-  const saleProductsScrollRight = saleProductsScrollWidth - saleProductsWidth - saleProductsScrollLeft;
-  const saleProductsScrollLeftNew = saleProductsScrollLeft + saleProductsWidth;
-  const saleProductsScrollRightNew = saleProductsScrollRight - saleProductsWidth;
+  if(saleProductsScrollLeft === 0){
+    document.getElementById('saleArrows').children[0].classList.remove('available');
+  }else{
+    document.getElementById('saleArrows').children[0].classList.add('available');
+  }
+  if(saleProductsScrollLeft === saleProductsWidth){
+    document.getElementById('saleArrows').children[1].classList.remove('available');
+  }else{
+    document.getElementById('saleArrows').children[1].classList.add('available');
+  }
   
+  /*
   if(direction === "left"){
     if(saleProductsScrollLeft > 0){
       saleProducts.scrollLeft = saleProductsScrollLeftNew;
@@ -75,6 +81,7 @@ function slideProducts(e,direction){
       saleProducts.scrollLeft = saleProductsScrollLeftNew;
     }
   }
+  */
 }
   
 
