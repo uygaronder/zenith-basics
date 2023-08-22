@@ -1,8 +1,13 @@
 import React from 'react'
+import "./css/adminPage.css"
+
+import AdminSidebar from './components/Admin-Sidebar'
 
 function Admin() {
   return (
-    <div>admin</div>
+    <section id='adminPage'>
+      <AdminSidebar />
+    </section>
   )
 }
 

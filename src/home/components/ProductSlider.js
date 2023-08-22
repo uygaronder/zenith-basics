@@ -55,33 +55,39 @@ const productLiked ={
       stock: 300,
   }
 }
-function slideProducts(e,direction){
-  if(e.target.classList.contains("available")) return;
-  const saleProducts = document.getElementById('saleProducts');
-  const saleProductsWidth = saleProducts.offsetWidth;
-  const saleProductsScrollLeft = saleProducts.scrollLeft;
-  if(saleProductsScrollLeft === 0){
-    document.getElementById('saleArrows').children[0].classList.remove('available');
-  }else{
-    document.getElementById('saleArrows').children[0].classList.add('available');
+function slideProducts(id,direction){
+  const arrow = document.getElementById(id);
+  
+  if(!arrow.classList.contains('available')){  return;  }
+  let saleProducts = document.getElementById('saleProducts');
+  let saleProductsWidth = saleProducts.scrollWidth - saleProducts.clientWidth;
+  let currentPos = saleProducts.scrollLeft;
+  const scrollAmount = saleProductsWidth/2;
+
+  console.log(saleProducts.scrollLeft)
+  if(direction === "left"){
+    saleProducts.scrollLeft -= scrollAmount;
+    currentPos -= scrollAmount;
+  }else if(direction === "right"){
+    saleProducts.scrollLeft += scrollAmount;
+    currentPos += scrollAmount;
   }
-  if(saleProductsScrollLeft === saleProductsWidth){
-    document.getElementById('saleArrows').children[1].classList.remove('available');
+  console.log(saleProducts.scrollLeft)
+
+  if(currentPos - (scrollAmount/2) <= 0){
+    document.getElementById('leftArrow').classList.remove('available');
   }else{
-    document.getElementById('saleArrows').children[1].classList.add('available');
+    document.getElementById('leftArrow').classList.add('available');
+    console.log("leftArrow available")
+  }
+
+  if(currentPos + (scrollAmount/2) >= saleProductsWidth){
+    document.getElementById('rightArrow').classList.remove('available');
+  }else{
+    document.getElementById('rightArrow').classList.add('available');
+    console.log("rightArrow available")
   }
   
-  /*
-  if(direction === "left"){
-    if(saleProductsScrollLeft > 0){
-      saleProducts.scrollLeft = saleProductsScrollLeftNew;
-    }
-  }else if(direction === "right"){
-    if(saleProductsScrollRight > 0){
-      saleProducts.scrollLeft = saleProductsScrollLeftNew;
-    }
-  }
-  */
 }
   
 
@@ -106,14 +112,14 @@ function ProductsSlider({type}) {
               
           </div>
           <div  id='saleArrows'>
-            <span onClick={(e) => slideProducts(e, "right")}  className='saleArrow'>
+            <span id='leftArrow' onClick={(e) => slideProducts("leftArrow", "left")}  className='saleArrow'>
               <div className='arrow toLeft'>
                 <div></div>
                 <span></span>
                 <span></span>
               </div>
             </span>
-            <span onClick={(e) => slideProducts(e, "right")} className='saleArrow available'>
+            <span id='rightArrow' onClick={() => slideProducts("rightArrow", "right")} className='saleArrow available'>
               <div className='arrow toRight'>
                 <div></div>
                 <span></span>

@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 import NavbarSmall from './shared/components/navbar/NavbarSmall'
 import Navbar from './shared/components/navbar/Navbar'
@@ -38,6 +38,7 @@ export default function ZenithBasics() {
     .then(res => res.json())
     .then(data => {
       setUser(data.user)
+      console.log(data.user)
     })
   }
 
@@ -45,6 +46,23 @@ export default function ZenithBasics() {
     fetchUser()
   }, [])
 
+  function ProtectedRoute({loggedIn, adminOnly, children, toSend ,navigateTo}) {
+    if(loggedIn && user){
+      if(adminOnly){
+        if(user.admin){
+          return children
+        }else{
+          return toSend
+        }
+      }else{
+        return children
+      }
+    } else if(loggedIn && !user){
+      return toSend
+    } else {
+      return <Navigate to={navigateTo} />
+    }
+  }
 
   return (
     <>
@@ -54,6 +72,10 @@ export default function ZenithBasics() {
         <Route path='/' element={<Home />}/>
         <Route path='/product' element={<ProductPage />}/>
         <Route path='/login/*' element={<LoginPage />}/>
+        <Route path='/admin/*' element={
+          <ProtectedRoute loggedIn={true} adminOnly={true} toSend={<h1>Not Authorized</h1>} navigateTo={"/"} ><Admin /></ProtectedRoute>
+        }/>
+        
         <Route path='*' element={<h1>Not Found</h1>}/>
       </Routes>
       <Footer />

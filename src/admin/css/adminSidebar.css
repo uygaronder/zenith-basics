@@ -1,0 +1,35 @@
+#adminSidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-right: var(--border) 1px solid;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#adminSidebar .link {
+  display: flex;
+  align-items: center;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 1rem;
+  color: var(--text);
+  transition: 0.2s ease;
+}
+#adminSidebar .link:hover {
+  background-color: var(--border);
+  color: white;
+}
+#adminSidebar .link:hover .linkSVG img {
+  filter: invert(1);
+}
+#adminSidebar .link.active {
+  background-color: var(--border);
+  color: white;
+}
+#adminSidebar .link .icon {
+  margin-right: 1rem;
+}
+#adminSidebar .link .linkSVG img {
+  width: 1rem;
+  height: 1rem;
+}/*# sourceMappingURL=adminSidebar.css.map */
