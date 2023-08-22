@@ -6,9 +6,9 @@ import HomeSvg from "../res/house-solid.svg"
 
 function AdminSidebar() {
   return (
-    <section id='adminSidebar'>
+    <div id='adminSidebar'>
       <Link to='/admin/' className='link'><span className='linkSVG'><img src={HomeSvg} /></span></Link>
-    </section>
+    </div>
   )
 }
 
