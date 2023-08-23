@@ -30,8 +30,9 @@
 #todayForYou #forYourProductsContainer {
   display: flex;
   margin-top: 30px;
-  overflow: hidden;
   padding-bottom: var(--default-padding-double);
+  transition: 0.2s ease;
+  transform: translateX(0);
 }
 #todayForYou #forYourProductsContainer .product {
   margin-left: unset !important;

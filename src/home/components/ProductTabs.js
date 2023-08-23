@@ -55,15 +55,52 @@ const productLiked ={
     }
 }
 
-function TodayForYou() {
+function switchTab(tabName){
+    let bestSeller = document.getElementById("bestSeller");
+    let newArrivals = document.getElementById("newArrivals");
+    let specialDiscount = document.getElementById("specialDiscount");
+    let upperButtons = document.getElementById("upperButtons");
+    let buttons = upperButtons.getElementsByTagName("span");
+    let tabTitle = document.getElementById("tabTitle");
+    let forYourProductsContainer = document.getElementById("forYourProductsContainer");
+
+    switch (tabName) {
+        case "bestSellers":
+            buttons[0].classList.add("active");
+            buttons[1].classList.remove("active");
+            buttons[2].classList.remove("active");
+            tabTitle.innerHTML = "Todays For You!";
+            forYourProductsContainer.style.transform = "translateX(0%)";
+            break;
+        case "newArrivals":
+            buttons[0].classList.remove("active");
+            buttons[1].classList.add("active");
+            buttons[2].classList.remove("active");
+            tabTitle.innerHTML = "New Arrivals";
+            forYourProductsContainer.style.transform = "translateX(-100%)";
+            break;
+        case "specialDiscount":
+            buttons[0].classList.remove("active");
+            buttons[1].classList.remove("active");
+            buttons[2].classList.add("active");
+            tabTitle.innerHTML = "Special Discount";
+            forYourProductsContainer.style.transform = "translateX(-200%)";
+            break;
+        default:
+            break;
+
+}}
+
+
+function ProductTabs() {
   return (
     <section id='todayForYou'>
         <div id='forYouUpper'>
-            <h3>Todays For You!</h3>
+            <h3 id='tabTitle'>Todays For You!</h3>
             <div id='upperButtons'>
-                <span className='active'>Best Seller</span>
-                <span>New Arrivals</span>
-                <span>Special Discount</span>
+                <span className='active' onClick={() => switchTab("bestSellers")}>Best Seller</span>
+                <span onClick={() => switchTab("newArrivals")}>New Arrivals</span>
+                <span onClick={() => switchTab("specialDiscount")}>Special Discount</span>
             </div>
         </div>
         <div id='forYourProductsContainer'>
@@ -92,12 +129,14 @@ function TodayForYou() {
                 <ProductMicro product={product} />
                 <ProductMicro product={product} />
                 <ProductMicro product={product} />
-                <ProductMicro product={product} />
                 <ProductMicro product={productSale} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
+                <ProductMicro product={product} />
             </div>
         </div>
     </section>
   )
 }
 
-export default TodayForYou
+export default ProductTabs

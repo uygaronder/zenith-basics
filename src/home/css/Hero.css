@@ -35,65 +35,86 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-#hero #heroUpper {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-}
-#hero #heroUpper #heroTexts {
-  height: 100%;
-  width: 100%;
+#hero #heroItems {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 0 10%;
 }
-#hero #heroUpper #heroTexts .heroText {
+#hero #heroItems .heroItem {
+  display: flex;
+  min-height: 50vh;
+  width: 100%;
+  padding-bottom: 50px;
+}
+#hero #heroItems .heroItem .imageContainer {
+  position: absolute;
+  height: 100%;
+  background-color: red;
+  right: 0;
+}
+#hero #heroItems .heroItem .imageContainer img {
+  filter: grayscale(1);
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#hero #heroItems .heroItem .imageContainer .blender {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  background: transparent;
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 35%);
+}
+#hero #heroItems .heroItem .heroText {
+  z-index: 1;
   min-width: 100%;
   padding: var(--default-padding) var(--default-padding-double);
-  padding-bottom: calc(var(--default-padding-double));
+  padding-bottom: 50px;
 }
-#hero #heroUpper #heroTexts .heroText span {
+#hero #heroItems .heroItem .heroText span {
   font-size: 110%;
   font-weight: 600;
   opacity: 0.5;
 }
-#hero #heroUpper #heroTexts .heroText span:last-of-type {
+#hero #heroItems .heroItem .heroText span:last-of-type {
   font-size: 120%;
 }
-#hero #heroUpper #heroTexts .heroText h1 {
+#hero #heroItems .heroItem .heroText h1 {
   font-size: 300%;
   font-weight: 600;
   margin-bottom: 10px;
   opacity: 0.95;
 }
-#hero #heroUpper #heroTexts .heroText p {
+#hero #heroItems .heroItem .heroText p {
   font-size: 120%;
   margin-bottom: 10px;
 }
-#hero #heroUpper #slideIndicatorContainer {
+#hero #slideIndicatorContainer {
   position: absolute;
   bottom: 0;
   padding: var(--default-padding) var(--default-padding-double);
 }
-#hero #heroUpper #slideIndicatorContainer #slideIndicator {
+#hero #slideIndicatorContainer #slideIndicator {
   display: flex;
   position: relative;
 }
-#hero #heroUpper #slideIndicatorContainer #slideIndicator span {
+#hero #slideIndicatorContainer #slideIndicator span {
   height: 12px;
   width: 12px;
   display: block;
   margin-right: 6px;
   border-radius: 50%;
 }
-#hero #heroUpper #slideIndicatorContainer #slideIndicator .selector {
+#hero #slideIndicatorContainer #slideIndicator .selector {
   position: absolute;
   background-color: #000;
   margin-left: var(--default-padding-double);
   left: 0px;
   pointer-events: none;
 }
-#hero #heroUpper #slideIndicatorContainer #slideIndicator .option {
+#hero #slideIndicatorContainer #slideIndicator .option {
   background-color: #a5a5a5;
   cursor: pointer;
 }/*# sourceMappingURL=Hero.css.map */

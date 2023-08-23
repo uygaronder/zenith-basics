@@ -31,8 +31,9 @@
     #forYourProductsContainer{
         display: flex;
         margin-top: 30px;
-        overflow: hidden;
         padding-bottom: var(--default-padding-double);
+        transition: .2s ease;
+        transform: translateX(0);
         .product{
             margin-left: unset !important;
         }

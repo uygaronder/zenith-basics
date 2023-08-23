@@ -3,7 +3,7 @@ import "./css/Home.css"
 
 import Hero from "./components/Hero"
 import ProductSlider from "./components/ProductSlider"
-import TodayForYou from "./components/TodayForYou"
+import ProductTabs from "./components/ProductTabs"
 import CTA from "./components/CTA"
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
     <section id='home'>
         <Hero />
         <ProductSlider type={"flashSale"} />
-        <TodayForYou />
+        <ProductTabs />
         <CTA />
     </section>
   )
