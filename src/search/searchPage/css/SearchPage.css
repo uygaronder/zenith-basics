@@ -1,0 +1,126 @@
+#searchPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#searchPage #searchPageUpper {
+  padding: calc(var(--default-padding-half) / 2) var(--default-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--borderGray);
+  min-width: 0;
+}
+#searchPage #searchPageUpper #searchPageUpperLeft #searchResultInfo p {
+  font-weight: 600;
+}
+#searchPage #searchPageUpper #searchPageUpperLeft #searchResultInfo .highlight {
+  color: var(--orangish);
+}
+#searchPage #searchPageUpper #upperRightContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+#searchPage #searchPageUpper #upperRightContainer .viewSelect {
+  display: flex;
+  margin: 0 var(--default-padding);
+}
+#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider {
+  display: flex;
+  width: 55px;
+  justify-content: space-between;
+  border: 1px solid var(--borderGray);
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+}
+#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider input {
+  display: none;
+}
+#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider label {
+  padding: 0.5ch 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  cursor: pointer;
+  flex: 1;
+  justify-content: center;
+}
+#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider label img {
+  width: 18px;
+  height: 18px;
+  transition: 0.2s ease;
+}
+#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider label.active img {
+  filter: invert(1);
+}
+#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background-color: var(--darkBlue);
+  transition: 0.2s ease;
+}
+#searchPage #searchPageUpper #upperRightContainer #sort {
+  position: relative;
+}
+#searchPage #searchPageUpper #upperRightContainer #sort #sortSelect {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  border: 1px solid var(--borderGray);
+  border-radius: 4px;
+  max-width: 100%;
+  padding: 3px 10px;
+  display: flex;
+  cursor: pointer;
+}
+#searchPage #searchPageUpper #upperRightContainer #sort #sortSelect #selectedSort {
+  font-size: 90%;
+}
+#searchPage #searchPageUpper #upperRightContainer #sort #sortSelect #selectedSort::before {
+  content: "Sort by: ";
+  font-weight: 600;
+}
+#searchPage #searchPageUpper #upperRightContainer #sort #sortSelect:hover {
+  background-color: var(--borderGray);
+}
+#searchPage #searchPageUpper #upperRightContainer #sort #sortOptions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--whiterWhite);
+  border: 1px solid var(--borderGray);
+  border-radius: 6px;
+  z-index: 1;
+  box-shadow: var(--boxShadow);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  width: 20ch;
+}
+#searchPage #searchPageUpper #upperRightContainer #sort #sortOptions .sortOption {
+  padding: var(--default-padding-half) var(--default-padding-double);
+  cursor: pointer;
+}
+#searchPage #searchPageUpper #upperRightContainer #sort #sortOptions .sortOption p {
+  width: 100%;
+}
+#searchPage #searchPageUpper #upperRightContainer #sort #sortOptions .sortOption:hover {
+  background-color: var(--borderGray);
+}
+#searchPage #searchPageUpper #upperRightContainer #sort #sortOptions .sortOption.active {
+  background-color: var(--borderActive);
+  color: white;
+}
+#searchPage #searchPageMain {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  height: 100%;
+}
+#searchPage #searchPageMain > div {
+  height: 100%;
+}/*# sourceMappingURL=SearchPage.css.map */

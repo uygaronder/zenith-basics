@@ -35,19 +35,19 @@
     }
     #heroItems{
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0 10%;
+        flex-direction: row;
+        transition: .2s ease;
         .heroItem{
             display: flex;
             min-height: 50vh;
-            width: 100%;
+            min-width: 100%;
             padding-bottom: 50px;
+            padding: 0 calc(var(--default-padding-double) * 2);
+            cursor: pointer;
+            position: relative;
             .imageContainer{
                 position: absolute;
-                height: 100%;
-                background-color: red;
+                height: calc(100% + 160px);
                 right: 0;
                 img{
                     filter: grayscale(1);
@@ -65,8 +65,11 @@
             .heroText{
                 z-index: 1;
                 min-width: 100%;
-                padding: var(--default-padding) var(--default-padding-double);
+                padding: var(--default-padding) 0;
                 padding-bottom: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 span{
                     font-size: 110%;
                     font-weight: 600;
@@ -90,30 +93,38 @@
     }
 
     // not complete
-    #slideIndicatorContainer{
+    #heroSlideContainer{
         position: absolute;
-        bottom: 0;
-        padding: var(--default-padding) var(--default-padding-double);
-        #slideIndicator{
-            display: flex;
-            position: relative;
-            span{
-                height: 12px;
-                width: 12px;
-                display: block;
-                margin-right: 6px;
-                border-radius: 50%;
-            }
-            .selector{
-                position: absolute;
-                background-color: #000;
-                margin-left: var(--default-padding-double);
-                left: 0px;
-                pointer-events: none;
-            }
-            .option{
-                background-color: #a5a5a5;
-                cursor: pointer;
+        height: 100%;
+        width: 100%;
+        bottom: 160px;
+        padding-left: calc(var(--default-padding-double) * 2);
+        #slideIndicatorContainer{
+            position: absolute;
+            bottom: 0;
+            padding: var(--default-padding) 0;
+            #slideIndicator{
+                display: flex;
+                position: relative;
+                z-index: 99;
+                span{
+                    height: 12px;
+                    width: 12px;
+                    display: block;
+                    margin-right: 6px;
+                    border-radius: 50%;
+                }
+                .selector{
+                    position: absolute;
+                    background-color: #000;
+                    left: 0px;
+                    pointer-events: none;
+                    transition: .2s ease;
+                }
+                .option{
+                    background-color: #a5a5a5;
+                    cursor: pointer;
+                }
             }
         }
     }

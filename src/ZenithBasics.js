@@ -5,6 +5,8 @@ import NavbarSmall from './shared/components/navbar/NavbarSmall'
 import Navbar from './shared/components/navbar/Navbar'
 import Footer from "./shared/components/footer/Footer1"
 import Home from './home/Home'
+import NotFound from './shared/components/notFound/NotFound'
+import SearchPage from './search/searchPage/SearchPage'
 import ProductPage from './productPage/ProductPage'
 import LoginPage from './loginPage/LoginPage'
 import Admin from "./admin/AdminPage"
@@ -71,12 +73,12 @@ export default function ZenithBasics() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/product' element={<ProductPage />}/>
+        <Route path='/search/:query/:category?' element={<SearchPage />}/>
         <Route path='/login/*' element={<LoginPage />}/>
         <Route path='/admin/*' element={
           <ProtectedRoute loggedIn={true} adminOnly={true} toSend={<h1>Not Authorized</h1>} navigateTo={"/"} ><Admin /></ProtectedRoute>
         }/>
-        
-        <Route path='*' element={<h1>Not Found</h1>}/>
+        <Route path='*' element={<NotFound />}/>
       </Routes>
       <Footer />
     </>

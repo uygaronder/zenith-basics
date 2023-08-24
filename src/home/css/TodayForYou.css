@@ -1,3 +1,6 @@
+#todayForYou {
+  overflow: hidden;
+}
 #todayForYou #forYouUpper {
   display: flex;
   justify-content: space-between;

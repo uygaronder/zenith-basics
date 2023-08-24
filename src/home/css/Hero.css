@@ -37,21 +37,21 @@
 }
 #hero #heroItems {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10%;
+  flex-direction: row;
+  transition: 0.2s ease;
 }
 #hero #heroItems .heroItem {
   display: flex;
   min-height: 50vh;
-  width: 100%;
+  min-width: 100%;
   padding-bottom: 50px;
+  padding: 0 calc(var(--default-padding-double) * 2);
+  cursor: pointer;
+  position: relative;
 }
 #hero #heroItems .heroItem .imageContainer {
   position: absolute;
-  height: 100%;
-  background-color: red;
+  height: calc(100% + 160px);
   right: 0;
 }
 #hero #heroItems .heroItem .imageContainer img {
@@ -70,8 +70,11 @@
 #hero #heroItems .heroItem .heroText {
   z-index: 1;
   min-width: 100%;
-  padding: var(--default-padding) var(--default-padding-double);
+  padding: var(--default-padding) 0;
   padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #hero #heroItems .heroItem .heroText span {
   font-size: 110%;
@@ -91,30 +94,38 @@
   font-size: 120%;
   margin-bottom: 10px;
 }
-#hero #slideIndicatorContainer {
+#hero #heroSlideContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 160px;
+  padding-left: calc(var(--default-padding-double) * 2);
+}
+#hero #heroSlideContainer #slideIndicatorContainer {
   position: absolute;
   bottom: 0;
-  padding: var(--default-padding) var(--default-padding-double);
+  padding: var(--default-padding) 0;
 }
-#hero #slideIndicatorContainer #slideIndicator {
+#hero #heroSlideContainer #slideIndicatorContainer #slideIndicator {
   display: flex;
   position: relative;
+  z-index: 99;
 }
-#hero #slideIndicatorContainer #slideIndicator span {
+#hero #heroSlideContainer #slideIndicatorContainer #slideIndicator span {
   height: 12px;
   width: 12px;
   display: block;
   margin-right: 6px;
   border-radius: 50%;
 }
-#hero #slideIndicatorContainer #slideIndicator .selector {
+#hero #heroSlideContainer #slideIndicatorContainer #slideIndicator .selector {
   position: absolute;
   background-color: #000;
-  margin-left: var(--default-padding-double);
   left: 0px;
   pointer-events: none;
+  transition: 0.2s ease;
 }
-#hero #slideIndicatorContainer #slideIndicator .option {
+#hero #heroSlideContainer #slideIndicatorContainer #slideIndicator .option {
   background-color: #a5a5a5;
   cursor: pointer;
 }/*# sourceMappingURL=Hero.css.map */

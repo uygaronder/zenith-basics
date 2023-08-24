@@ -1,0 +1,132 @@
+#searchPage{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    #searchPageUpper{
+        padding: calc(var(--default-padding-half) / 2) var(--default-padding);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--borderGray);
+        min-width: 0;
+        #searchPageUpperLeft{
+            #searchResultInfo{
+                p{
+                    font-weight: 600;
+                }
+                .highlight{
+                    color: var(--orangish);
+                }
+            }
+        }
+        #upperRightContainer{
+            display: flex;
+            justify-content: flex-end;
+            .viewSelect{
+                display: flex;
+                margin: 0 var(--default-padding);
+                .viewSlider{
+                    display: flex;
+                    width: 55px;
+                    justify-content: space-between;
+                    border: 1px solid var(--borderGray);
+                    position: relative;
+                    border-radius: 6px;
+                    overflow: hidden;
+                    input{
+                        display: none;
+                    }
+                    label{
+                        padding: .5ch 0;
+                        display: flex;
+                        align-items: center;
+                        text-align: center;
+                        z-index: 1;
+                        cursor: pointer;
+                        flex: 1;
+                        justify-content: center;
+                        img{
+                            width: 18px;
+                            height: 18px;
+                            transition: .2s ease;
+                        }
+                        &.active{
+                            img{
+                                filter: invert(1);
+                            }
+                        }
+                    }
+                    .slider{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 50%;
+                        background-color: var(--darkBlue);
+                        transition: .2s ease;
+                    }
+                }
+            }
+            #sort{
+                position: relative;
+                #sortSelect{
+                    display: flex;
+                    white-space: nowrap;
+                    align-items: center;
+                    border: 1px solid var(--borderGray);
+                    border-radius: 4px;
+                    max-width: 100%;
+                    padding: 3px 10px;
+                    display: flex;
+                    cursor: pointer;
+                    #selectedSort{
+                        font-size: 90%;
+                        &::before{
+                            content: "Sort by: ";
+                            font-weight: 600;
+                        }
+                    }
+                    &:hover{
+                        background-color: var(--borderGray);
+                    }
+                }
+                #sortOptions{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background-color: var(--whiterWhite);
+                    border: 1px solid var(--borderGray);
+                    border-radius: 6px;
+                    z-index: 1;
+                    box-shadow: var(--boxShadow);
+                    display: none;
+                    flex-direction: column;
+                    overflow: hidden;
+                    width: 20ch;
+                    .sortOption{
+                        padding: var(--default-padding-half) var(--default-padding-double);
+                        cursor: pointer;
+                        p{
+                            width: 100%;
+                        }
+                        &:hover{
+                            background-color: var(--borderGray);
+                        }
+                        &.active{
+                            background-color: var(--borderActive);
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #searchPageMain{
+        display: grid;
+        grid-template-columns: 1fr 7fr;
+        height: 100%;
+        & > div{
+            height: 100%;
+        }
+    }
+}
