@@ -10,7 +10,7 @@ import Chevron from "../../res/svg/chevron-down-solid.svg"
 
 function search() {
     const search = document.getElementById('search').value;
-    const searchCategory = document.getElementById('categorySelect').value;
+    const searchCategory = document.getElementById('searchCategories').getAttribute("value");
     if(searchCategory === 'all'){
         window.location.href = `/search/${search}`
     }else{
@@ -21,14 +21,22 @@ function search() {
 document.addEventListener('keydown', function(event) {
     if(event.key === 'Enter' && document.activeElement.id === 'search') {
         search()
+        closeCategoryOptions()
     } else if(event.key === 'Enter' && document.activeElement.id === 'categorySelect') {
+        closeCategoryOptions()
         search()
+
     }
 });
 
+function closeCategoryOptions(){
+    const categoryOptions = document.getElementById('searchCategoryOptions');
+    categoryOptions.style.display = 'flex'
+}
+
 function toggleCategoryOptions() {
     const categoryOptions = document.getElementById('searchCategoryOptions');
-    if(categoryOptions.style.display === 'none'){
+    if(categoryOptions.style.display === 'none' || categoryOptions.style.display === ''){
         categoryOptions.style.display = 'flex'
     }else{
         categoryOptions.style.display = 'none'
@@ -40,8 +48,7 @@ function selectCategory(event) {
     selectedCategory.innerHTML = event.target.innerHTML;
     const category = document.getElementById('searchCategories');
     category.setAttribute('value', event.target.getAttribute('value'));
-    const categoryOptions = document.getElementById('searchCategoryOptions');
-    categoryOptions.style.display = 'flex';
+    closeCategoryOptions()
 }
 
 

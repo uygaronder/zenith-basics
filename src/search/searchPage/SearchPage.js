@@ -1,15 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import "./css/SearchPage.css"
 
 import SearhSidebar from "./components/SearchSidebar"
 import SearchItems from "./components/SearchItems"
+import Loading from "../../shared/components/loading/Loading"
 
 import BoxView from "./res/table-cells-solid.svg"
 import ListView from "./res/list-solid.svg"
 
 function SearchPage() {
     let {query, category} = useParams();
+    const [loading , setLoading] = React.useState(true);
+    const [listStyle, setListStyle] = React.useState('list');
+    const [sort, setSort] = React.useState('featured');
+    const [filters, setFilters] = React.useState({});
+
+
+    useEffect(() => {
+        setLoading(false)
+    }, [])
 
     function toggleSelect() {
         const selectMenu = document.getElementById('sortOptions');
@@ -33,21 +43,22 @@ function SearchPage() {
                 option.classList.remove('active')
             }
         })
+        setSort(event.target.getAttribute('value'))
     }
 
     function viewSelect() {
-        const listView = document.getElementById('list');
-        const boxView = document.getElementById('box');
         const slider = document.querySelector('.slider');
-        const sliderButtons = document.querySelectorAll('.viewSelect label');
-        if(listView.checked) {
-            slider.style.left = '0%';
-            sliderButtons[0].classList.add('active');
-            sliderButtons[1].classList.remove('active');
-        }else if(boxView.checked) {
+        const labelOfRadio = document.querySelectorAll('.labelOfRadio');
+        if(listStyle === 'list') {
+            setListStyle('box')
             slider.style.left = '50%';
-            sliderButtons[1].classList.add('active');
-            sliderButtons[0].classList.remove('active');
+            labelOfRadio[0].classList.remove('active');
+            labelOfRadio[1].classList.add('active');
+        }else{
+            setListStyle('list')
+            slider.style.left = '0%';
+            labelOfRadio[0].classList.add('active');
+            labelOfRadio[1].classList.remove('active');
         }
     }
 
@@ -57,7 +68,6 @@ function SearchPage() {
             selectMenu.style.display = 'none'
         }
     });
-
 
   return (
     <section id='searchPage'>
@@ -71,14 +81,12 @@ function SearchPage() {
                 <div className='viewSelect'>
                     <div className='viewSlider' onClick={() => viewSelect()}>
                         <span className='slider' />
-                        <input type='radio' name='listOrBox' id='list' />
-                        <label htmlFor='list' className='active'>
+                        <span htmlFor='list' className='labelOfRadio active'>
                             <img src={ListView} alt='List View' />
-                        </label>
-                        <input type='radio' name='listOrBox' id='box' />
-                        <label htmlFor='box'>
+                        </span>
+                        <span htmlFor='box' className='labelOfRadio'>
                             <img src={BoxView} alt='Box View' />
-                        </label>
+                        </span>
                     </div>
                 </div>
                 <div id='sort'>
@@ -86,31 +94,21 @@ function SearchPage() {
                         <p id='selectedSort'>Featured</p>
                     </div>
                     <div id='sortOptions'>
-                        <span className='sortOption active' onClick={(e) => selectOption(e, 0)}>
-                            <p>Featured</p>
-                        </span>
-                        <span className='sortOption' onClick={(e) => selectOption(e, 1)}>
-                            <p>Price: Low to High</p>
-                        </span>
-                        <span className='sortOption' onClick={(e) => selectOption(e, 2)}>
-                            <p>Price: High to Low</p>
-                        </span>
-                        <span className='sortOption' onClick={(e) => selectOption(e, 3)}>
-                            <p>On Sale</p>
-                        </span>
-                        <span className='sortOption' onClick={(e) => selectOption(e, 4)}>
-                            <p>Newest Arrivals</p>
-                        </span>
+                        <span className='sortOption active' value="featured" onClick={(e) => selectOption(e, 0)}>Featured</span>
+                        <span className='sortOption' value="lowToHigh" onClick={(e) => selectOption(e, 1)}>Price: Low to High</span>
+                        <span className='sortOption' value="highToLow" onClick={(e) => selectOption(e, 2)}>Price: High to Low</span>
+                        <span className='sortOption' value="sale" onClick={(e) => selectOption(e, 3)}>On Sale</span>
+                        <span className='sortOption' value="new" onClick={(e) => selectOption(e, 4)}>Newest Arrivals</span>
                     </div>
                 </div>
             </div>
         </div>
         <div id='searchPageMain'>
             <div id='searchPageSideBar'>
-                <SearhSidebar />
+                <SearhSidebar filters={filters} setFilters={setFilters} />
             </div>
             <div id='searchPageItems'>
-                <SearchItems />
+                {loading ? <Loading /> : <SearchItems listStyle={listStyle} sort={sort} filters={filters} items={[]}/>}
             </div>
         </div>
     </section>

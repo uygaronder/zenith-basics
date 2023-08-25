@@ -21,18 +21,25 @@
 #searchSidebar > div > p:hover {
   color: var(--orangish);
 }
+#searchSidebar > div .department, #searchSidebar > div .subDepartment {
+  cursor: pointer;
+}
 #searchSidebar > div .subDepartment {
   padding-left: 1ch;
 }
 #searchSidebar > div #priceBetweenContainer {
   display: flex;
+  width: 100%;
 }
 #searchSidebar > div #priceBetweenContainer input {
   max-width: 8ch;
   border: 1px solid var(--borderGray);
   border-radius: 4px;
   padding: var(--default-padding);
-  margin-right: 5px;
+  margin-right: 3px;
+  flex: 1;
+  width: 4ch;
+  font-size: 80%;
 }
 #searchSidebar > div #priceBetweenContainer input::-webkit-outer-spin-button, #searchSidebar > div #priceBetweenContainer input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -47,6 +54,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s ease;
+  font-size: 80%;
 }
 #searchSidebar > div #priceBetweenContainer button:hover {
   background-color: var(--orangishDark);
@@ -63,4 +71,7 @@
 #searchSidebar > div .rating p {
   font-size: 80%;
   margin-left: var(--default-padding);
+}
+#searchSidebar > div *.active > p {
+  font-weight: 600;
 }/*# sourceMappingURL=SearchSidebar.css.map */

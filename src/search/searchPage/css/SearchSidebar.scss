@@ -22,17 +22,24 @@
                 
             }
         }
+        .department, .subDepartment{
+            cursor: pointer;
+        }
         .subDepartment{
             padding-left: 1ch;
         }
         #priceBetweenContainer{
             display: flex;
+            width: 100%;
             input{
                 max-width: 8ch;
                 border: 1px solid var(--borderGray);
                 border-radius: 4px;
                 padding: var(--default-padding);
-                margin-right: 5px;
+                margin-right: 3px;
+                flex: 1;
+                width: 4ch;
+                font-size: 80%;
                 &::-webkit-outer-spin-button,
                 &::-webkit-inner-spin-button {
                     -webkit-appearance: none;
@@ -48,6 +55,7 @@
                 font-weight: 600;
                 cursor: pointer;
                 transition: .2s ease;
+                font-size: 80%;
                 &:hover{
                     background-color: var(--orangishDark);
                 }
@@ -65,6 +73,9 @@
                 font-size: 80%;
                 margin-left: var(--default-padding);
             }
+        }
+        & *.active > p{
+            font-weight: 600;
         }
     }
 }

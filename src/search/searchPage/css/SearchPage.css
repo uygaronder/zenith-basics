@@ -37,7 +37,7 @@
 #searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider input {
   display: none;
 }
-#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider label {
+#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider .labelOfRadio {
   padding: 0.5ch 0;
   display: flex;
   align-items: center;
@@ -47,12 +47,12 @@
   flex: 1;
   justify-content: center;
 }
-#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider label img {
+#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider .labelOfRadio img {
   width: 18px;
   height: 18px;
   transition: 0.2s ease;
 }
-#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider label.active img {
+#searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider .labelOfRadio.active img {
   filter: invert(1);
 }
 #searchPage #searchPageUpper #upperRightContainer .viewSelect .viewSlider .slider {

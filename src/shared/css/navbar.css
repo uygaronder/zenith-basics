@@ -44,7 +44,7 @@
   border: 1px solid var(--borderGray);
   position: absolute;
   top: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: var(--whiterWhite);
   max-height: 50vh;
