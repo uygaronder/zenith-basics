@@ -190,6 +190,20 @@ const reviews = {
   ]
 }
 
+function fetchProduct() {
+  fetch(`${process.env.REACT_APP_APIURL}/product/1`, {
+    method: 'GET',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+  });
+}
+
 
 function ProductPage() {
   return (

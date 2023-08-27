@@ -82,9 +82,25 @@
   display: flex;
   align-items: center;
 }
-.productMicro .productInfoContainer .priceContainer span {
-  font-size: 150%;
-  font-weight: 600;
+.productMicro .productInfoContainer .priceContainer .productPrice, .productMicro .productInfoContainer .priceContainer .productDiscount {
+  display: flex;
+  height: -moz-max-content;
+  height: max-content;
+}
+.productMicro .productInfoContainer .priceContainer .dollarSign {
+  font-size: 90%;
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: 300;
+  height: -moz-max-content;
+  height: max-content;
+  margin-top: 2px;
+}
+.productMicro .productInfoContainer .priceContainer p:last-of-type {
+  font-size: 140%;
+  font-weight: 500;
+  line-height: unset;
 }
 .productMicro .productInfoContainer .priceContainer .onDiscount {
   color: var(--reddish);
@@ -124,6 +140,64 @@
   width: 10%;
   background-color: #333;
   border-radius: 8px;
+}
+.productMicro.list {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 0px 3px rgba(190, 190, 190, 0.6235294118);
+  margin-top: 0;
+  max-height: 300px;
+}
+.productMicro.list .productImage {
+  max-width: 300px;
+}
+.productMicro.list .productImage > img {
+  max-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  -o-object-position: center;
+     object-position: center;
+  z-index: -1;
+}
+.productMicro.list .productInfoContainer {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.productMicro.list .productInfoContainer .productName {
+  font-weight: 500;
+}
+.productMicro.list .productInfoContainer .productInfo {
+  display: flex;
+}
+.productMicro.list .productInfoContainer .productInfo .starContainer {
+  display: flex;
+  align-items: center;
+}
+.productMicro.list .productInfoContainer .productInfo .starContainer .starRating {
+  margin-right: 4px;
+}
+.productMicro.list .productInfoContainer .productInfo .starContainer .stars {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.productMicro.list .productInfoContainer .productInfo .starContainer .stars > div {
+  display: flex;
+}
+.productMicro.list .productInfoContainer .productInfo .starContainer .stars .filledStars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.productMicro.list .productInfoContainer .priceContainer .dollarSign {
+  margin-top: 6px;
+}
+.productMicro.list .productInfoContainer .priceContainer p:last-of-type {
+  font-size: 180%;
 }
 
 .liked {

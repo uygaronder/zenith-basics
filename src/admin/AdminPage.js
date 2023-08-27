@@ -5,8 +5,18 @@ import "./css/adminPage.css"
 import AdminSidebar from './components/Admin-Sidebar'
 import AdminHome from './components/Admin-Home'
 
-const fetchSiteData = async () => {
-  fetch(`${process.env.REACT_APP_API_URL}/siteData`)
+const fetchSiteData = () => {
+  fetch(`${process.env.REACT_APP_APIURL}/siteData`, {
+    method: 'GET',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+  });
 }
 
 function Admin() {

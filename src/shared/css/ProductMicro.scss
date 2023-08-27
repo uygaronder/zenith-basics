@@ -77,9 +77,22 @@
         .priceContainer{
             display: flex;
             align-items: center;
-            span{
-                font-size: 150%;
-                font-weight: 600;
+            .productPrice, .productDiscount{
+                display: flex;
+                height: max-content;
+            }
+            .dollarSign{
+                font-size: 90%;
+                display: flex;
+                width: max-content;
+                font-weight: 300;
+                height: max-content;
+                margin-top: 2px;
+            }
+            p:last-of-type{
+                font-size: 140%;
+                font-weight: 500;
+                line-height: unset;
             }
             .onDiscount{
                 color: var(--reddish);
@@ -121,7 +134,67 @@
             }
         }
     }
+    &.list{
+        display: flex;
+        flex-direction: row;
+        box-shadow: 0px 0px 3px #bebebe9f;
+        margin-top: 0;
+        max-height: 300px;
+        .productImage{
+            max-width: 300px;
+            & > img{
+                max-height: 100%;
+                object-fit: cover;
+                width: 100%;
+                object-position: center;
+                z-index: -1;
+            }
+        }
+        .productInfoContainer{
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            .productName{
+                font-weight: 500;
+            }
+            .productInfo{
+                display: flex;
+                .starContainer{
+                    display: flex;
+                    align-items: center;
+                    .starRating{
+                        margin-right: 4px;
+                    }
+                    .stars{
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        &>div{
+                            display: flex;
+                        }
+                        .filledStars{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            overflow: hidden;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+            .priceContainer{
+                .dollarSign{
+                    margin-top: 6px;
+                }
+                p:last-of-type{
+                    font-size: 180%;
+                }
+            }
+        }
+        
+    }
 }
+
 .liked{
     filter: var(--blackToReddish) !important;
 }

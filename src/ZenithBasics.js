@@ -72,7 +72,7 @@ export default function ZenithBasics() {
       <NavbarSmall user={user}/>
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/product' element={<ProductPage />}/>
+        <Route path='/product/:id' element={<ProductPage />}/>
         <Route path='/search/:query/:category?' element={<SearchPage />}/>
         <Route path='/login/*' element={<LoginPage />}/>
         <Route path='/admin/*' element={
