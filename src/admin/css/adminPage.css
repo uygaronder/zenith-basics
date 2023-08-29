@@ -1,5 +1,6 @@
 #adminPage {
   display: flex;
+  flex: 1;
 }
 #adminPage > section {
   padding: 10px 15px;

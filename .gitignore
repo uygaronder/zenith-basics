@@ -11,7 +11,11 @@
 # production
 /build
 
-.scss
+# sass
+.sass-cache
+*.css.map
+*.scss
+
 
 # misc
 .DS_Store
