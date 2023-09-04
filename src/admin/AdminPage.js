@@ -6,6 +6,7 @@ import "./css/adminRoot.css"
 import AdminSidebar from './components/Admin-Sidebar'
 import AdminHome from './components/Admin-Home'
 import AdminProducts from './components/AdminProducts'
+import NewPrododuct from './components/New-Prododuct'
 
 const fetchSiteData = () => {
   fetch(`${process.env.REACT_APP_APIURL}/siteData`, {
@@ -28,6 +29,7 @@ function Admin() {
       <Routes>
         <Route path='/' element={<AdminHome />} />
         <Route path='/products' element={<AdminProducts />} />
+        <Route path='/products/new' element={<NewPrododuct />} />
       </Routes>
     </section>
   )

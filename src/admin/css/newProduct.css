@@ -1,0 +1,32 @@
+#newProduct {
+  width: 100%;
+  display: flex;
+}
+#newProduct #imagesContainer {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+#newProduct #imagesContainer .addImage {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+#newProduct #imagesContainer .addImage img {
+  height: 20px;
+  width: 20px;
+}
+#newProduct #imagesContainer .addImage:hover {
+  background-color: #f5f5f5;
+}
+#newProduct #imagesContainer #images {
+  padding: 10px;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+#newProduct .imageBig {
+  margin: 0 10px;
+}/*# sourceMappingURL=newProduct.css.map */
