@@ -6,11 +6,11 @@ import Chevron from "../res/chevron-down-solid.svg"
 
 function AdminHome() {
   return (
-    <section id='adminHome'>
+    <section id='adminHome' className='adminPage'>
         <div className='hero' id='heroSettings'>
-            <div className='heroSetting'>
-                <h2 className='heroSettingTitle'><span>Hero Banners</span> <label htmlFor='heroBool'><img src={Chevron} /></label></h2>
+            <div className='heroSetting collapsibleSetting'>
                 <input type='checkbox' id='heroBool'/>
+                <h2 className='heroSettingTitle'><span>Hero Banners</span> <label htmlFor='heroBool'><img src={Chevron} /></label></h2>
                 <div className='settingContent'>
                     <div>
                         <span className='settingDesc'>Add, edit, and remove hero banners</span>
@@ -31,9 +31,9 @@ function AdminHome() {
                     </div>
                 </div>
             </div>
-            <div className='heroSetting'>
-                <h2 className='heroSettingTitle'><span>Flash Sale</span> <label htmlFor='flashBool'><img src={Chevron} /></label></h2>
+            <div className='heroSetting collapsibleSetting'>
                 <input type='checkbox' id='flashBool'/>
+                <h2 className='heroSettingTitle'><span>Flash Sale</span> <label htmlFor='flashBool'><img src={Chevron} /></label></h2>
                 <div className='settingContent'>
                     <div>
                         <div id='flashSaleSliderContainer'>
@@ -66,9 +66,9 @@ function AdminHome() {
                     </div>
                 </div>
             </div>
-            <div className='heroSetting'>
-                <h2 className='heroSettingTitle'><span>Featured Products</span> <label htmlFor='featuredBool'><img src={Chevron} /></label></h2>
+            <div className='heroSetting collapsibleSetting'>
                 <input type='checkbox' id='featuredBool'/>
+                <h2 className='heroSettingTitle'><span>Featured Products</span> <label htmlFor='featuredBool'><img src={Chevron} /></label></h2>
                 <div className='settingContent'>
                     <div>
                         <span className='settingDesc'>Add, edit, and remove featured products</span>
@@ -89,9 +89,9 @@ function AdminHome() {
                     </div>
                 </div>
             </div>
-            <div className='heroSetting'>
-                <h2 className='heroSettingTitle'><span>Best Sellers</span> <label htmlFor='bestBool'><img src={Chevron} /></label></h2>
+            <div className='heroSetting collapsibleSetting'>
                 <input type='checkbox' id='bestBool'/>
+                <h2 className='heroSettingTitle'><span>Best Sellers</span> <label htmlFor='bestBool'><img src={Chevron} /></label></h2>
                 <div className='settingContent'>
                     <div>
                         <span className='settingDesc'>Add, edit, and remove best sellers</span>
@@ -110,9 +110,9 @@ function AdminHome() {
                     </div>
                 </div>
             </div>
-            <div className='heroSetting'>
-                <h2 className='heroSettingTitle'><span>New Arrivals</span> <label htmlFor='newBool'><img src={Chevron} /></label></h2>
+            <div className='heroSetting collapsibleSetting'>
                 <input type='checkbox' id='newBool'/>
+                <h2 className='heroSettingTitle'><span>New Arrivals</span> <label htmlFor='newBool'><img src={Chevron} /></label></h2>
                 <div className='settingContent'>
                     <div>
                         <span className='settingDesc'>Add, edit, and remove new arrivals</span>
@@ -131,9 +131,9 @@ function AdminHome() {
                     </div>
                 </div>
             </div>
-            <div className='heroSetting'>
-                <h2 className='heroSettingTitle'><span>Special Discounts</span> <label htmlFor='specialBool'><img src={Chevron} /></label></h2>
+            <div className='heroSetting collapsibleSetting'>
                 <input type='checkbox' id='specialBool'/>
+                <h2 className='heroSettingTitle'><span>Special Discounts</span> <label htmlFor='specialBool'><img src={Chevron} /></label></h2>
                 <div className='settingContent'>
                     <div>
                         <span className='settingDesc'>Add, edit, and remove special discounts</span>

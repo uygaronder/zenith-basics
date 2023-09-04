@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import "./css/adminPage.css"
+import "./css/adminRoot.css"
 
 import AdminSidebar from './components/Admin-Sidebar'
 import AdminHome from './components/Admin-Home'

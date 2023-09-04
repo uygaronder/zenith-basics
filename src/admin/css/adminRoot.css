@@ -1,0 +1,71 @@
+.collapsibleSetting {
+  border-top: 1px solid #ddd;
+  padding: 12px 0;
+}
+.collapsibleSetting:first-child {
+  border-top: none;
+}
+.collapsibleSetting table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.collapsibleSetting table thead {
+  background-color: #f5f5f5;
+}
+.collapsibleSetting table thead tr th {
+  padding: 10px;
+  text-align: left;
+}
+.collapsibleSetting table tbody tr td {
+  padding: 10px;
+}
+.collapsibleSetting h2 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.collapsibleSetting h2 label {
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 10px;
+  transition: 0.2s ease;
+  font-size: 24px;
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.collapsibleSetting h2 label img {
+  height: 20px;
+  width: 20px;
+}
+.collapsibleSetting h2 label:hover {
+  background-color: #f5f5f5;
+  border-radius: 50%;
+}
+.collapsibleSetting > input {
+  display: none;
+}
+.collapsibleSetting .settingContent {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.2s ease;
+  overflow: hidden;
+}
+.collapsibleSetting .settingContent > div {
+  overflow: hidden;
+}
+.collapsibleSetting > input:checked ~ .settingContent {
+  grid-template-rows: 1fr;
+}
+.collapsibleSetting > input:checked ~ h2 > label {
+  transform: rotate(180deg);
+}
+
+.adminPage {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=adminRoot.css.map */
