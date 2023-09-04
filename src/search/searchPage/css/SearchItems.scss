@@ -4,4 +4,15 @@
             margin: 8px 0;
         }
     }
+    &.boxView{
+        border: 1px solid red;
+        #items{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            .productMicro{
+                margin: 0px;
+            }
+        }
+    }
 }
