@@ -12,9 +12,9 @@
 /build
 
 # sass
-.sass-cache
-*.css.map
-*.scss
+#.sass-cache
+#*.css.map
+#*.scss
 
 
 # misc

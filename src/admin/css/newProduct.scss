@@ -1,0 +1,32 @@
+#newProduct{
+    width: 100%;
+    display: flex;
+    #imagesContainer{
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        .addImage{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            transition: .2s ease;
+            cursor: pointer;
+            img{
+                height: 20px;
+                width: 20px;
+            }
+            &:hover{
+                background-color: #f5f5f5;
+            }
+        }
+        #images{
+            padding: 10px;
+            padding-top: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .imageBig{
+        margin: 0 10px;
+    }
+}
