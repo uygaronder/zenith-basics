@@ -31,9 +31,38 @@ function NewPrododuct() {
             <img src='https://placehold.co/300x300' />
         </div>
         <div id='productInfo'>
-            <span className='productInput'>
-                <input type='text' placeholder='Product Name' />
+            <span className='productInputContainer productTextInputContainer'>
+                <label htmlFor='productName'>Product Name</label>
+                <span className='inputSpan'>
+                    <input id='productName' type='text' />
+                </span>
             </span>
+            <span className='productInputContainer priceInputContainer'>
+                <label htmlFor='productPrice'>Product Price</label>
+                <span className='inputSpan'>
+                    <span className='currency'>$</span>
+                    <input id='productPrice' type='number' />
+                </span>
+            </span>
+            <span id='specifications'>
+                <span className='specification'>
+                </span>
+            </span>
+            {/* 
+            <span id='colorsInput'>
+                <span>Colors:</span>
+                <div id='colorsContainer'>
+                    <span className='color'>
+                        <input type='text' placeholder="Color Name"/>
+                        <span className='colorInfo'>
+                            <span>Make Default</span>
+                            <span>Add Pictures</span>
+                            <span>Remove Color</span>
+                        </span>
+                    </span>
+                </div>
+            </span>
+            */}
         </div>
     </section>
   )
