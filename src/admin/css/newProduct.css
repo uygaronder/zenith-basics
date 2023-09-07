@@ -2,62 +2,98 @@
   width: 100%;
   display: flex;
 }
-#newProduct #imagesContainer {
+#newProduct #productSettings {
+  min-width: 40%;
+  margin-right: 10px;
+}
+#newProduct #productSettings #images #imagesInput {
+  display: flex;
+  background-color: #f0f0f0;
+}
+#newProduct #productSettings #images #imagesInput .imageInput {
+  width: 100%;
+}
+#newProduct #productSettings #images #imagesInput .imageInput label {
+  margin: 10px;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-}
-#newProduct #imagesContainer .addImage {
-  display: flex;
   align-items: center;
-  padding: 10px;
-  transition: 0.2s ease;
+  justify-content: center;
+  height: 100px;
   cursor: pointer;
 }
-#newProduct #imagesContainer .addImage img {
-  height: 20px;
-  width: 20px;
-  margin-right: 4px;
+#newProduct #productSettings #images #imagesInput .imageInput label img {
+  width: 40px;
 }
-#newProduct #imagesContainer .addImage:hover {
-  background-color: #f5f5f5;
+#newProduct #productSettings #images #imagesInput input {
+  display: none;
 }
-#newProduct #imagesContainer #images {
+#newProduct #productSettings #images #uploadedImages {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
   padding: 10px;
-  padding-top: 5px;
+}
+#newProduct #productSettings #images #uploadedImages .uploadedImage img {
+  max-width: 150px;
+  cursor: pointer;
+}
+#newProduct #productSettings #aboutItem {
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
-#newProduct #imagesContainer #images .img {
-  margin: 5px 0;
-}
-#newProduct #imagesContainer #images .img img {
+#newProduct #productSettings #aboutItem .aboutItemContainer .aboutItemInput input {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  border: none;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 10px;
+  font-size: 100%;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s ease;
 }
-#newProduct #imagesContainer #images .img:first-child {
-  margin-top: 0;
+#newProduct #productSettings #aboutItem .aboutItemContainer .aboutItemInput input:focus {
+  border: 1px solid #40a9ff;
+  box-shadow: 0 1px 0 2px rgba(24, 144, 255, 0.2);
 }
-#newProduct #imagesContainer #images .img:last-child {
-  margin-bottom: 0;
+#newProduct #productSettings #description {
+  display: flex;
+  flex-direction: column;
 }
-#newProduct .imageBig {
-  margin: 0 10px;
-  min-width: 500px;
-  max-width: 50vw;
+#newProduct #productSettings #description h2 {
+  margin-bottom: 10px;
 }
-#newProduct .imageBig img {
+#newProduct #productSettings #description textarea {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: 100px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 100%;
+  font-weight: 600;
+  outline: none;
+  resize: none;
+  transition: 0.2s ease;
+}
+#newProduct #productSettings #description textarea:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
 }
 #newProduct #productInfo {
   display: flex;
   width: 100%;
   max-width: 40%;
   flex-direction: column;
+}
+#newProduct #productInfo > * {
+  margin-bottom: 20px !important;
+}
+#newProduct #productInfo > *:last-of-type {
+  margin-bottom: 0;
 }
 #newProduct #productInfo .productInputContainer {
   display: flex;
@@ -72,7 +108,7 @@
 }
 #newProduct #productInfo .productInputContainer label {
   margin-bottom: 4px;
-  font-size: 130%;
+  font-size: 100%;
   font-weight: 600;
 }
 #newProduct #productInfo .productInputContainer .inputSpan {
@@ -103,46 +139,131 @@
   border-color: #40a9ff;
   box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
 }
-#newProduct #productInfo .priceInputContainer {
-  white-space: nowrap;
+#newProduct #productInfo .productInputContainer .inputSpan:has(input:focus) {
+  border: 1px solid #40a9ff;
 }
-#newProduct #productInfo .priceInputContainer label {
+#newProduct #productInfo .categoryInputContainer {
+  display: flex;
+  flex-direction: column;
+}
+#newProduct #productInfo .categoryInputContainer label {
+  margin-bottom: 4px;
+  font-size: 100%;
+  font-weight: 600;
+}
+#newProduct #productInfo .categoryInputContainer select {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 100%;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s ease;
+}
+#newProduct #productInfo .categoryInputContainer select:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productInfo .categoryInputContainer select option {
+  font-weight: 600;
+}
+#newProduct #productInfo .priceInputContainer {
+  display: flex;
+  flex-direction: row;
+}
+#newProduct #productInfo .priceInputContainer div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  flex: 1;
+}
+#newProduct #productInfo .priceInputContainer div label {
   margin-right: 10px;
 }
-#newProduct #productInfo .priceInputContainer .inputSpan {
-  width: 15ch;
+#newProduct #productInfo .priceInputContainer div label:last-of-type {
+  margin-right: 0;
 }
-#newProduct #productInfo .priceInputContainer .inputSpan span {
+#newProduct #productInfo .priceInputContainer div .inputSpan span {
   margin-right: 2px;
-  padding-left: 2px;
+  padding-left: 6px;
 }
-#newProduct #productInfo .priceInputContainer .inputSpan input {
+#newProduct #productInfo .priceInputContainer div .inputSpan input {
+  flex: 1;
   font-weight: 600;
   padding-left: 2px;
 }
-#newProduct #productInfo .priceInputContainer .inputSpan input::-webkit-outer-spin-button, #newProduct #productInfo .priceInputContainer .inputSpan input::-webkit-inner-spin-button {
+#newProduct #productInfo .priceInputContainer div .inputSpan input::-webkit-outer-spin-button, #newProduct #productInfo .priceInputContainer div .inputSpan input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-#newProduct #productInfo #colorsInput > span {
-  margin-bottom: 4px;
-  font-size: 130%;
-  font-weight: 600;
+#newProduct #productInfo .priceInputContainer div:last-of-type {
+  margin-right: 0;
 }
-#newProduct #productInfo #colorsInput #colorsContainer {
+#newProduct #productInfo #stockContainer {
   display: flex;
 }
-#newProduct #productInfo #colorsInput #colorsContainer .color {
+#newProduct #productInfo #stockContainer div {
   display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-right: 10px;
+}
+#newProduct #productInfo #stockContainer div:last-of-type {
+  margin-right: 0;
+}
+#newProduct #productInfo #stockContainer div span {
+  display: flex;
+  height: 100%;
+}
+#newProduct #productInfo #stockContainer div span select {
   width: 100%;
-  justify-content: space-between;
-}
-#newProduct #productInfo #colorsInput #colorsContainer .color .colorInfo span {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
   font-size: 100%;
   font-weight: 600;
-  margin-left: 10px;
-  cursor: pointer;
+  outline: none;
+  transition: 0.2s ease;
 }
-#newProduct #productInfo #colorsInput #colorsContainer .color .colorInfo span:first-of-type {
-  margin-left: 0;
+#newProduct #productInfo #stockContainer div span select:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productInfo #stockContainer div span select option {
+  font-weight: 600;
+}
+#newProduct #productInfo #stockContainer div span input {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 100%;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s ease;
+}
+#newProduct #productInfo #stockContainer div span input:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productInfo #stockContainer div span input::-webkit-outer-spin-button, #newProduct #productInfo #stockContainer div span input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#newProduct #productInfo #availableSizesContainer .sizesSpan {
+  display: flex;
+}
+#newProduct #productInfo #availableSizesContainer .sizesSpan .availableSizeCheck {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+#newProduct #productInfo #availableSizesContainer .sizesSpan .availableSizeCheck input {
+  margin-right: 5px;
+}
+#newProduct #productInfo #availableSizesContainer .sizesSpan .availableSizeCheck label {
+  font-size: 100%;
+  font-weight: 600;
 }/*# sourceMappingURL=newProduct.css.map */
