@@ -27,7 +27,7 @@ function AdminProducts() {
             <div className='settingCsontent'>
                 <div className='collapsibleContainer'>
                     <div id='productButtonsUp'>
-                      <span onClick={() => goToNewProductPage()}>Add New Product</span>
+                      <span id='newProductButton' onClick={() => goToNewProductPage()}>Add New Product</span>
 
                     </div>
                     <table>

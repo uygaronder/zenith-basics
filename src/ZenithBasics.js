@@ -10,6 +10,7 @@ import SearchPage from './search/searchPage/SearchPage'
 import ProductPage from './productPage/ProductPage'
 import LoginPage from './loginPage/LoginPage'
 import Admin from "./admin/AdminPage"
+import Loading from './shared/components/loading/Loading'
 
 
 export default function ZenithBasics() {
@@ -76,7 +77,7 @@ export default function ZenithBasics() {
         <Route path='/search/:query/:category?' element={<SearchPage />}/>
         <Route path='/login/*' element={<LoginPage />}/>
         <Route path='/admin/*' element={
-          <ProtectedRoute loggedIn={true} adminOnly={true} toSend={<h1>Not Authorized</h1>} navigateTo={"/"} ><Admin /></ProtectedRoute>
+          <ProtectedRoute loggedIn={true} adminOnly={true} toSend={<Loading />} navigateTo={"/"} ><Admin /></ProtectedRoute>
         }/>
         <Route path='*' element={<NotFound />}/>
       </Routes>

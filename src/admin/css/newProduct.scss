@@ -15,16 +15,20 @@
                     .imageInput{
                         width: 100%;
                         label{
-                            margin: 10px;
-                            border: 1px dashed rgba(0, 0, 0, 0.2);
+                            padding: 10px;
                             display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: center;
-                            height: 100px;
                             cursor: pointer;
-                            img{
-                                width: 40px;
+                            .labelDiv{
+                                border: 1px dashed rgba(0, 0, 0, 0.2);
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                height: 100px;
+                                width: 100%;
+                                img{
+                                    width: 40px;
+                                }
                             }
                         }
                     }
@@ -37,10 +41,33 @@
                     width: 100%;
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
-                    gap: 5px;
-                    padding: 10px;
+                    gap: 8px;
+                    padding: 10px 0;
                     .uploadedImage{
-                        img{
+                        position: relative;
+                        display: flex;
+                        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+                        .removeImage{
+                            position: absolute;
+                            opacity: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: rgba(0, 0, 0, 0.5);
+                            width: 100%;
+                            height: 100%;
+                            cursor: pointer;
+                            img{
+                                width: 20px;
+                                filter: brightness(0) invert(1);
+                            }
+                        }
+                        &:hover{
+                            .removeImage{
+                                opacity: 1;
+                            }
+                        }
+                        & > img{
                             max-width: 150px;
                             cursor: pointer;
                         }
@@ -67,6 +94,12 @@
                                 border: 1px solid #40a9ff;
                                 box-shadow: 0 1px 0 2px rgba(24, 144, 255, 0.2);
                             }
+                        }
+                        
+                    }
+                    .removeAboutItem{
+                        img{
+                            width: 20px;
                         }
                     }
                 }
@@ -259,7 +292,7 @@
                         label{
                             user-select: none;
                             padding-left: 5px;
-                            font-size: 100%;
+                            font-size: 150%;
                             font-weight: 600;
                             cursor: pointer;
                         }

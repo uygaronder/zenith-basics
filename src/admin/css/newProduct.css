@@ -18,16 +18,20 @@
   width: 100%;
 }
 #newProduct #productUpper #productSettings #images #imagesInput .imageInput label {
-  margin: 10px;
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+}
+#newProduct #productUpper #productSettings #images #imagesInput .imageInput label .labelDiv {
   border: 1px dashed rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100px;
-  cursor: pointer;
+  width: 100%;
 }
-#newProduct #productUpper #productSettings #images #imagesInput .imageInput label img {
+#newProduct #productUpper #productSettings #images #imagesInput .imageInput label .labelDiv img {
   width: 40px;
 }
 #newProduct #productUpper #productSettings #images #imagesInput input {
@@ -38,10 +42,33 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  padding: 10px;
+  gap: 8px;
+  padding: 10px 0;
 }
-#newProduct #productUpper #productSettings #images #uploadedImages .uploadedImage img {
+#newProduct #productUpper #productSettings #images #uploadedImages .uploadedImage {
+  position: relative;
+  display: flex;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+#newProduct #productUpper #productSettings #images #uploadedImages .uploadedImage .removeImage {
+  position: absolute;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+#newProduct #productUpper #productSettings #images #uploadedImages .uploadedImage .removeImage img {
+  width: 20px;
+  filter: brightness(0) invert(1);
+}
+#newProduct #productUpper #productSettings #images #uploadedImages .uploadedImage:hover .removeImage {
+  opacity: 1;
+}
+#newProduct #productUpper #productSettings #images #uploadedImages .uploadedImage > img {
   max-width: 150px;
   cursor: pointer;
 }
@@ -64,6 +91,9 @@
 #newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .aboutItemInput input:focus {
   border: 1px solid #40a9ff;
   box-shadow: 0 1px 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .removeAboutItem img {
+  width: 20px;
 }
 #newProduct #productUpper #productInfo {
   display: flex;
@@ -253,7 +283,7 @@
      -moz-user-select: none;
           user-select: none;
   padding-left: 5px;
-  font-size: 100%;
+  font-size: 150%;
   font-weight: 600;
   cursor: pointer;
 }
