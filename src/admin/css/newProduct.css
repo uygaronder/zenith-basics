@@ -1,19 +1,23 @@
 #newProduct {
   width: 100%;
-  display: flex;
 }
-#newProduct #productSettings {
+#newProduct #productUpper {
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+#newProduct #productUpper #productSettings {
   min-width: 40%;
   margin-right: 10px;
 }
-#newProduct #productSettings #images #imagesInput {
+#newProduct #productUpper #productSettings #images #imagesInput {
   display: flex;
   background-color: #f0f0f0;
 }
-#newProduct #productSettings #images #imagesInput .imageInput {
+#newProduct #productUpper #productSettings #images #imagesInput .imageInput {
   width: 100%;
 }
-#newProduct #productSettings #images #imagesInput .imageInput label {
+#newProduct #productUpper #productSettings #images #imagesInput .imageInput label {
   margin: 10px;
   border: 1px dashed rgba(0, 0, 0, 0.2);
   display: flex;
@@ -23,13 +27,13 @@
   height: 100px;
   cursor: pointer;
 }
-#newProduct #productSettings #images #imagesInput .imageInput label img {
+#newProduct #productUpper #productSettings #images #imagesInput .imageInput label img {
   width: 40px;
 }
-#newProduct #productSettings #images #imagesInput input {
+#newProduct #productUpper #productSettings #images #imagesInput input {
   display: none;
 }
-#newProduct #productSettings #images #uploadedImages {
+#newProduct #productUpper #productSettings #images #uploadedImages {
   margin-top: 10px;
   width: 100%;
   display: grid;
@@ -37,37 +41,260 @@
   gap: 5px;
   padding: 10px;
 }
-#newProduct #productSettings #images #uploadedImages .uploadedImage img {
+#newProduct #productUpper #productSettings #images #uploadedImages .uploadedImage img {
   max-width: 150px;
   cursor: pointer;
 }
-#newProduct #productSettings #aboutItem {
+#newProduct #productUpper #productSettings #aboutItem {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
-#newProduct #productSettings #aboutItem .aboutItemContainer .aboutItemInput input {
+#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .aboutItemInput input {
+  width: 100%;
+  border: 1px solid rgba(217, 217, 217, 0);
+  border-bottom: 1px solid #a5a5a5;
+  padding: 10px;
+  font-size: 100%;
+  font-weight: 600;
+  border-radius: 4px;
+  outline: none;
+  transition: 0.2s ease;
+}
+#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .aboutItemInput input:focus {
+  border: 1px solid #40a9ff;
+  box-shadow: 0 1px 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productUpper #productInfo {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex: 1;
+}
+#newProduct #productUpper #productInfo > * {
+  margin-bottom: 20px !important;
+}
+#newProduct #productUpper #productInfo > *:last-of-type {
+  margin-bottom: 0;
+}
+#newProduct #productUpper #productInfo .productInputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  margin-bottom: 10px;
+}
+#newProduct #productUpper #productInfo .productInputContainer:last-of-type {
+  margin-bottom: 0;
+}
+#newProduct #productUpper #productInfo .productInputContainer label {
+  margin-bottom: 4px;
+  font-size: 100%;
+  font-weight: 600;
+}
+#newProduct #productUpper #productInfo .productInputContainer .inputSpan {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  transition: 0.2s ease;
+}
+#newProduct #productUpper #productInfo .productInputContainer .inputSpan span {
+  font-weight: 600;
+  font-size: 125%;
+}
+#newProduct #productUpper #productInfo .productInputContainer .inputSpan input {
   width: 100%;
   border: none;
-  border-bottom: 1px solid #d9d9d9;
+  outline: none;
+  font-size: 100%;
+  font-weight: 600;
+  height: 100%;
+  padding: 10px;
+}
+#newProduct #productUpper #productInfo .productInputContainer .inputSpan input:focus + span {
+  color: #40a9ff;
+}
+#newProduct #productUpper #productInfo .productInputContainer .inputSpan:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productUpper #productInfo .productInputContainer .inputSpan:has(input:focus) {
+  border: 1px solid #40a9ff;
+}
+#newProduct #productUpper #productInfo .categoryInputContainer {
+  display: flex;
+  flex-direction: column;
+}
+#newProduct #productUpper #productInfo .categoryInputContainer label {
+  margin-bottom: 4px;
+  font-size: 100%;
+  font-weight: 600;
+}
+#newProduct #productUpper #productInfo .categoryInputContainer select {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
   padding: 10px;
   font-size: 100%;
   font-weight: 600;
   outline: none;
   transition: 0.2s ease;
 }
-#newProduct #productSettings #aboutItem .aboutItemContainer .aboutItemInput input:focus {
-  border: 1px solid #40a9ff;
-  box-shadow: 0 1px 0 2px rgba(24, 144, 255, 0.2);
+#newProduct #productUpper #productInfo .categoryInputContainer select:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
 }
-#newProduct #productSettings #description {
+#newProduct #productUpper #productInfo .categoryInputContainer select option {
+  font-weight: 600;
+}
+#newProduct #productUpper #productInfo .priceInputContainer {
+  display: flex;
+  flex-direction: row;
+}
+#newProduct #productUpper #productInfo .priceInputContainer div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  flex: 1;
+}
+#newProduct #productUpper #productInfo .priceInputContainer div label {
+  margin-right: 10px;
+}
+#newProduct #productUpper #productInfo .priceInputContainer div label:last-of-type {
+  margin-right: 0;
+}
+#newProduct #productUpper #productInfo .priceInputContainer div .inputSpan span {
+  margin-right: 2px;
+  padding-left: 6px;
+}
+#newProduct #productUpper #productInfo .priceInputContainer div .inputSpan input {
+  flex: 1;
+  font-weight: 600;
+  padding-left: 2px;
+}
+#newProduct #productUpper #productInfo .priceInputContainer div .inputSpan input::-webkit-outer-spin-button, #newProduct #productUpper #productInfo .priceInputContainer div .inputSpan input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#newProduct #productUpper #productInfo .priceInputContainer div:last-of-type {
+  margin-right: 0;
+}
+#newProduct #productUpper #productInfo #stockContainer {
+  display: flex;
+}
+#newProduct #productUpper #productInfo #stockContainer div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-right: 10px;
+}
+#newProduct #productUpper #productInfo #stockContainer div:last-of-type {
+  margin-right: 0;
+}
+#newProduct #productUpper #productInfo #stockContainer div label {
+  font-weight: 600;
+}
+#newProduct #productUpper #productInfo #stockContainer div span {
+  display: flex;
+  height: 100%;
+}
+#newProduct #productUpper #productInfo #stockContainer div span select {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 100%;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s ease;
+}
+#newProduct #productUpper #productInfo #stockContainer div span select:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productUpper #productInfo #stockContainer div span select option {
+  font-weight: 600;
+}
+#newProduct #productUpper #productInfo #stockContainer div span input {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 100%;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s ease;
+}
+#newProduct #productUpper #productInfo #stockContainer div span input:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productUpper #productInfo #stockContainer div span input::-webkit-outer-spin-button, #newProduct #productUpper #productInfo #stockContainer div span input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#newProduct #productUpper #productInfo #availableSizesContainer .sizesSpan {
+  display: flex;
+}
+#newProduct #productUpper #productInfo #availableSizesContainer .sizesSpan .availableSizeCheck {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+#newProduct #productUpper #productInfo #availableSizesContainer .sizesSpan .availableSizeCheck input {
+  cursor: pointer;
+}
+#newProduct #productUpper #productInfo #availableSizesContainer .sizesSpan .availableSizeCheck label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  padding-left: 5px;
+  font-size: 100%;
+  font-weight: 600;
+  cursor: pointer;
+}
+#newProduct #productUpper #productInfo #tagsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#newProduct #productUpper #productInfo #tagsContainer h2 {
+  margin-bottom: 4px;
+  font-size: 100%;
+  font-weight: 600;
+}
+#newProduct #productUpper #productInfo #tagsContainer .tagsInput {
+  width: 100%;
+}
+#newProduct #productUpper #productInfo #tagsContainer .tagsInput input {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 100%;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s ease;
+}
+#newProduct #productUpper #productInfo #tagsContainer .tagsInput input:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productDown {
+  width: 100%;
+}
+#newProduct #productDown #description {
   display: flex;
   flex-direction: column;
 }
-#newProduct #productSettings #description h2 {
+#newProduct #productDown #description h2 {
   margin-bottom: 10px;
 }
-#newProduct #productSettings #description textarea {
+#newProduct #productDown #description textarea {
   width: 100%;
   height: 100px;
   border: 1px solid #d9d9d9;
@@ -79,191 +306,7 @@
   resize: none;
   transition: 0.2s ease;
 }
-#newProduct #productSettings #description textarea:focus {
+#newProduct #productDown #description textarea:focus {
   border-color: #40a9ff;
   box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-}
-#newProduct #productInfo {
-  display: flex;
-  width: 100%;
-  max-width: 40%;
-  flex-direction: column;
-}
-#newProduct #productInfo > * {
-  margin-bottom: 20px !important;
-}
-#newProduct #productInfo > *:last-of-type {
-  margin-bottom: 0;
-}
-#newProduct #productInfo .productInputContainer {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: -moz-max-content;
-  height: max-content;
-  margin-bottom: 10px;
-}
-#newProduct #productInfo .productInputContainer:last-of-type {
-  margin-bottom: 0;
-}
-#newProduct #productInfo .productInputContainer label {
-  margin-bottom: 4px;
-  font-size: 100%;
-  font-weight: 600;
-}
-#newProduct #productInfo .productInputContainer .inputSpan {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  transition: 0.2s ease;
-}
-#newProduct #productInfo .productInputContainer .inputSpan span {
-  font-weight: 600;
-  font-size: 125%;
-}
-#newProduct #productInfo .productInputContainer .inputSpan input {
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 100%;
-  font-weight: 600;
-  height: 100%;
-  padding: 10px;
-}
-#newProduct #productInfo .productInputContainer .inputSpan input:focus + span {
-  color: #40a9ff;
-}
-#newProduct #productInfo .productInputContainer .inputSpan:focus {
-  border-color: #40a9ff;
-  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-}
-#newProduct #productInfo .productInputContainer .inputSpan:has(input:focus) {
-  border: 1px solid #40a9ff;
-}
-#newProduct #productInfo .categoryInputContainer {
-  display: flex;
-  flex-direction: column;
-}
-#newProduct #productInfo .categoryInputContainer label {
-  margin-bottom: 4px;
-  font-size: 100%;
-  font-weight: 600;
-}
-#newProduct #productInfo .categoryInputContainer select {
-  width: 100%;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 100%;
-  font-weight: 600;
-  outline: none;
-  transition: 0.2s ease;
-}
-#newProduct #productInfo .categoryInputContainer select:focus {
-  border-color: #40a9ff;
-  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-}
-#newProduct #productInfo .categoryInputContainer select option {
-  font-weight: 600;
-}
-#newProduct #productInfo .priceInputContainer {
-  display: flex;
-  flex-direction: row;
-}
-#newProduct #productInfo .priceInputContainer div {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-right: 10px;
-  flex: 1;
-}
-#newProduct #productInfo .priceInputContainer div label {
-  margin-right: 10px;
-}
-#newProduct #productInfo .priceInputContainer div label:last-of-type {
-  margin-right: 0;
-}
-#newProduct #productInfo .priceInputContainer div .inputSpan span {
-  margin-right: 2px;
-  padding-left: 6px;
-}
-#newProduct #productInfo .priceInputContainer div .inputSpan input {
-  flex: 1;
-  font-weight: 600;
-  padding-left: 2px;
-}
-#newProduct #productInfo .priceInputContainer div .inputSpan input::-webkit-outer-spin-button, #newProduct #productInfo .priceInputContainer div .inputSpan input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-#newProduct #productInfo .priceInputContainer div:last-of-type {
-  margin-right: 0;
-}
-#newProduct #productInfo #stockContainer {
-  display: flex;
-}
-#newProduct #productInfo #stockContainer div {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin-right: 10px;
-}
-#newProduct #productInfo #stockContainer div:last-of-type {
-  margin-right: 0;
-}
-#newProduct #productInfo #stockContainer div span {
-  display: flex;
-  height: 100%;
-}
-#newProduct #productInfo #stockContainer div span select {
-  width: 100%;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 100%;
-  font-weight: 600;
-  outline: none;
-  transition: 0.2s ease;
-}
-#newProduct #productInfo #stockContainer div span select:focus {
-  border-color: #40a9ff;
-  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-}
-#newProduct #productInfo #stockContainer div span select option {
-  font-weight: 600;
-}
-#newProduct #productInfo #stockContainer div span input {
-  width: 100%;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 100%;
-  font-weight: 600;
-  outline: none;
-  transition: 0.2s ease;
-}
-#newProduct #productInfo #stockContainer div span input:focus {
-  border-color: #40a9ff;
-  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-}
-#newProduct #productInfo #stockContainer div span input::-webkit-outer-spin-button, #newProduct #productInfo #stockContainer div span input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-#newProduct #productInfo #availableSizesContainer .sizesSpan {
-  display: flex;
-}
-#newProduct #productInfo #availableSizesContainer .sizesSpan .availableSizeCheck {
-  display: flex;
-  align-items: center;
-  margin-right: 15px;
-}
-#newProduct #productInfo #availableSizesContainer .sizesSpan .availableSizeCheck input {
-  margin-right: 5px;
-}
-#newProduct #productInfo #availableSizesContainer .sizesSpan .availableSizeCheck label {
-  font-size: 100%;
-  font-weight: 600;
 }/*# sourceMappingURL=newProduct.css.map */

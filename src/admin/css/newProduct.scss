@@ -1,71 +1,303 @@
 #newProduct{
     width: 100%;
-    display: flex;
-    #productSettings{
-        min-width: 40%;
-        margin-right: 10px;
-        #images{
-            #imagesInput{
-                display: flex;
-                background-color: #f0f0f0;
-                .imageInput{
+    #productUpper{
+        width: 100%;
+        display: flex;
+        flex: 1;
+
+        #productSettings{
+            min-width: 40%;
+            margin-right: 10px;
+            #images{
+                #imagesInput{
+                    display: flex;
+                    background-color: #f0f0f0;
+                    .imageInput{
+                        width: 100%;
+                        label{
+                            margin: 10px;
+                            border: 1px dashed rgba(0, 0, 0, 0.2);
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100px;
+                            cursor: pointer;
+                            img{
+                                width: 40px;
+                            }
+                        }
+                    }
+                    input{
+                        display: none;
+                    }
+                }
+                #uploadedImages{
+                    margin-top: 10px;
                     width: 100%;
-                    label{
-                        margin: 10px;
-                        border: 1px dashed rgba(0, 0, 0, 0.2);
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        height: 100px;
-                        cursor: pointer;
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 5px;
+                    padding: 10px;
+                    .uploadedImage{
                         img{
-                            width: 40px;
+                            max-width: 150px;
+                            cursor: pointer;
                         }
                     }
                 }
-                input{
-                    display: none;
-                }
             }
-            #uploadedImages{
-                margin-top: 10px;
-                width: 100%;
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 5px;
-                padding: 10px;
-                .uploadedImage{
-                    img{
-                        max-width: 150px;
-                        cursor: pointer;
+            #aboutItem{
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                .aboutItemContainer{
+                    .aboutItemInput{
+                        input{
+                            width: 100%;
+                            border: 1px solid #d9d9d900;
+                            border-bottom: 1px solid #a5a5a5;
+                            padding: 10px;
+                            font-size: 100%;
+                            font-weight: 600;
+                            border-radius: 4px;
+                            outline: none;
+                            transition: .2s ease;
+                            &:focus{
+                                border: 1px solid #40a9ff;
+                                box-shadow: 0 1px 0 2px rgba(24, 144, 255, 0.2);
+                            }
+                        }
                     }
                 }
             }
         }
-        #aboutItem{
-            margin-bottom: 10px;
+        #productInfo{
             display: flex;
+            width: 100%;
             flex-direction: column;
-            .aboutItemContainer{
-                .aboutItemInput{
+            flex: 1;
+            &>*{
+                margin-bottom: 20px !important;
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+            }
+            .productInputContainer{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: max-content;
+                margin-bottom: 10px;
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+                label{
+                    margin-bottom: 4px;
+                    font-size: 100%;
+                    font-weight: 600;
+                }
+                .inputSpan{
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    border: 1px solid #d9d9d9;
+                    border-radius: 4px;
+                    transition: .2s ease;
+                    span{
+                        font-weight: 600;
+                        font-size: 125%;
+                    }
                     input{
                         width: 100%;
                         border: none;
-                        border-bottom: 1px solid #d9d9d9;
+                        outline: none;
+                        font-size: 100%;
+                        font-weight: 600;
+                        height: 100%;
+                        padding: 10px;
+                        &:focus + span{
+                            color: #40a9ff;
+                        }
+                    }
+                    &:focus{
+                        border-color: #40a9ff;
+                        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+                    }
+                    &:has(input:focus){
+                        border: 1px solid #40a9ff;
+                    }
+                }
+            }
+            .categoryInputContainer{
+                display: flex;
+                flex-direction: column;
+                label{
+                    margin-bottom: 4px;
+                    font-size: 100%;
+                    font-weight: 600;
+                }
+                select{
+                    width: 100%;
+                    border: 1px solid #d9d9d9;
+                    border-radius: 4px;
+                    padding: 10px;
+                    font-size: 100%;
+                    font-weight: 600;
+                    outline: none;
+                    transition: .2s ease;
+                    &:focus{
+                        border-color: #40a9ff;
+                        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+                    }
+                    option{
+                        font-weight: 600;
+                    }
+                }
+            }
+            .priceInputContainer{
+                display: flex;
+                flex-direction: row;
+                div{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: 10px;
+                    flex: 1;
+                    label{
+                        margin-right: 10px;
+                        &:last-of-type{
+                            margin-right: 0;
+                        }
+                    }
+                    .inputSpan{
+                        span{
+                            margin-right: 2px;
+                            padding-left: 6px;
+                        }
+                        input{
+                            flex: 1;
+                            font-weight: 600;
+                            padding-left: 2px;
+                            &::-webkit-outer-spin-button,
+                            &::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                            }
+                        }
+                    }
+                    &:last-of-type{
+                        margin-right: 0;
+                    }
+                }
+            }
+            #stockContainer{
+                display: flex;
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    margin-right: 10px;
+                    &:last-of-type{
+                        margin-right: 0;
+                    }
+                    label{
+                        font-weight: 600;
+                    }
+                    span{
+                        display: flex;
+                        height: 100%;
+                        select{
+                            width: 100%;
+                            border: 1px solid #d9d9d9;
+                            border-radius: 4px;
+                            padding: 10px;
+                            font-size: 100%;
+                            font-weight: 600;
+                            outline: none;
+                            transition: .2s ease;
+                            &:focus{
+                                border-color: #40a9ff;
+                                box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+                            }
+                            option{
+                                font-weight: 600;
+                            }
+                        }
+                        input{
+                            width: 100%;
+                            border: 1px solid #d9d9d9;
+                            border-radius: 4px;
+                            padding: 10px;
+                            font-size: 100%;
+                            font-weight: 600;
+                            outline: none;
+                            transition: .2s ease;
+                            &:focus{
+                                border-color: #40a9ff;
+                                box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+                            }
+                            &::-webkit-outer-spin-button,
+                            &::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            #availableSizesContainer{
+                .sizesSpan{
+                    display: flex;
+                    .availableSizeCheck{
+                        display: flex;
+                        align-items: center;
+                        margin-right: 15px;
+                        input{
+                            cursor: pointer;
+                        }
+                        label{
+                            user-select: none;
+                            padding-left: 5px;
+                            font-size: 100%;
+                            font-weight: 600;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            #tagsContainer{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                h2{
+                    margin-bottom: 4px;
+                    font-size: 100%;
+                    font-weight: 600;
+                }
+                .tagsInput{
+                    width: 100%;
+                    input{
+                        width: 100%;
+                        border: 1px solid #d9d9d9;
+                        border-radius: 4px;
                         padding: 10px;
                         font-size: 100%;
                         font-weight: 600;
                         outline: none;
                         transition: .2s ease;
                         &:focus{
-                            border: 1px solid #40a9ff;
-                            box-shadow: 0 1px 0 2px rgba(24, 144, 255, 0.2);
+                            border-color: #40a9ff;
+                            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
                         }
                     }
+                    
                 }
             }
         }
+    }
+    #productDown{
+        width: 100%;
         #description{
             display: flex;
             flex-direction: column;
@@ -86,196 +318,6 @@
                 &:focus{
                     border-color: #40a9ff;
                     box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-                }
-            }
-        }
-    }
-    #productInfo{
-        display: flex;
-        width: 100%;
-        max-width: 40%;
-        flex-direction: column;
-        &>*{
-            margin-bottom: 20px !important;
-            &:last-of-type{
-                margin-bottom: 0;
-            }
-        }
-        .productInputContainer{
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: max-content;
-            margin-bottom: 10px;
-            &:last-of-type{
-                margin-bottom: 0;
-            }
-            label{
-                margin-bottom: 4px;
-                font-size: 100%;
-                font-weight: 600;
-            }
-            .inputSpan{
-                display: flex;
-                align-items: center;
-                width: 100%;
-                border: 1px solid #d9d9d9;
-                border-radius: 4px;
-                transition: .2s ease;
-                span{
-                    font-weight: 600;
-                    font-size: 125%;
-                }
-                input{
-                    width: 100%;
-                    border: none;
-                    outline: none;
-                    font-size: 100%;
-                    font-weight: 600;
-                    height: 100%;
-                    padding: 10px;
-                    &:focus + span{
-                        color: #40a9ff;
-                    }
-                }
-                &:focus{
-                    border-color: #40a9ff;
-                    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-                }
-                &:has(input:focus){
-                    border: 1px solid #40a9ff;
-                }
-            }
-        }
-        .categoryInputContainer{
-            display: flex;
-            flex-direction: column;
-            label{
-                margin-bottom: 4px;
-                font-size: 100%;
-                font-weight: 600;
-            }
-            select{
-                width: 100%;
-                border: 1px solid #d9d9d9;
-                border-radius: 4px;
-                padding: 10px;
-                font-size: 100%;
-                font-weight: 600;
-                outline: none;
-                transition: .2s ease;
-                &:focus{
-                    border-color: #40a9ff;
-                    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-                }
-                option{
-                    font-weight: 600;
-                }
-            }
-        }
-        .priceInputContainer{
-            display: flex;
-            flex-direction: row;
-            div{
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                margin-right: 10px;
-                flex: 1;
-                label{
-                    margin-right: 10px;
-                    &:last-of-type{
-                        margin-right: 0;
-                    }
-                }
-                .inputSpan{
-                    span{
-                        margin-right: 2px;
-                        padding-left: 6px;
-                    }
-                    input{
-                        flex: 1;
-                        font-weight: 600;
-                        padding-left: 2px;
-                        &::-webkit-outer-spin-button,
-                        &::-webkit-inner-spin-button {
-                        -webkit-appearance: none;
-                        margin: 0;
-                        }
-                    }
-                }
-                &:last-of-type{
-                    margin-right: 0;
-                }
-            }
-        }
-        #stockContainer{
-            display: flex;
-            div{
-                display: flex;
-                flex-direction: column;
-                flex: 1;
-                margin-right: 10px;
-                &:last-of-type{
-                    margin-right: 0;
-                }
-                span{
-                    display: flex;
-                    height: 100%;
-                    select{
-                        width: 100%;
-                        border: 1px solid #d9d9d9;
-                        border-radius: 4px;
-                        padding: 10px;
-                        font-size: 100%;
-                        font-weight: 600;
-                        outline: none;
-                        transition: .2s ease;
-                        &:focus{
-                            border-color: #40a9ff;
-                            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-                        }
-                        option{
-                            font-weight: 600;
-                        }
-                    }
-                    input{
-                        width: 100%;
-                        border: 1px solid #d9d9d9;
-                        border-radius: 4px;
-                        padding: 10px;
-                        font-size: 100%;
-                        font-weight: 600;
-                        outline: none;
-                        transition: .2s ease;
-                        &:focus{
-                            border-color: #40a9ff;
-                            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-                        }
-                        &::-webkit-outer-spin-button,
-                        &::-webkit-inner-spin-button {
-                        -webkit-appearance: none;
-                        margin: 0;
-                        }
-                    }
-                }
-            }
-        }
-        #availableSizesContainer{
-            .sizesSpan{
-                display: flex;
-                .availableSizeCheck{
-                    display: flex;
-                    align-items: center;
-                    margin-right: 15px;
-                    input{
-                        margin-right: 5px;
-                        
-                    }
-                    label{
-                        font-size: 100%;
-                        font-weight: 600;
-                    }
                 }
             }
         }
