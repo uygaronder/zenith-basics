@@ -2,4 +2,45 @@
     #newProductButton{
         cursor: pointer;
     }
+    tbody{
+        tr{
+            td:last-of-type{
+                display: flex;
+                justify-content: end;
+                img{
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    #categoriesContainer{
+        .newCategory{
+            display: flex;
+            input{
+                margin-right: 10px;
+                font-weight: 600;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                padding: 5px;
+            }
+            span{
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 0 8px;
+                transition: .15s ease;
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 10px;
+                }
+                &:hover{
+                    background-color: #ccc;
+                }
+            }
+        }
+    }
 }

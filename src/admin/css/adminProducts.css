@@ -1,3 +1,37 @@
 #adminProducts #newProductButton {
   cursor: pointer;
+}
+#adminProducts tbody tr td:last-of-type {
+  display: flex;
+  justify-content: end;
+}
+#adminProducts tbody tr td:last-of-type img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+#adminProducts #categoriesContainer .newCategory {
+  display: flex;
+}
+#adminProducts #categoriesContainer .newCategory input {
+  margin-right: 10px;
+  font-weight: 600;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+}
+#adminProducts #categoriesContainer .newCategory span {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: 0.15s ease;
+}
+#adminProducts #categoriesContainer .newCategory span img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+#adminProducts #categoriesContainer .newCategory span:hover {
+  background-color: #ccc;
 }/*# sourceMappingURL=adminProducts.css.map */

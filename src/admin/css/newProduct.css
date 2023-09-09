@@ -70,6 +70,10 @@
 }
 #newProduct #productUpper #productSettings #images #uploadedImages .uploadedImage > img {
   max-width: 150px;
+  max-height: 150px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   cursor: pointer;
 }
 #newProduct #productUpper #productSettings #aboutItem {
@@ -77,10 +81,12 @@
   display: flex;
   flex-direction: column;
 }
-#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .aboutItemInput input {
+#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .aboutItemInput {
   width: 100%;
   border: 1px solid rgba(217, 217, 217, 0);
   border-bottom: 1px solid #a5a5a5;
+  display: flex;
+  text-align: center;
   padding: 10px;
   font-size: 100%;
   font-weight: 600;
@@ -88,9 +94,22 @@
   outline: none;
   transition: 0.2s ease;
 }
-#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .aboutItemInput input:focus {
+#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .aboutItemInput:focus {
   border: 1px solid #40a9ff;
   box-shadow: 0 1px 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .aboutItemInput input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-weight: 600;
+}
+#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .aboutItemInput:has(input:focus) {
+  border: 1px solid #40a9ff;
+  box-shadow: 0 1px 0 2px rgba(24, 144, 255, 0.2);
+}
+#newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .removeAboutItem {
+  display: flex;
 }
 #newProduct #productUpper #productSettings #aboutItem .aboutItemContainer .removeAboutItem img {
   width: 20px;

@@ -24,25 +24,29 @@ function NewPrododuct() {
     
     function handleAboutItemInput(event) {
         const aboutItems = aboutItemsRef.current;
-        const aboutItemInput = aboutItems.querySelector('.aboutItemInput');
-        const aboutItemInputInput = aboutItemInput.querySelector('input');
+        const aboutItemInput = aboutItems.querySelectorAll('.aboutItemInput');
+        const aboutItemInputInput = aboutItemInput[aboutItemInput.length - 1].querySelector('input');
         const aboutItemInputInputValue = aboutItemInputInput.value;
-        if(event.key === 'Enter' && aboutItemInputInputValue !== '') {
-            const aboutItem = document.createElement('span');
-            aboutItem.className = 'aboutItem';
-            const aboutItemText = document.createElement('input');
-            aboutItemText.innerText = aboutItemInputInputValue;
-            const removeAboutItem = document.createElement('span');
-            removeAboutItem.className = 'removeAboutItem';
-            removeAboutItem.addEventListener('click', () => {
-                aboutItems.removeChild(aboutItem)
+        if((event.key === 'Enter' || event.key === 'Tab') && aboutItemInputInputValue !== '') {
+            event.preventDefault();
+            aboutItemInputInput.focus();
+            const newAboutItemInput = document.createElement('span');
+            newAboutItemInput.className = 'aboutItemInput';
+            const newAboutItemInputInput = document.createElement('input');
+            newAboutItemInputInput.type = 'text';
+            newAboutItemInputInput.value = aboutItemInputInputValue;
+            newAboutItemInputInput.addEventListener('keydown', (e) => { handleAboutItemInput(e) })
+            const newAboutItemInputRemove = document.createElement('span');
+            newAboutItemInputRemove.className = 'removeAboutItem';
+            newAboutItemInputRemove.addEventListener('click', () => {
+                aboutItems.removeChild(newAboutItemInput)
             })
-            const removeAboutItemIcon = document.createElement('img');
-            removeAboutItemIcon.src = Delete;
-            removeAboutItem.appendChild(removeAboutItemIcon);
-            aboutItem.appendChild(aboutItemText);
-            aboutItem.appendChild(removeAboutItem);
-            aboutItems.insertBefore(aboutItem, aboutItemInput);
+            const newAboutItemInputRemoveIcon = document.createElement('img');
+            newAboutItemInputRemoveIcon.src = Delete;
+            newAboutItemInputRemove.appendChild(newAboutItemInputRemoveIcon);
+            newAboutItemInput.appendChild(newAboutItemInputInput);
+            newAboutItemInput.appendChild(newAboutItemInputRemove);
+            aboutItems.insertBefore(newAboutItemInput, aboutItemInput[aboutItemInput.length - 1]);
             aboutItemInputInput.value = '';
         }
     }
@@ -109,6 +113,11 @@ function NewPrododuct() {
                     <span className='aboutItemContainer' ref={aboutItemsRef}>
                         <span className='aboutItemInput'>
                             <input type='text' />
+                            {/* 
+                            <span className='removeAboutItem'>
+                                <img src={Delete} />
+                            </span>
+                            */}
                         </span>
                     </span>
                 </span>
