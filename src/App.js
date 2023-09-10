@@ -3,11 +3,12 @@ import { BrowserRouter, Route , Routes} from 'react-router-dom'
 import "./shared/css/root.css"
 
 import ZenithBasics from './ZenithBasics'
+import Loading from "./shared/components/loading/Loading"
 
 export default function App() {
   return (
     <BrowserRouter>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
             <Routes>
                 {/*<Route path='/' component={ZenithBasics}/>*/}
             </Routes>

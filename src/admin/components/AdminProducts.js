@@ -36,16 +36,29 @@ function addCategory(e) {
     newCategoryInput.classList.remove('error');
     newCategoryInput.placeholder = 'New Category';
     const newCategoryRow = document.createElement('tr');
-    newCategoryRow.innerHTML = `
-      <td>1</td>
-      <td>${newCategoryInput.value}</td>
-      <td>0</td>
-      <td onClick={(e) => editCategory(e)}><img src=${Edit} /></td>
-    `
+
+    const newCategoryId = document.createElement("td");
+    newCategoryId.innerText="0"; //ph
+    newCategoryRow.appendChild(newCategoryId)
+
+    const newCategoryValue = document.createElement("td");
+    newCategoryValue.innerText = newCategoryInput.value;
+    newCategoryRow.appendChild(newCategoryValue)
+
+    const newCategoryNumOfItems = document.createElement("td");
+    newCategoryNumOfItems.innerText = 0;
+    newCategoryRow.appendChild(newCategoryNumOfItems)
+
+    const newCategoryButton = document.createElement("td");
+    newCategoryButton.onClick = (e) => {editCategory(e)}
+
+    const newCategoryImg = document.createElement("img");
+    newCategoryImg.src = Edit;
+    newCategoryButton.appendChild(newCategoryImg);
+    newCategoryRow.appendChild(newCategoryButton);
+
     categories.insertBefore(newCategoryRow, addCategory);
     newCategoryInput.value = '';
-    newCategory.style.display = 'none';
-    newCategorySpan.style.display = 'flex';
   }
 }
 
@@ -102,7 +115,7 @@ function AdminProducts() {
         <div className="collapsibleSetting">
             <input type="checkbox" id="productBool"/>
             <h2 className="settingTitle"><span>Products</span><label htmlFor='productBool'><img src={Chevron} /></label></h2>
-            <div className='settingCsontent'>
+            <div className='settingContent'>
                 <div className='collapsibleContainer'>
                     <div id='productButtonsUp'>
                       <span id='newProductButton' onClick={() => goToNewProductPage()}>Add New Product</span>
