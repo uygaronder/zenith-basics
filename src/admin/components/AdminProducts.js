@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect, useRef, useState} from 'react'
 import "../css/adminProducts.css"
 
 import Chevron from "../res/chevron-down-solid.svg"
@@ -10,20 +10,6 @@ function editCategory(e) {
 }
 
 function addCategory(e) {
-  fetch(`${process.env.REACT_APP_APIURL}/site/newCategory`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      category: e.target.parentNode.parentNode.querySelector('input').value
-  }),
-  }).then(res => res.json())
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => console.log(err))
-
   const newCategory = document.querySelector('.newCategory');
   const newCategoryInput = document.querySelector('.newCategory input');
   const newCategorySpan = document.querySelector('.newCategory span');
@@ -33,32 +19,52 @@ function addCategory(e) {
     newCategoryInput.classList.add('error');
     newCategoryInput.placeholder = 'Please enter a category name';
   }else{
-    newCategoryInput.classList.remove('error');
-    newCategoryInput.placeholder = 'New Category';
-    const newCategoryRow = document.createElement('tr');
+    fetch(`${process.env.REACT_APP_APIURL}/site/newCategory`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        category: document.querySelector('#newCategoryInput').value
+      }),
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
 
-    const newCategoryId = document.createElement("td");
-    newCategoryId.innerText="0"; //ph
-    newCategoryRow.appendChild(newCategoryId)
-
-    const newCategoryValue = document.createElement("td");
-    newCategoryValue.innerText = newCategoryInput.value;
-    newCategoryRow.appendChild(newCategoryValue)
-
-    const newCategoryNumOfItems = document.createElement("td");
-    newCategoryNumOfItems.innerText = 0;
-    newCategoryRow.appendChild(newCategoryNumOfItems)
-
-    const newCategoryButton = document.createElement("td");
-    newCategoryButton.onClick = (e) => {editCategory(e)}
-
-    const newCategoryImg = document.createElement("img");
-    newCategoryImg.src = Edit;
-    newCategoryButton.appendChild(newCategoryImg);
-    newCategoryRow.appendChild(newCategoryButton);
-
-    categories.insertBefore(newCategoryRow, addCategory);
-    newCategoryInput.value = '';
+      /* add HTML */
+      if(data.status === 'success') {
+        newCategoryInput.classList.remove('error');
+        newCategoryInput.placeholder = 'New Category';
+        const newCategoryRow = document.createElement('tr');
+    
+        const newCategoryId = document.createElement("td");
+        newCategoryId.innerText="0"; //ph
+        newCategoryRow.appendChild(newCategoryId)
+    
+        const newCategoryValue = document.createElement("td");
+        newCategoryValue.innerText = newCategoryInput.value;
+        newCategoryRow.appendChild(newCategoryValue)
+    
+        const newCategoryNumOfItems = document.createElement("td");
+        newCategoryNumOfItems.innerText = 0;
+        newCategoryRow.appendChild(newCategoryNumOfItems)
+    
+        const newCategoryButton = document.createElement("td");
+        newCategoryButton.onClick = (e) => {editCategory(e)}
+    
+        const newCategoryImg = document.createElement("img");
+        newCategoryImg.src = Edit;
+        newCategoryButton.appendChild(newCategoryImg);
+        newCategoryRow.appendChild(newCategoryButton);
+    
+        categories.insertBefore(newCategoryRow, addCategory);
+        newCategoryInput.value = '';
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   }
 }
 
@@ -71,7 +77,36 @@ function editProduct(e) {
 
 }
 
-function AdminProducts() {
+function AdminProducts({ siteData }) {
+  const newCategoryRef = useRef(null)
+  const [ products, setProducts ] = useState([])
+
+  useEffect(() => {
+    const loadData = async () => {
+      await fetchProducts();
+
+      console.log(products)
+    }
+
+    loadData();
+},[])
+
+
+  const fetchProducts = async () => {
+    await fetch(`${process.env.REACT_APP_APIURL}/site/products`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      return setProducts(data);;
+    });
+  }
+
+
   return (
     <section id='adminProducts' className='adminPage'>
         <div id='categoriesContainer' className="collapsibleSetting">
@@ -89,12 +124,16 @@ function AdminProducts() {
                         </tr>
                       </thead>
                       <tbody className='categories'>
-                        <tr>
-                          <td>1</td>
-                          <td>Category 1</td>
-                          <td>1</td>
-                          <td onClick={(e) => editCategory(e)}><img src={Edit} /></td>
-                        </tr>
+                        {siteData.category ? siteData.category.map((category, index) => {
+                          return (
+                            <tr key={index}>
+                              <td>{index+1}</td>
+                              <td>{category.slug}</td>
+                              <td>{category.products.length}</td>
+                              <td onClick={(e) => editCategory(e)}><img src={Edit} /></td>
+                            </tr>
+                          )
+                        }) : null}
                         {/**
                         <tr className='addCategory'>
                           <td>New</td>
@@ -106,7 +145,7 @@ function AdminProducts() {
                       </tbody>
                     </table>
                     <span className='newCategory'>
-                      <input type='text' placeholder='New Category' />
+                      <input type='text' id='newCategoryInput' ref={newCategoryRef} placeholder='New Category' />
                       <span onClick={(e) => addCategory(e)}><p>Add Category</p> <img src={Add} /></span>
                     </span>
                 </div>
@@ -118,8 +157,7 @@ function AdminProducts() {
             <div className='settingContent'>
                 <div className='collapsibleContainer'>
                     <div id='productButtonsUp'>
-                      <span id='newProductButton' onClick={() => goToNewProductPage()}>Add New Product</span>
-
+                      <span id='newProductButton' onClick={() => goToNewProductPage()}>New Product</span>
                     </div>
                     <table>
                       <thead>
@@ -134,7 +172,23 @@ function AdminProducts() {
                         </tr>
                       </thead>
                       <tbody className='products'>
-                        <tr>
+                        
+                        {products ? products.map((product, index) => {
+                          return (
+                            <tr key={index}>
+                              <td>{index+1}</td>
+                              <td>{product.name}</td>
+                              <td>{product.category}</td>
+                              <td>${product.price}</td>
+                              <td>{product.sold}</td>
+                              <td>{product.stock}</td>
+                              <td onClick={(e) => editProduct(e)}><img src={Edit} /></td>
+                            </tr>
+                          )
+                        }) : null
+                        }
+                        {/**
+                         * <tr>
                           <td>1</td>
                           <td>Product 1</td>
                           <td>Category 1</td>
@@ -143,6 +197,7 @@ function AdminProducts() {
                           <td>1</td>
                           <td onClick={(e) => editProduct(e)}><img src={Edit} /></td>
                         </tr>
+                         */}
                       </tbody>
                     </table>
                 </div>

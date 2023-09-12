@@ -1,12 +1,18 @@
 .loading{
     display: flex;
     height: 100%;
+    width: 100%;
     .spinnerDots{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
         height: 100%;
         width: 100%;
+        p{
+          font-weight: 600;
+          opacity: .5;
+        }
         .lds-roller {
             display: inline-block;
             position: relative;

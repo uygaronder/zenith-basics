@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 import NavbarSmall from './shared/components/navbar/NavbarSmall'
@@ -17,8 +17,13 @@ export default function ZenithBasics() {
   const [user, setUser] = useState(null);
   const [siteData, setsiteData] = useState(null);
 
+  useEffect(() => {
+    fetchUser()
+    fetchSiteData()
+  }, [])
+
   const fetchSiteData = () => {
-    fetch(`${process.env.REACT_APP_APIURL}/siteData`, {
+    fetch(`${process.env.REACT_APP_APIURL}/site`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -27,6 +32,7 @@ export default function ZenithBasics() {
     })
     .then(res => res.json())
     .then(data => {
+      setsiteData(data)
       console.log(data)
     });
   }
@@ -41,13 +47,11 @@ export default function ZenithBasics() {
     .then(res => res.json())
     .then(data => {
       setUser(data.user)
-      console.log(data.user)
+      //console.log(data.user)
     })
+    
   }
-
-  useState(() => {
-    fetchUser()
-  }, [])
+  
 
   function ProtectedRoute({loggedIn, adminOnly, children, toSend ,navigateTo}) {
     if(loggedIn && user){

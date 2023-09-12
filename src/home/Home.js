@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./css/Home.css"
 
 import Hero from "./components/Hero"
@@ -7,6 +7,7 @@ import ProductTabs from "./components/ProductTabs"
 import CTA from "./components/CTA"
 
 function Home() {
+
   return (
     <section id='home'>
         <Hero />
