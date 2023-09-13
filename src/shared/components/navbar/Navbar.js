@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import { Link } from 'react-router-dom'
 import '../../css/navbar.css'
 
@@ -52,7 +52,35 @@ function selectCategory(event) {
 }
 
 
-function Navbar() {
+function Navbar({user,siteData}) {
+    const cartRef = useRef(null);
+    const cartImgRef = useRef(null);
+    const notificationsRef = useRef(null);
+    const notificationsImgRef = useRef(null);
+
+    function openNotifications() {
+        notificationsImgRef.current.classList.toggle("tabOpen")
+        notificationsRef.current.classList.toggle("tabOpen")
+    }
+
+    function openCart() {
+        cartImgRef.current.classList.toggle("tabOpen")
+        cartRef.current.classList.toggle("tabOpen")
+    }
+
+    document.addEventListener('click', function(event) {
+        const isClickInside = cartRef.current.contains(event.target) || cartImgRef.current.contains(event.target) || notificationsRef.current.contains(event.target) || notificationsImgRef.current.contains(event.target);
+        const isImgs = cartImgRef.current.contains(event.target) || notificationsImgRef.current.contains(event.target);
+        const tabsOpen = cartRef.current.classList.contains("tabOpen") || notificationsRef.current.classList.contains("tabOpen")
+
+        if (!isClickInside) {
+            notificationsRef.current.classList.remove("tabOpen")
+            notificationsImgRef.current.classList.remove("tabOpen")
+            cartRef.current.classList.remove("tabOpen")
+            cartImgRef.current.classList.remove("tabOpen")
+        }
+    });
+
     return (
     <nav id='navbarMain'>
         <div className='navbar__logo'>
@@ -97,12 +125,44 @@ function Navbar() {
             </a>
         </div>
         <div className='navbarNotifications'>
-            <span>
-                <img className='svgMed' src={Notifications} />
-            </span>
+            <span >
+                <img className='svgMed' src={Notifications} ref={notificationsImgRef} onClick={(e) => openNotifications(e)} />
+                {user && user.notifications.length != 0 ? <span className='itemCount'>{user.notifications.length}</span> : null}
+                <div id='notifications' ref={notificationsRef}>
+                    <div className='head' id='notificationHead'>
+                        <h3>Notifications</h3>
+                    </div>
+                    <div className='body'>
+                        {(user && user.notifications.length != 0) ? 
+                        user.notifications.map((notification, index) => {
+                            return (
+                                <div key={index} className='notification'>
+                                    <p>{notification.message}</p>
+                                </div>
+                            )
+                        }) : <p>No New Notifications</p>}
+                    </div>
 
-            <span>
-                <img className='svgMed' src={Cart} />
+                </div>
+            </span>
+            <span >
+                <img className='svgMed' src={Cart} ref={cartImgRef} onClick={(e) => openCart(e)} />
+                {user && user.cart.length != 0 ? <span className='itemCount'>{user.cart.length}</span> : null}
+                <div id='cart' ref={cartRef}>
+                    <div className='head' id='cartHead'>
+                        <h3>Cart</h3>
+                    </div>
+                    <div className='body'>
+                        {(user && user.cart.length != 0) ? 
+                        user.cart.map((notification, index) => {
+                            return (
+                                <div key={index} className='notification'>
+                                    <p>{notification.message}</p>
+                                </div>
+                            )
+                        }) : <p>Cart Is Empty</p>}
+                    </div>
+                </div>
             </span>
         </div>
     </nav>

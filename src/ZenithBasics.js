@@ -33,7 +33,7 @@ export default function ZenithBasics() {
     .then(res => res.json())
     .then(data => {
       setsiteData(data)
-      console.log(data)
+      //console.log(data)
     });
   }
   const fetchUser = () => {
@@ -73,15 +73,15 @@ export default function ZenithBasics() {
 
   return (
     <>
-      <Navbar user={user}/>
-      <NavbarSmall user={user}/>
+      <Navbar user={user} siteData={siteData}/>
+      <NavbarSmall user={user} siteData={siteData}/>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/product/:id' element={<ProductPage />}/>
         <Route path='/search/:query/:category?' element={<SearchPage />}/>
         <Route path='/login/*' element={<LoginPage />}/>
         <Route path='/admin/*' element={
-          <ProtectedRoute loggedIn={true} adminOnly={true} toSend={<Loading />} navigateTo={"/"} ><Admin /></ProtectedRoute>
+          <ProtectedRoute loggedIn={true} adminOnly={true} toSend={<Loading />} navigateTo={"/"} ><Admin siteData={siteData}/></ProtectedRoute>
         }/>
         <Route path='*' element={<NotFound />}/>
       </Routes>

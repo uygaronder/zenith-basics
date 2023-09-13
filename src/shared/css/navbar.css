@@ -90,7 +90,72 @@
   align-items: center;
 }
 #navbarMain .navbarNotifications span {
+  cursor: pointer;
+  position: relative;
   padding-top: 5px;
   margin-left: 10px;
+  border-radius: 50%;
+  transition: 0.2s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+#navbarMain .navbarNotifications span:hover {
+  background-color: var(--borderGray);
+}
+#navbarMain .navbarNotifications span > img {
   opacity: 0.5;
+  transition: 0.2s ease;
+}
+#navbarMain .navbarNotifications span > img.tabOpen {
+  opacity: 0.8;
+}
+#navbarMain .navbarNotifications span.toggleWindow img {
+  opacity: 1;
+}
+#navbarMain .navbarNotifications span .itemCount {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--borderActive);
+  color: var(--white);
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 2px;
+  margin: auto;
+  font-size: 60%;
+}
+#navbarMain .navbarNotifications span > div {
+  position: absolute;
+  right: 110%;
+  top: 0%;
+  background-color: var(--whiterWhite);
+  padding: 10px 0;
+  border-radius: 4px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  min-width: 300px;
+}
+#navbarMain .navbarNotifications span > div img {
+  width: 20px;
+  height: 20px;
+}
+#navbarMain .navbarNotifications span > div.tabOpen {
+  display: flex;
+}
+#navbarMain .navbarNotifications span > div .head {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--borderGray);
+  padding: 10px;
+}
+#navbarMain .navbarNotifications span > div .body {
+  padding: 10px;
+  display: flex;
 }/*# sourceMappingURL=Navbar.css.map */

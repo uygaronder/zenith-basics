@@ -126,6 +126,7 @@
 #categoriesPopup {
   position: absolute;
   padding: 20px 30px;
+  padding-right: 80px;
   height: 100vh;
   background-color: var(--whiterWhite);
   z-index: 111;
@@ -152,6 +153,21 @@
 #categoriesPopup.categoriesPopupActive {
   display: block;
   left: 0%;
+}
+#categoriesPopup h2 {
+  font-size: 120%;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+#categoriesPopup #categoriesList {
+  display: flex;
+  font-weight: 600;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+#categoriesPopup #categoriesList span {
+  padding: 5px 0;
+  font-size: 110%;
 }
 
 #categoriesDarkScreen {

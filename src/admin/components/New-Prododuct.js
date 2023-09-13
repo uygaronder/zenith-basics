@@ -6,11 +6,13 @@ import Upload from "../res/upload.svg"
 import Delete from "../res/x-solid.svg"
 
 
-function NewPrododuct() {
+function NewPrododuct({siteData}) {
     const uploadInputRef = useRef(null);
     const imagesDivRef = useRef(null);
 
     const aboutItemsRef = useRef(null);
+    
+    let Images = [];
 
     useEffect(() => {
         const uploadInput = document.getElementById('imageInput');
@@ -21,6 +23,66 @@ function NewPrododuct() {
         const aboutItemInputInput = aboutItemInput.querySelector('input');
         aboutItemInputInput.addEventListener('keydown', (e) => { handleAboutItemInput(e) })
     }, [])
+
+    function uploadProduct() {
+        const images = imagesDivRef.current.querySelectorAll('.uploadedImage');
+        const imagesArray = [];
+        images.forEach(image => {
+            const img = image.querySelector('img');
+            imagesArray.push(img.src);
+        })
+        const aboutItems = aboutItemsRef.current;
+        const aboutItemInput = aboutItems.querySelectorAll('.aboutItemInput');
+        const aboutItemInputArray = [];
+        aboutItemInput.forEach(input => {
+            const inputValue = input.querySelector('input').value;
+            aboutItemInputArray.push(inputValue);
+        })
+        const productName = document.getElementById('productName').value;
+        const productCategory = document.getElementById('productCategory').value;
+        const productPrice = document.getElementById('productPrice').value;
+        const productDiscount = document.getElementById('productDiscount').value;
+        const stockStatus = document.getElementById('stockStatus').value;
+        const stockQuantity = document.getElementById('stockQuantity').value;
+        const availableSizesS = document.getElementById('availableSizesS').checked;
+        const availableSizesM = document.getElementById('availableSizesM').checked;
+        const availableSizesL = document.getElementById('availableSizesL').checked;
+        const availableSizesXL = document.getElementById('availableSizesXL').checked;
+        const availableSizesXXL = document.getElementById('availableSizesXXL').checked;
+        const tags = document.querySelector('#tagsContainer input').value;
+        const description = document.querySelector('#description textarea').value;
+        const product = {
+            images: imagesArray,
+            aboutItems: aboutItemInputArray,
+            productName,
+            productCategory,
+            productPrice,
+            productDiscount,
+            stockStatus,
+            stockQuantity,
+            sizes: {
+                S: availableSizesS,
+                M: availableSizesM,
+                L: availableSizesL,
+                XL: availableSizesXL,
+                XXL: availableSizesXXL
+            },
+            tags,
+            description
+        }
+        console.log(product)
+        fetch(`${process.env.REACT_APP_APIURL}/product/new`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        }).then(res => res.json())
+        .then(data => {
+            console.log(data)
+        }
+        )
+    }
     
     function handleAboutItemInput(event) {
         const aboutItems = aboutItemsRef.current;
@@ -58,19 +120,21 @@ function NewPrododuct() {
         images.forEach(image => {
             imagesDiv.removeChild(image)
         })
-        for(let file of files) {
+        
+        for(let i = 0; i < files.length; i++) {
+            const file = files[i];
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = (e) => {
                 const image = document.createElement('span');
                 image.className = 'uploadedImage';
                 const removeImage = document.createElement('span');
                 removeImage.className = 'removeImage';
-                removeImage.addEventListener('click', () => {
-                    imagesDiv.removeChild(image)
-                })
                 const removeImageIcon = document.createElement('img');
                 removeImageIcon.src = Delete;
                 removeImage.appendChild(removeImageIcon);
+                removeImage.addEventListener('click', () => {
+                    imagesDiv.removeChild(image)
+                })
                 const img = document.createElement('img');
                 img.src = e.target.result;
                 image.appendChild(removeImage);
@@ -133,10 +197,11 @@ function NewPrododuct() {
                     <label htmlFor='productCategory'>Product Category</label>
                     <span className='inputSpan'>
                         <select id='productCategory'>
-                            <option value=''>Select Category</option>
-                            <option value=''>Category 1</option>
-                            <option value=''>Category 2</option>
-                            <option value=''>Category 3</option>
+                            {siteData && siteData.category ? siteData.category.map((category, index) => {
+                                return (
+                                    <option key={index} value={category.slug}>{category.slug}</option>
+                                )
+                            }) : null}
                         </select>
                     </span>
                 </span>
@@ -204,21 +269,9 @@ function NewPrododuct() {
                         <input type='text' placeholder='Example: shirt, large' />
                     </span>
                 </span>
-                {/* 
-                <span id='colorsInput'>
-                    <span>Colors:</span>
-                    <div id='colorsContainer'>
-                        <span className='color'>
-                            <input type='text' placeholder="Color Name"/>
-                            <span className='colorInfo'>
-                                <span>Make Default</span>
-                                <span>Add Pictures</span>
-                                <span>Remove Color</span>
-                            </span>
-                        </span>
-                    </div>
+                <span>
+                    <span id='uploadProductButton' onClick={() => uploadProduct()}>Upload Product</span>
                 </span>
-                */}
             </div>
         
 

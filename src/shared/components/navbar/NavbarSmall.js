@@ -4,8 +4,7 @@ import '../../css/NavbarSmall.css'
 import Bars from "../../res/svg/bars-solid.svg"
 import { Link } from 'react-router-dom'
 
-function NavbarSmall(user) {
-  user = user.user;
+function NavbarSmall({user, siteData}) {
   const darkScreenRef = React.useRef();
   const categoriesPopupRef = React.useRef();
   const categoriesDarkScreenRef = React.useRef();
@@ -92,6 +91,15 @@ function NavbarSmall(user) {
     </nav>
     <span ref={categoriesPopupRef} id='categoriesPopup'>
           <h2>Categories</h2>
+          <div id='categoriesList'>
+            {siteData && siteData.category ? siteData.category.map((category, index) => {
+              return (
+                <span key={index}>
+                  <Link onClick={() => toggleCategoriesPopup()} to={`/search/all/${category.slug}`}>{category.slug}</Link>
+                </span>
+              )}) : null
+            }
+          </div>
     </span>
     <span onClick={() => toggleUserPopup()} ref={darkScreenRef} id='darkScreen'></span>
     <span onClick={() => toggleCategoriesPopup()} ref={categoriesDarkScreenRef} id='categoriesDarkScreen'></span>

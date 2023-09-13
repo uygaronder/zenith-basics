@@ -11,32 +11,7 @@ import Loading from '../shared/components/loading/Loading'
 
 
 
-function Admin() {
-  const [ siteData, setSiteData ]  = useState({})
-  
-  const fetchSiteData = async () => {
-    await fetch(`${process.env.REACT_APP_APIURL}/site`, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(data => {
-      return setSiteData(data);;
-    });
-  }
-  useEffect(() => {
-    const loadData = async () => {
-      console.log('fetching site data')
-      const data = await fetchSiteData();
-      console.log(data)
-      
-    }
-
-    loadData();
-  }, [])
+function Admin({siteData}) {
 
   return (
     <section id='adminPage'>
