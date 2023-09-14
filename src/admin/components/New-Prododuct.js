@@ -25,10 +25,11 @@ function NewPrododuct({siteData}) {
     }, [])
 
     function uploadProduct() {
-        const images = imagesDivRef.current.querySelectorAll('.uploadedImage');
+        const images = imagesDivRef.current.querySelectorAll('.uploadedImageImg');
+        console.log(images)
         const imagesArray = [];
         images.forEach(image => {
-            const img = image.querySelector('img');
+            const img = image;
             imagesArray.push(img.src);
         })
         const aboutItems = aboutItemsRef.current;
@@ -57,7 +58,9 @@ function NewPrododuct({siteData}) {
             productName,
             productCategory,
             productPrice,
-            productDiscount,
+            sale:{
+                salePrice: productDiscount,
+            },
             stockStatus,
             stockQuantity,
             sizes: {
@@ -136,6 +139,7 @@ function NewPrododuct({siteData}) {
                     imagesDiv.removeChild(image)
                 })
                 const img = document.createElement('img');
+                img.classList.add('uploadedImageImg');
                 img.src = e.target.result;
                 image.appendChild(removeImage);
                 image.appendChild(img);
