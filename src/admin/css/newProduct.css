@@ -333,6 +333,20 @@
   border-color: #40a9ff;
   box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
 }
+#newProduct #productUpper #productInfo #uploadProductButton {
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#newProduct #productUpper #productInfo #uploadProductButton:hover {
+  background-color: #dfdfdf;
+}
+#newProduct #productUpper #productInfo #uploadProductButton.loadingButton {
+  opacity: 0.5;
+  cursor: default;
+}
 #newProduct #productDown {
   width: 100%;
 }

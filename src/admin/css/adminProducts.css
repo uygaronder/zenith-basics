@@ -1,5 +1,14 @@
-#adminProducts #newProductButton {
+#adminProducts #productSettings {
   cursor: pointer;
+  justify-content: space-between;
+  display: flex;
+}
+#adminProducts #productSettings button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+#adminProducts #productSettings input {
+  padding: 5px;
 }
 #adminProducts tbody tr td:last-of-type {
   display: flex;

@@ -84,8 +84,7 @@ function AdminProducts({ siteData }) {
   useEffect(() => {
     const loadData = async () => {
       await fetchProducts();
-
-      console.log(products)
+      
     }
 
     loadData();
@@ -93,7 +92,7 @@ function AdminProducts({ siteData }) {
 
 
   const fetchProducts = async () => {
-    await fetch(`${process.env.REACT_APP_APIURL}/site/products`, {
+    await fetch(`${process.env.REACT_APP_APIURL}/product/`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -102,10 +101,14 @@ function AdminProducts({ siteData }) {
     })
     .then(res => res.json())
     .then(data => {
-      return setProducts(data);;
+      console.log(data);
+      return setProducts(data);
     });
   }
 
+  const handleChange = async () => {
+    const search = document.querySelector('#productSettings input').value;
+  }
 
   return (
     <section id='adminProducts' className='adminPage'>
@@ -134,14 +137,6 @@ function AdminProducts({ siteData }) {
                             </tr>
                           )
                         }) : null}
-                        {/**
-                        <tr className='addCategory'>
-                          <td>New</td>
-                          <td><input type='text' placeholder='New Category' /></td>
-                          <td></td>
-                          <td onClick={(e) => addCategory(e)}><img src={Add} /></td>
-                        </tr>
-                         */}
                       </tbody>
                     </table>
                     <span className='newCategory'>
@@ -156,8 +151,9 @@ function AdminProducts({ siteData }) {
             <h2 className="settingTitle"><span>Products</span><label htmlFor='productBool'><img src={Chevron} /></label></h2>
             <div className='settingContent'>
                 <div className='collapsibleContainer'>
-                    <div id='productButtonsUp'>
-                      <span id='newProductButton' onClick={() => goToNewProductPage()}>New Product</span>
+                    <div id='productSettings'>
+                      <button id='newProductButton' onClick={() => goToNewProductPage()}>New Product</button>
+                      <input type='text' placeholder='Search' onChange={() => handleChange()}/>
                     </div>
                     <table>
                       <thead>
@@ -177,11 +173,11 @@ function AdminProducts({ siteData }) {
                           return (
                             <tr key={index}>
                               <td>{index+1}</td>
-                              <td>{product.name}</td>
-                              <td>{product.category}</td>
-                              <td>${product.price}</td>
-                              <td>{product.sold}</td>
-                              <td>{product.stock}</td>
+                              <td>{product.productName}</td>
+                              <td>{product.productCategory}</td>
+                              <td>${product.productPrice}</td>
+                              <td>{product.sale.sold}</td>
+                              <td>{product.stockQuantity}</td>
                               <td onClick={(e) => editProduct(e)}><img src={Edit} /></td>
                             </tr>
                           )

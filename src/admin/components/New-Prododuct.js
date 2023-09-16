@@ -74,6 +74,7 @@ function NewPrododuct({siteData}) {
             description
         }
         console.log(product)
+        disableUploadButton();
         fetch(`${process.env.REACT_APP_APIURL}/product/new`, {
             method: 'POST',
             headers: {
@@ -82,11 +83,23 @@ function NewPrododuct({siteData}) {
             body: JSON.stringify(product)
         }).then(res => res.json())
         .then(data => {
-            console.log(data)
+            if(data.status === 'success') {
+                window.location.reload();
+            } else {
+                alert('Something went wrong')
+            }
         }
         )
     }
     
+    function disableUploadButton() {
+        const uploadButton = document.getElementById('uploadProductButton');
+        uploadButton.classList.add('loadingButton');
+        uploadButton.innerHTML = 'Uploading...';
+        uploadButton.disabled = true;
+    }
+
+
     function handleAboutItemInput(event) {
         const aboutItems = aboutItemsRef.current;
         const aboutItemInput = aboutItems.querySelectorAll('.aboutItemInput');
@@ -274,7 +287,7 @@ function NewPrododuct({siteData}) {
                     </span>
                 </span>
                 <span>
-                    <span id='uploadProductButton' onClick={() => uploadProduct()}>Upload Product</span>
+                    <button id='uploadProductButton' onClick={() => uploadProduct()}>Upload Product</button>
                 </span>
             </div>
         

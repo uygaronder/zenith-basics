@@ -1,6 +1,15 @@
 #adminProducts{
-    #newProductButton{
+    #productSettings{
         cursor: pointer;
+        justify-content: space-between;
+        display: flex;
+        button{
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        input{
+            padding: 5px;
+        }
     }
     tbody{
         tr{
