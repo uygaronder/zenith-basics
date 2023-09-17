@@ -5,7 +5,55 @@ import "../css/Product.css"
 import Star from "../../shared/res/svg/star-solid.svg";
 import Heart from "../../shared/res/svg/heart-regular.svg";
 
-function Product({product}) {
+function Product({product, user}) {
+    const addToCart = () => {
+        const onCart = user.cart.find(cartItem => cartItem.product._id === product._id)
+        fetch(`${process.env.REACT_APP_API_URL}/cart/add`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:{
+                product: product._id,
+                quantity: onCart?onCart.quantity+1:1
+            }
+        })
+    }
+
+    const addToWishlist = () => {
+        const onWishlist = user.wishlist.find(wishlistItem => wishlistItem.product._id === product._id)
+        fetch(`${process.env.REACT_APP_API_URL}/wishlist/add`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:{
+                product: product._id,       
+            }
+        })
+    }
+
+    const buyNow = () => {
+        const onCart = user.cart.find(cartItem => cartItem.product._id === product._id)
+        fetch(`${process.env.REACT_APP_API_URL}/cart/add`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:{
+                product: product._id,
+                quantity: onCart?onCart.quantity+1:1
+            }
+        }).then(() => {
+            window.location.href = "/cart"
+        }
+        )
+    }
+
+
   return (
     <section id='productContainer'>
         <span id='productUp'>
@@ -14,37 +62,42 @@ function Product({product}) {
         <div id='product'>
             <div id='productImagesContainer'>
                 <div id='productImages'>
-                    <div className='productImage'>
-                        <img src={product.image} alt={product.name} />
-                    </div>
+                    {product.images.map((image, index) => {
+                        return(
+                            <div className='productImage' key={index}>
+                                <img src={image} alt={product.productName} />
+                            </div>
+                        )
+                    })}
                 </div>
                 <div id='highlightedImage'>
-                    <img src={product.image} alt={product.name} />
+                    <img src={product.images[0]} alt={product.productName} />
                 </div>
             </div>
             <div id='productInfo'>
-                <span id='productName'>{product.name}</span>
+                <span id='productName'>{product.productName}</span>
                 <div id='productRatingsContainer'>
-                    <span id='productSales'>{product.ratings.numberOfSales >= 1000?parseInt(product.ratings.numberOfSales/1000)+`K+`:parseInt(product.ratings.numberOfSales/10)*10+`+`} Sold</span>
+                    <span id='productSales'>{product.reviews.length >= 1000?parseInt(product.reviews.length/1000)+`K+`:parseInt(product.reviews.length/10)*10+`+`} Sold</span>
                     <span className='dotDivider' />
                     <span id='productRating'>
-                        <span id='stars' style={{width:`${product.ratings.rating*20}px`}}>
+                        <span id='stars' style={{width:`${product.reviews.length*20}px`}}>
                             <img src={Star} />
                             <img src={Star} />
                             <img src={Star} />
                             <img src={Star} />
                             <img src={Star} />
                         </span>
-                        <span id='rating'>{product.ratings.rating}</span>
+                        <span id='rating'>{product.reviews.length}</span>
                     </span>
                     <span className='dotDivider' />
-                    <span id='numberOfReviews'>{product.ratings.numberOfReviews} Reviews</span>
+                    <span id='numberOfReviews'>{product.reviews.length} Reviews</span>
                 </div>
                 <div id='productPrice'>
-                    <span id='price'>${product.onSale?product.sale.discountedPrice:product.price}</span>
-                    {product.onSale?<span id='saleIndicitor'><span id='originalPrice'>${product.price}</span><span id='salePercantage'>{product.sale.discountPercentage}% off</span></span>:null}
+                    <span id='price'>${product.sale.onSale?product.sale.salePrice:product.productPrice}</span>
+                    {product.sale.onSale?<span id='saleIndicitor'><span id='originalPrice'>${product.productPrice}</span><span id='salePercantage'>{product.sale.discountPercentage}% off</span></span>:null}
                 </div>
-                <div id='availableColors'>
+                {/**
+                 * <div id='availableColors'>
                     {product.colors.map((color, index) => {
                         const className = index === 0?"availableColor selected":"availableColor"
                         return(
@@ -55,6 +108,8 @@ function Product({product}) {
                     }
                     )}
                 </div>
+                 */}
+                
                 <div id='availableSizes'>
                     <span id='sizeText'>Select Size</span>
                     <div id='sizes'>
@@ -66,19 +121,18 @@ function Product({product}) {
                     </div>
                 </div>
                 <div id='productButtons'>
-                    <span id='buy'>
-                        <span id='buyText'>Buy This Item</span>
+                    <span id='buy' onClick={() => buyNow()}>
+                        <span id='buyText' >Buy This Item</span>
                     </span>
-                    <span id='cart'>
+                    <span id='cart' onClick={() => addToCart()}>
                         <span id='cartText'>Add To Cart</span>
                     </span>
                     <div id='productDownButtons'>
                         <span className='lineDivider' />
-                        <span id='like'>
+                        <span id='like' onClick={() => addToWishlist()}>
                             <img src={Heart} >
-
                             </img>
-                            <span>Wishlist</span>
+                            <span > Wishlist</span>
                         </span>
                     </div>
                 </div>

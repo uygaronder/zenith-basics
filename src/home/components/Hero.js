@@ -50,28 +50,24 @@ function Hero() {
             </span>
         </div>
         <div id='heroItems'>
-            <div className='heroItem'>
-                <div className='imageContainer'>
-                    <img src={hero1} alt='hero-1' />
-                    <span className='blender'/>
-                </div>
-                <div className='heroText'>
-                    <span>#Big Basics Sale</span>
-                    <h1>Limited Time Offer! <br/> Up to 50% OFF!</h1>
-                    <span>Complete the Essentials</span>
-                </div>
-            </div>
-            <div className='heroItem'>
-                <div className='imageContainer'>
-                    <img src={hero1} alt='hero-1' />
-                    <span className='blender'/>
-                </div>
-                <div className='heroText'>
-                    <span>#Big Basics Saleaaaa</span>
-                    <h1>Limited Time Offer!fdsa <br/> Up to 50% OFF!</h1>
-                    <span>Complete the Essentials</span>
-                </div>
-            </div>
+            {
+                heroItems.map((item, index) => {
+                    return (
+                        <div className='heroItem' key={index}>
+                            <div className='imageContainer'>
+                                <img src={item.image} alt='hero-1' />
+                                <span className='blender'/>
+                            </div>
+                            <div className='heroText'>
+                                <span>{item.text.title}</span>
+                                <h1>{item.text.subtitle}</h1>
+                                <span>{item.text.description}</span>
+                                <span className='heroLink'>{item.text.link}</span>
+                            </div>
+                        </div>
+                    )
+                })
+            }
         </div>
         
         <HeroCategories />

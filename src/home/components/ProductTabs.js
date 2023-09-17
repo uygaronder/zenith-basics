@@ -95,7 +95,21 @@ function switchTab(tabName){
 }}
 
 
-function ProductTabs() {
+function ProductTabs({site, products}) {
+    const newArrivals = products.filter(product => product.sale.sold < 100);
+    let specialDiscount = products.filter(product => product.sale.onSale);
+    specialDiscount = specialDiscount.splice(0, 8);
+
+    const bestSellerIds = products.map(product => product.id);
+    let bestSellers = products.filter(product => bestSellerIds.includes(product.id));
+    bestSellers = bestSellers.splice(0, 8);
+
+    const newArrivalsIds = products.map(product => product.id);
+    let newArrivalsProducts = products.filter(product => newArrivalsIds.includes(product.id));
+    newArrivalsProducts = newArrivalsProducts.splice(newArrivalsProducts.length - 8, newArrivalsProducts.length - 1);
+    
+
+
   return (
     <section id='todayForYou'>
         <div id='forYouUpper'>
@@ -108,34 +122,28 @@ function ProductTabs() {
         </div>
         <div id='forYourProductsContainer'>
             <div id='bestSeller'>
-                <ProductMicro product={product} />
-                <ProductMicro product={productSale} />
-                <ProductMicro product={productLiked} />
-                <ProductMicro product={productSale} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={productSale} />
-                <ProductMicro product={product} />
+                {bestSellers.map((product, index) => {
+                    return (
+                        <ProductMicro product={product} />
+                    )
+                })
+                }
             </div>
             <div id='newArrivals'>
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
+                {newArrivalsProducts.map((product, index) => {
+                    return (
+                        <ProductMicro product={product} />
+                    )
+                })
+                }
             </div>
             <div id='specialDiscount'>
-                <ProductMicro product={productSale} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={productSale} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
-                <ProductMicro product={product} />
+                {specialDiscount.map((product, index) => {
+                    return (
+                        <ProductMicro product={product} />
+                    )
+                })
+                }
             </div>
         </div>
     </section>

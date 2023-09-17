@@ -56,7 +56,10 @@
                 }
                 .blender{
                     position: absolute;
-                    right: 0;
+                    margin-left: auto;
+                    right: 40%;
+                    top: 0;
+                    width: 60%;
                     height: 100%;
                     background: transparent;
                     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 35%);

@@ -1,11 +1,12 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 
 import Product from "./components/Product"
 import ProductDetails from "./components/ProductDetails"
 import ProductReviews from "./components/ProductReviews"
 import ProductsSlider from "../home/components/ProductSlider"
+import Loading from '../shared/components/loading/Loading'
 
-const product ={
+const product1 ={
   renderType: "sale",
   productID: 1,
   name: "Product Name4",
@@ -190,28 +191,41 @@ const reviews = {
   ]
 }
 
-function fetchProduct() {
-  fetch(`${process.env.REACT_APP_APIURL}/product/1`, {
-    method: 'GET',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log(data)
-  });
-}
 
 
 function ProductPage() {
+  const [product, setProduct] = useState(null);
+  const [loading , setLoading] = useState(true);
+
+  function fetchProduct() {
+    fetch(`${process.env.REACT_APP_APIURL}/product/${window.location.pathname.split("/")[2]}`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      setProduct(data);
+      console.log(data);
+      setLoading(false);
+    });
+  }
+  useEffect(() => {
+    fetchProduct()
+  }, [])
+
   return (
     <>
+        {loading ? <Loading /> : <>
         <Product product={product}/>
         <ProductDetails product={product}/>
         <ProductReviews reviews={reviews} />
-        <ProductsSlider type={"best"} />
+        {/**
+         *  <ProductsSlider site={siteData} type={"best"} products={[]} />
+         */}
+        </>}
     </>
   )
 }

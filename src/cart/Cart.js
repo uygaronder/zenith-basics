@@ -1,8 +1,10 @@
 import React from 'react'
 
-function Cart() {
+import "./css/Cart.css"
+
+function Cart({user, products}) {
   return (
-    <div>Cart</div>
+    <div id='cart'>Cart</div>
   )
 }
 

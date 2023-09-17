@@ -9,6 +9,7 @@ import NotFound from './shared/components/notFound/NotFound'
 import SearchPage from './search/searchPage/SearchPage'
 import ProductPage from './productPage/ProductPage'
 import LoginPage from './loginPage/LoginPage'
+import Cart from './cart/Cart'
 import Admin from "./admin/AdminPage"
 import Loading from './shared/components/loading/Loading'
 
@@ -16,6 +17,7 @@ import Loading from './shared/components/loading/Loading'
 export default function ZenithBasics() {
   const [user, setUser] = useState(null);
   const [siteData, setsiteData] = useState(null);
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     fetchUser()
@@ -36,6 +38,7 @@ export default function ZenithBasics() {
       //console.log(data)
     });
   }
+
   const fetchUser = () => {
     fetch(`${process.env.REACT_APP_APIURL}/user/sendLoggedInUser`, {
       method: 'GET',
@@ -49,7 +52,20 @@ export default function ZenithBasics() {
       setUser(data.user)
       //console.log(data.user)
     })
-    
+  }
+
+  const fetchProduct = () => {
+    fetch(`${process.env.REACT_APP_APIURL}/product/`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      setProduct(data)
+    });
   }
   
 
@@ -80,6 +96,7 @@ export default function ZenithBasics() {
         <Route path='/product/:id' element={<ProductPage />}/>
         <Route path='/search/:query/:category?' element={<SearchPage />}/>
         <Route path='/login/*' element={<LoginPage />}/>
+        <Route path='/cart' element={<Cart/>}/>
         <Route path='/admin/*' element={
           <ProtectedRoute loggedIn={true} adminOnly={true} toSend={<Loading />} navigateTo={"/"} ><Admin siteData={siteData}/></ProtectedRoute>
         }/>

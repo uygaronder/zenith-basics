@@ -1,1 +1,89 @@
-/*# sourceMappingURL=adminHome.css.map */
+.heroSetting > input {
+  display: none;
+}
+.heroSetting table thead tr th {
+  text-align: center;
+}
+.heroSetting table thead tr th:first-of-type {
+  text-align: left;
+}
+.heroSetting table thead tr th:last-of-type {
+  text-align: right;
+}
+.heroSetting table tbody tr td {
+  text-align: center;
+}
+.heroSetting table tbody tr td:first-of-type {
+  text-align: left;
+}
+.heroSetting table tbody tr td input[type=checkbox] {
+  display: none;
+}
+.heroSetting table tbody tr td input[type=checkbox]:checked + label span {
+  right: 2px;
+  margin-left: auto;
+  background-color: #5a5a5a;
+}
+.heroSetting table tbody tr td label {
+  margin: auto;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  padding: 10px;
+}
+.heroSetting table tbody tr td:last-of-type {
+  text-align: right;
+}
+.heroSetting table tbody tr td:last-of-type img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.slider {
+  height: 20px;
+  width: 40px;
+  display: flex;
+  position: relative;
+  box-shadow: 0 0 1px 1px #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+.slider:hover {
+  background-color: #e6e6e6;
+}
+.slider span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 16px;
+  width: 16px;
+  display: block;
+  border-radius: 50%;
+  background-color: #9e9e9e;
+}
+
+#flashUpper {
+  display: flex;
+}
+#flashUpper #flashSaleSliderContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+#flashUpper #flashSaleSliderContainer input {
+  display: none;
+}
+#flashUpper #flashSaleSliderContainer .slider {
+  margin-right: 10px;
+}
+#flashUpper #flashSaleSliderContainer #flashDate {
+  background-color: red;
+}
+#flashUpper #flashSaleSliderContainer #flashDate input {
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-weight: 600;
+}/*# sourceMappingURL=adminHome.css.map */

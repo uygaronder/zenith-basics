@@ -192,6 +192,7 @@
                     justify-content: center;
                     border: 3px solid var(--border);
                     border-radius: 8px;
+                    cursor: pointer;
                     & > span{
                         font-size: 125%;
                         font-weight: 600;
@@ -208,6 +209,7 @@
                     #like{
                         display: flex;
                         align-items: center;
+                        cursor: pointer;
                         img{
                             width: 25px;
                             height: 25px;

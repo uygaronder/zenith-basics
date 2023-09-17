@@ -15,11 +15,28 @@ function SearchPage() {
     const [listStyle, setListStyle] = React.useState('list');
     const [sort, setSort] = React.useState('featured');
     const [filters, setFilters] = React.useState({});
+    const [items, setItems] = React.useState([]);
 
 
     useEffect(() => {
-        setLoading(false)
+        fetchData()
+        //setLoading(false)
     }, [])
+
+    function fetchData () {
+        setLoading(true)
+        fetch(`${process.env.REACT_APP_APIURL}/product/search/${query}/${category}`)
+        .then(response => response.json())
+        .then(data => {
+            setLoading(false)
+            console.log(data)
+            setItems(data)
+        })
+        .catch(error => {
+            setLoading(false)
+            console.log(error)
+        })
+    }
 
     function toggleSelect() {
         const selectMenu = document.getElementById('sortOptions');
@@ -108,7 +125,7 @@ function SearchPage() {
                 <SearhSidebar filters={filters} setFilters={setFilters} />
             </div>
             <div id='searchPageItems'>
-                {loading ? <Loading /> : <SearchItems listStyle={listStyle} sort={sort} filters={filters} items={[]}/>}
+                {loading ? <Loading /> : <SearchItems listStyle={listStyle} sort={sort} filters={filters} items={items}/>}
             </div>
         </div>
     </section>

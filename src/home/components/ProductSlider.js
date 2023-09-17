@@ -1,60 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../css/ProductSlider.css"
 
 import SaleIcon from "../../shared/res/svg/tag-solid.svg"
 
 import ProductMicro from "../../shared/components/product/ProductMicro"
 
-const product ={
-  renderType: "sale",
-  productID: 1,
-  name: "Product Name1",
-  price: 100,
-  description: "Product Description",
-  image: require("../../home/res/cat-backpack.jpg"),
-  liked: false,
-  sale:{
-      onSale: true,
-      saleType: "flashSale",
-      discountedPrice: 70,
-      sold: 121,
-      stock: 300,
-  }
-}
-
-const productRegular ={
-  renderType: "regular",
-  productID: 1,
-  name: "Product Name2",
-  price: 100,
-  description: "Product Description",
-  image: require("../../home/res/cat-backpack.jpg"),
-  liked: false,
-  sale:{
-      onSale: false,
-      saleType: "none",
-      discountedPrice: 70,
-      sold: 121,
-      stock: 300,
-  }
-}
-
-const productLiked ={
-  renderType: "sale",
-  productID: 1,
-  name: "Product Name3",
-  price: 100,
-  description: "Product Description",
-  image: require("../../home/res/cat-backpack.jpg"),
-  liked: true,
-  sale:{
-      onSale: true,
-      saleType: "flashSale",
-      discountedPrice: 70,
-      sold: 121,
-      stock: 300,
-  }
-}
 function slideProducts(id,direction){
   const arrow = document.getElementById(id);
   
@@ -90,7 +40,52 @@ function slideProducts(id,direction){
   
 }
 
-function ProductsSlider({type}) {
+function ProductsSlider({type , products, site}) {
+  useEffect(() => {
+    if(type === "flashSale"){
+      flashSaleTimer();
+    }
+  }, [])
+
+
+  if(site.flashSale && type === "flashSale"){
+    const flashSaleIds = site.flashSale.products.map(product => product.id);
+    products = products.filter(product => flashSaleIds.includes(product._id));
+  }
+
+  function flashSaleTimer(){
+    const saleTimer = document.querySelector('.saleTimer');
+    const hours = document.getElementById('hours');
+    const minutes = document.getElementById('minutes');
+    const seconds = document.getElementById('seconds');
+
+    //sale end time is 1 hour 23 minutes from now
+    const saleEnd = new Date(Date.now() + 1*60*60*1000 + 23*60*1000);
+
+    setInterval(() => {
+      const now = new Date();
+      const timeLeft = saleEnd - now;
+      
+      let hoursLeft = Math.floor(timeLeft / (1000*60*60));
+      if(hoursLeft < 10){
+        hoursLeft = "0" + hoursLeft;
+      }
+      let minutesLeft = Math.floor((timeLeft / (1000*60)) % 60);
+      if(minutesLeft < 10){
+        minutesLeft = "0" + minutesLeft;
+      }
+      let secondsLeft = Math.floor((timeLeft / 1000) % 60);
+      if(secondsLeft < 10){
+        secondsLeft = "0" + secondsLeft;
+      }
+
+      hours.innerText = hoursLeft;
+      minutes.innerText = minutesLeft;
+      seconds.innerText = secondsLeft;
+    }, 900);
+
+  }
+
   return (
     <section id='productSlider'>
       <div className='saleUpper'>
@@ -100,11 +95,11 @@ function ProductsSlider({type}) {
               </span>
               <h3>Flash Sale!</h3>
               <span className='saleTimer'>
-                <span>02</span>
+                <span id='hours'>02</span>
                 <div>:</div>
-                <span>11</span>
+                <span id='minutes'>11</span>
                 <div>:</div>
-                <span>42</span>
+                <span id='seconds'>42</span>
               </span></> : <><h3>Best Sellers</h3></>}
               
           </div>
@@ -127,22 +122,14 @@ function ProductsSlider({type}) {
       </div>
       <div id='saleProducts'>
         {type === "flashSale" ? <>
-        <ProductMicro product={product} />
-        <ProductMicro product={product} />
-        <ProductMicro product={productLiked} />
-        <ProductMicro product={product} />
-        <ProductMicro product={product} />
-        <ProductMicro product={product} />
-        <ProductMicro product={product} />
-        <ProductMicro product={product} />
+        {products && products.map((product, index) => {
+          return (
+            <ProductMicro key={index} product={product}/>
+          )
+        })
+        }
         </> : <>
-        <ProductMicro product={productRegular}/>
-        <ProductMicro product={productRegular}/>
-        <ProductMicro product={productRegular}/>
-        <ProductMicro product={productRegular}/>
-        <ProductMicro product={productRegular}/>
-        <ProductMicro product={productRegular}/>
-        <ProductMicro product={productRegular}/>
+        123
         </>
         }
       </div>

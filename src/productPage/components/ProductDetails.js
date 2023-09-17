@@ -16,20 +16,17 @@ function ProductDetails({product}) {
             <div id='description' className='productTab'>
                 <h3>Product Details</h3>
                 <div id='descriptionText'>
-                    <p>{product.details.description}</p>
+                    <p>{product.description}</p>
                 </div>
                 <div id='features'>
-                    {product.details.other.map((feature, index) => {
+                    {product.aboutItems.map((feature, index) => {
                         return(
                             <div className='feature' key={index}>
-                                <h4>{feature.title}</h4>
-                                <span>:</span>
-                                <p>{feature.value}</p>
+                                <p>{feature}</p>
                             </div>
                         )
                     })}
                 </div>
-                
             </div>
         </div>
     </section>

@@ -8,6 +8,7 @@ import StarEmpty from "../../res/svg/star-regular.svg"
 
 function ProductMicro({product, viewStyle}) {
     const filledStarsRef = React.useRef(null)
+    console.log(product)
 
     let productClass = 'productMicro'
     if(viewStyle === 'list') {
@@ -17,24 +18,27 @@ function ProductMicro({product, viewStyle}) {
     }
 
     React.useEffect(() => {
+
         if(viewStyle === 'list') {
             const filledStars = filledStarsRef.current
             const filledStarsWidthPercentage = product.rating*20
-            filledStars.style.width = filledStarsWidthPercentage + "%"
+            filledStars && (filledStars.style.width = filledStarsWidthPercentage + "%")
         }
     }, [])
 
     function toProduct(e) {
+        console.log(e.target)
         while (e.target.getAttribute('productid') === null) {
             e.target = e.target.parentNode
         }
         const productID = e.target.getAttribute('productid')
         window.location.href = "/product/" + productID
     }
+    const image = product.images && product.images.length > 0 ? product.images[0] : product.image
     return (
-        <div className={productClass} productid={product.productID} onClick={(e) => toProduct(e)}>
+        <div className={productClass} productid={product._id} onClick={(e) => toProduct(e)}>
             <div className='productImage'>
-                <img src={product.image} />
+                <img src={image} />
                 <span className='likeButton'>
                     <div className='heart'>
                         {product.liked ? <img className='svgSmall liked' src={Heart} /> : <img className='svgSmall' src={Heart} />}
@@ -43,8 +47,8 @@ function ProductMicro({product, viewStyle}) {
                 </span>
             </div>
             <div className='productInfoContainer'>
-                <h4 className='productName'>{product.name} {viewStyle == "list" && "- " + product.description}</h4>
-                {product.renderType=="regular" ? <span className='productInfo'>
+                <h4 className='productName'>{product.productName}</h4>
+                {!product.sale.onSale ? <span className='productInfo'>
                     {viewStyle == "list" ? 
                     <div className='starContainer'>
                         <span className='starRating'>{product.rating}</span>
@@ -68,14 +72,14 @@ function ProductMicro({product, viewStyle}) {
                     :
                     <div className='starContainer'>
                         <img className='svgSmall' src={Star} />
-                        <span className='starRating'>4.4</span>
+                        <span className='starRating'>{product.rating !== 0? product.rating:null}</span>
                     </div>}
                     <span className='dotDivider'></span>
                     <span className='productSold'>4K+ Sold</span>
                 </span> : null}
                 <div className='priceContainer'>
-                    {product.sale.onSale ? <span className='productDiscount'><p className='dollarSign'>$</p><p>{product.sale.discountedPrice}</p></span> : null}
-                    {product.sale.onSale ? <span className='productPrice onDiscount'><p className='dollarSign'>$</p><p>{product.price}</p></span> : <span className='productPrice'><p className='dollarSign'>$</p><p>{product.price}</p></span>}
+                    {product.sale.onSale ? <span className='productDiscount'><p className='dollarSign'>$</p><p>{product.sale.salePrice}</p></span> : null}
+                    {product.sale.onSale ? <span className='productPrice onDiscount'><p className='dollarSign'>$</p><p>{product.productPrice}</p></span> : <span className='productPrice'><p className='dollarSign'>$</p><p>{product.productPrice}</p></span>}
                 </div>
                 
             </div>

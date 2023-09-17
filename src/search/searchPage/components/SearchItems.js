@@ -22,16 +22,15 @@ const product ={
   }
 }
 
-function SearchItems({listStyle, sort, filters}) {
+function SearchItems({listStyle, sort, filters, items}) {
   const listClass = listStyle === 'list' ? 'listView' : 'boxView'
   return (
     <section id='searchItems' className={listClass}>
       <div id='items'>
-        <ProductMicro product={product} viewStyle={listStyle}/>
-        <ProductMicro product={product} viewStyle={listStyle}/>
-        <ProductMicro product={product} viewStyle={listStyle}/>
-        <ProductMicro product={product} viewStyle={listStyle}/>
-        <ProductMicro product={product} viewStyle={listStyle}/>
+        {items.map((item, index) => {
+          return <ProductMicro key={index} product={item} viewStyle={listStyle}/>
+        })
+        }
       </div>
     </section>
   )

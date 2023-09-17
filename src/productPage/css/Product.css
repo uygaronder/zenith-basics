@@ -199,6 +199,7 @@
   justify-content: center;
   border: 3px solid var(--border);
   border-radius: 8px;
+  cursor: pointer;
 }
 #productContainer #product #productInfo #productButtons > span > span {
   font-size: 125%;
@@ -216,6 +217,7 @@
 #productContainer #product #productInfo #productButtons #productDownButtons #like {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 #productContainer #product #productInfo #productButtons #productDownButtons #like img {
   width: 25px;
