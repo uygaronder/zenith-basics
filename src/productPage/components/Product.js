@@ -6,6 +6,8 @@ import Star from "../../shared/res/svg/star-solid.svg";
 import Heart from "../../shared/res/svg/heart-regular.svg";
 
 function Product({product, user}) {
+    //console.log(product)
+    //console.log(user)
     const addToCart = () => {
         const onCart = user.cart.find(cartItem => cartItem.product._id === product._id)
         fetch(`${process.env.REACT_APP_API_URL}/cart/add`, {
@@ -36,6 +38,7 @@ function Product({product, user}) {
     }
 
     const buyNow = () => {
+        console.log(user)
         const onCart = user.cart.find(cartItem => cartItem.product._id === product._id)
         fetch(`${process.env.REACT_APP_API_URL}/cart/add`, {
             method: 'POST',

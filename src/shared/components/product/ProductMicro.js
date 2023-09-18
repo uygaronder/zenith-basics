@@ -8,7 +8,6 @@ import StarEmpty from "../../res/svg/star-regular.svg"
 
 function ProductMicro({product, viewStyle}) {
     const filledStarsRef = React.useRef(null)
-    console.log(product)
 
     let productClass = 'productMicro'
     if(viewStyle === 'list') {

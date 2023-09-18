@@ -22,6 +22,7 @@ export default function ZenithBasics() {
   useEffect(() => {
     fetchUser()
     fetchSiteData()
+    fetchProduct()
   }, [])
 
   const fetchSiteData = () => {
@@ -50,7 +51,6 @@ export default function ZenithBasics() {
     .then(res => res.json())
     .then(data => {
       setUser(data.user)
-      //console.log(data.user)
     })
   }
 
@@ -86,17 +86,16 @@ export default function ZenithBasics() {
       return <Navigate to={navigateTo} />
     }
   }
-
   return (
     <>
       <Navbar user={user} siteData={siteData}/>
       <NavbarSmall user={user} siteData={siteData}/>
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/product/:id' element={<ProductPage />}/>
+        <Route path='/product/:id' element={<ProductPage user={user} product={product} />}/>
         <Route path='/search/:query/:category?' element={<SearchPage />}/>
         <Route path='/login/*' element={<LoginPage />}/>
-        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/cart' element={<Cart user={user} products={product}/>}/>
         <Route path='/admin/*' element={
           <ProtectedRoute loggedIn={true} adminOnly={true} toSend={<Loading />} navigateTo={"/"} ><Admin siteData={siteData}/></ProtectedRoute>
         }/>
