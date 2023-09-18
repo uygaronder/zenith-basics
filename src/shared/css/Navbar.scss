@@ -90,7 +90,7 @@
         margin-left: 10px;
         display: flex;
         align-items: center;
-        span{
+        & > span{
             cursor: pointer;
             position: relative;
             padding-top: 5px;
@@ -105,11 +105,16 @@
             &:hover{
                 background-color: var(--borderGray);
             }
-            &>img{
-                opacity: .5;
-                transition: .2s ease;
-                &.tabOpen{
-                    opacity: .8;
+            .imgContainer{
+                height: 36px;
+                width: 36px;
+                border: 1px solid black;
+                &>img{
+                    opacity: .5;
+                    transition: .2s ease;
+                    &.tabOpen{
+                        opacity: .8;
+                    }
                 }
             }
             &.toggleWindow{
@@ -128,9 +133,11 @@
                 height: 15px;
                 display: flex;
                 align-items: center;
-                padding-bottom: 2px;
                 margin: auto;
-                font-size: 60%;
+                p{
+                    margin-bottom: 3px;
+                    font-size: 60%;
+                }
             }
             & > div{
                 position: absolute;

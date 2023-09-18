@@ -6,54 +6,38 @@ import Star from "../../shared/res/svg/star-solid.svg";
 import Heart from "../../shared/res/svg/heart-regular.svg";
 
 function Product({product, user}) {
-    //console.log(product)
-    //console.log(user)
     const addToCart = () => {
-        const onCart = user.cart.find(cartItem => cartItem.product._id === product._id)
-        fetch(`${process.env.REACT_APP_API_URL}/cart/add`, {
+        console.log(user.cart)
+        const onCart = user.cart.find(cartItem => cartItem.productId === product._id)
+        console.log(onCart?onCart.quantity+1:1)
+        console.log(product._id)
+        fetch(`${process.env.REACT_APP_APIURL}/user/addProductToCart`, {
             method: 'POST',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body:{
-                product: product._id,
+            body : JSON.stringify({
+                productId: product._id,
                 quantity: onCart?onCart.quantity+1:1
-            }
+            })
+
         })
     }
 
     const addToWishlist = () => {
         const onWishlist = user.wishlist.find(wishlistItem => wishlistItem.product._id === product._id)
-        fetch(`${process.env.REACT_APP_API_URL}/wishlist/add`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body:{
-                product: product._id,       
-            }
-        })
+
     }
 
     const buyNow = () => {
         console.log(user)
         const onCart = user.cart.find(cartItem => cartItem.product._id === product._id)
-        fetch(`${process.env.REACT_APP_API_URL}/cart/add`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body:{
-                product: product._id,
-                quantity: onCart?onCart.quantity+1:1
-            }
-        }).then(() => {
-            window.location.href = "/cart"
-        }
-        )
+    }
+
+    const changeImageOnClick = (e) => {
+        const mainImage = document.getElementById('highlightedImage')
+        mainImage.children[0].src = e.target.src
     }
 
 
@@ -67,7 +51,7 @@ function Product({product, user}) {
                 <div id='productImages'>
                     {product.images.map((image, index) => {
                         return(
-                            <div className='productImage' key={index}>
+                            <div className='productImage' key={index} onClick={(e) => changeImageOnClick(e)}>
                                 <img src={image} alt={product.productName} />
                             </div>
                         )

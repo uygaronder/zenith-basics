@@ -20,8 +20,12 @@
 .productMicro .productImage {
   position: relative;
   width: 100%;
+  flex: 1;
 }
 .productMicro .productImage > img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   max-height: 200px;
   -o-object-fit: cover;
      object-fit: cover;

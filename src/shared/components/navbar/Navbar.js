@@ -126,7 +126,9 @@ function Navbar({user,siteData}) {
         </div>
         <div className='navbarNotifications'>
             <span >
-                <img className='svgMed' src={Notifications} ref={notificationsImgRef} onClick={(e) => openNotifications(e)} />
+                <div className='imgContainer' ref={notificationsImgRef} onClick={(e) => openNotifications(e)} >
+                    <img className='svgMed' src={Notifications} />
+                </div>
                 {user && user.notifications.length != 0 ? <span className='itemCount'>{user.notifications.length}</span> : null}
                 <div id='notifications' ref={notificationsRef}>
                     <div className='head' id='notificationHead'>
@@ -146,8 +148,10 @@ function Navbar({user,siteData}) {
                 </div>
             </span>
             <span >
-                <img className='svgMed' src={Cart} ref={cartImgRef} onClick={(e) => openCart(e)} />
-                {user && user.cart.length != 0 ? <span className='itemCount'>{user.cart.length}</span> : null}
+                <div className='imgContainer' ref={cartImgRef} onClick={(e) => openCart(e)}>
+                    <img className='svgMed' src={Cart} />
+                </div>
+                {user && user.cart.length != 0 ? <span className='itemCount'><p>{user.cart.length}</p></span> : null}
                 <div id='cart' ref={cartRef}>
                     <div className='head' id='cartHead'>
                         <h3>Cart</h3>
