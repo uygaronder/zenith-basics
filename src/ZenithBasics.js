@@ -88,7 +88,7 @@ export default function ZenithBasics() {
   }
   return (
     <>
-      <Navbar user={user} siteData={siteData}/>
+      <Navbar user={user} siteData={siteData} products={product}/>
       <NavbarSmall user={user} siteData={siteData}/>
       <Routes>
         <Route path='/' element={<Home />}/>

@@ -89,7 +89,7 @@
   display: flex;
   align-items: center;
 }
-#navbarMain .navbarNotifications > span {
+#navbarMain .navbarNotifications span {
   cursor: pointer;
   position: relative;
   padding-top: 5px;
@@ -102,25 +102,20 @@
   text-align: center;
   justify-content: center;
 }
-#navbarMain .navbarNotifications > span:hover {
+#navbarMain .navbarNotifications span:hover {
   background-color: var(--borderGray);
 }
-#navbarMain .navbarNotifications > span .imgContainer {
-  height: 36px;
-  width: 36px;
-  border: 1px solid black;
-}
-#navbarMain .navbarNotifications > span .imgContainer > img {
+#navbarMain .navbarNotifications span > img {
   opacity: 0.5;
   transition: 0.2s ease;
 }
-#navbarMain .navbarNotifications > span .imgContainer > img.tabOpen {
+#navbarMain .navbarNotifications span > img.tabOpen {
   opacity: 0.8;
 }
-#navbarMain .navbarNotifications > span.toggleWindow img {
+#navbarMain .navbarNotifications span.toggleWindow img {
   opacity: 1;
 }
-#navbarMain .navbarNotifications > span .itemCount {
+#navbarMain .navbarNotifications span .itemCount {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -133,11 +128,11 @@
   align-items: center;
   margin: auto;
 }
-#navbarMain .navbarNotifications > span .itemCount p {
+#navbarMain .navbarNotifications span .itemCount p {
   margin-bottom: 3px;
   font-size: 60%;
 }
-#navbarMain .navbarNotifications > span > div {
+#navbarMain .navbarNotifications span > div {
   position: absolute;
   right: 110%;
   top: 0%;
@@ -149,20 +144,20 @@
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   min-width: 300px;
 }
-#navbarMain .navbarNotifications > span > div img {
+#navbarMain .navbarNotifications span > div img {
   width: 20px;
   height: 20px;
 }
-#navbarMain .navbarNotifications > span > div.tabOpen {
+#navbarMain .navbarNotifications span > div.tabOpen {
   display: flex;
 }
-#navbarMain .navbarNotifications > span > div .head {
+#navbarMain .navbarNotifications span > div .head {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--borderGray);
   padding: 10px;
 }
-#navbarMain .navbarNotifications > span > div .body {
+#navbarMain .navbarNotifications span > div .body {
   padding: 10px;
   display: flex;
 }/*# sourceMappingURL=Navbar.css.map */

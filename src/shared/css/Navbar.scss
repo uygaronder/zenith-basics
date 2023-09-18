@@ -90,7 +90,7 @@
         margin-left: 10px;
         display: flex;
         align-items: center;
-        & > span{
+        & span{
             cursor: pointer;
             position: relative;
             padding-top: 5px;
@@ -105,16 +105,11 @@
             &:hover{
                 background-color: var(--borderGray);
             }
-            .imgContainer{
-                height: 36px;
-                width: 36px;
-                border: 1px solid black;
-                &>img{
-                    opacity: .5;
-                    transition: .2s ease;
-                    &.tabOpen{
-                        opacity: .8;
-                    }
+            &>img{
+                opacity: .5;
+                transition: .2s ease;
+                &.tabOpen{
+                    opacity: .8;
                 }
             }
             &.toggleWindow{

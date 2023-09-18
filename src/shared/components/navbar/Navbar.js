@@ -52,7 +52,7 @@ function selectCategory(event) {
 }
 
 
-function Navbar({user,siteData}) {
+function Navbar({user,siteData, product}) {
     const cartRef = useRef(null);
     const cartImgRef = useRef(null);
     const notificationsRef = useRef(null);
@@ -126,9 +126,7 @@ function Navbar({user,siteData}) {
         </div>
         <div className='navbarNotifications'>
             <span >
-                <div className='imgContainer' ref={notificationsImgRef} onClick={(e) => openNotifications(e)} >
-                    <img className='svgMed' src={Notifications} />
-                </div>
+                <img className='svgMed' src={Notifications} ref={notificationsImgRef} onClick={(e) => openNotifications(e)} />
                 {user && user.notifications.length != 0 ? <span className='itemCount'>{user.notifications.length}</span> : null}
                 <div id='notifications' ref={notificationsRef}>
                     <div className='head' id='notificationHead'>
@@ -148,9 +146,7 @@ function Navbar({user,siteData}) {
                 </div>
             </span>
             <span >
-                <div className='imgContainer' ref={cartImgRef} onClick={(e) => openCart(e)}>
-                    <img className='svgMed' src={Cart} />
-                </div>
+                <img className='svgMed' src={Cart} ref={cartImgRef} onClick={(e) => openCart(e)}/>
                 {user && user.cart.length != 0 ? <span className='itemCount'><p>{user.cart.length}</p></span> : null}
                 <div id='cart' ref={cartRef}>
                     <div className='head' id='cartHead'>
@@ -158,10 +154,11 @@ function Navbar({user,siteData}) {
                     </div>
                     <div className='body'>
                         {(user && user.cart.length != 0) ? 
-                        user.cart.map((notification, index) => {
+                        user.cart.map((cartItem, index) => {
+                            console.log(product)
                             return (
                                 <div key={index} className='notification'>
-                                    <p>{notification.message}</p>
+                                    <p>{cartItem.productId}</p>
                                 </div>
                             )
                         }) : <p>Cart Is Empty</p>}
