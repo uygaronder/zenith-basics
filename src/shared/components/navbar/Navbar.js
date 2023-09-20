@@ -1,4 +1,4 @@
-import React,{useRef} from 'react'
+import React,{useEffect, useRef, useState} from 'react'
 import { Link } from 'react-router-dom'
 import '../../css/navbar.css'
 
@@ -7,6 +7,7 @@ import Search from "../../res/svg/magnifying-glass-solid.svg"
 import Cart from "../../res/svg/cart-shopping-solid.svg"
 import Notifications from "../../res/svg/bell-solid.svg"
 import Chevron from "../../res/svg/chevron-down-solid.svg"
+import Delete from "../../res/svg/x-solid.svg"
 
 function search() {
     const search = document.getElementById('search').value;
@@ -57,6 +58,27 @@ function Navbar({user,siteData, product}) {
     const cartImgRef = useRef(null);
     const notificationsRef = useRef(null);
     const notificationsImgRef = useRef(null);
+
+    const [products, setProducts] = useState(null);
+
+    useEffect(() => {
+        fetchProducts()
+    }, [])
+
+    const fetchProducts = () => {
+        fetch(`${process.env.REACT_APP_APIURL}/product/`, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            setProducts(data)
+        });
+    }
+
 
     function openNotifications() {
         notificationsImgRef.current.classList.toggle("tabOpen")
@@ -153,15 +175,54 @@ function Navbar({user,siteData, product}) {
                         <h3>Cart</h3>
                     </div>
                     <div className='body'>
-                        {(user && user.cart.length != 0) ? 
-                        user.cart.map((cartItem, index) => {
-                            console.log(product)
-                            return (
-                                <div key={index} className='notification'>
-                                    <p>{cartItem.productId}</p>
-                                </div>
-                            )
-                        }) : <p>Cart Is Empty</p>}
+                        <div className='cartItems'>
+                            {((user && products) && user.cart.length != 0) ? 
+                            user.cart.map((cartItem, index) => {
+                                let product;
+                                products && products.forEach((productItem) => {
+                                    if(productItem._id === cartItem.productId){
+                                        product = productItem
+                                    }
+                                })
+                                return (
+                                    <div key={index} className='cartItem'>
+                                        <div className='cartImage'>
+                                            <img src={product.images[0]} />
+                                        </div>
+                                        <div className='cartInfo'>
+                                            <p>{product.productName}</p>
+                                            <div className='cartItemPriceContainer'>
+                                                <p>{cartItem.quantity > 1 ? cartItem.quantity + " x ":null}${product.productPrice}</p>
+                                                {cartItem.quantity > 1 ? <p>${cartItem.quantity * product.productPrice}</p> : null}
+                                            </div>
+                                        </div>
+                                        <div className='cartItemButtons'>
+                                            <button className='cartItemButton'><img src={Delete} /></button>
+                                        </div>
+                                    </div>
+                                )
+                            }) : <p>Cart Is Empty</p>}
+                        </div>
+                        <div className='cartBottom'>
+                            <div className='cartTotal'>
+                                {user && products && user.cart.length != 0 ? 
+                                <>
+                                    <p>Total:</p>
+                                    <p>${user.cart.reduce((total, cartItem) => {
+                                        let product;
+                                        products.forEach((productItem) => {
+                                            if(productItem._id === cartItem.productId){
+                                                product = productItem
+                                            }
+                                        })
+                                        return total + (cartItem.quantity * product.productPrice)
+                                    }, 0)}</p>
+                                </> : null}
+                            </div>
+                            {user && products && user.cart.length != 0 ?
+                            <Link to='/cart' className='cartButton'>View Cart</Link> : null
+                            }
+                        </div>
                     </div>
                 </div>
             </span>

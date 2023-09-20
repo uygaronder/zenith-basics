@@ -137,7 +137,6 @@
   right: 110%;
   top: 0%;
   background-color: var(--whiterWhite);
-  padding: 10px 0;
   border-radius: 4px;
   display: none;
   flex-direction: column;
@@ -160,4 +159,92 @@
 #navbarMain .navbarNotifications span > div .body {
   padding: 10px;
   display: flex;
+}
+#navbarMain .navbarNotifications span #cart .body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+#navbarMain .navbarNotifications span #cart .body > * {
+  padding: 10px 5px;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem {
+  display: flex;
+  align-items: center;
+  margin: 5px 10px;
+  transition: 0.2s ease;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem:hover .cartItemButtons {
+  opacity: 1;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem .cartImage img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem .cartInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  white-space: nowrap;
+  margin-right: 20px;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem .cartInfo .cartItemPriceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem .cartInfo .cartItemPriceContainer p:last-of-type {
+  font-weight: bold;
+  font-size: 110%;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem .cartItemButtons {
+  opacity: 0;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem .cartItemButtons .cartItemButton {
+  padding: 5px;
+  border-radius: 4px;
+  background-color: var(--borderActive);
+  color: var(--white);
+  cursor: pointer;
+  transition: 0.2s ease;
+  display: flex;
+  margin-top: 5px;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem .cartItemButtons .cartItemButton:first-of-type {
+  margin-top: 0px;
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem .cartItemButtons .cartItemButton:hover {
+  background-color: var(--border);
+}
+#navbarMain .navbarNotifications span #cart .body .cartItems .cartItem .cartItemButtons .cartItemButton img {
+  filter: brightness(0) invert(1);
+}
+#navbarMain .navbarNotifications span #cart .body .cartBottom {
+  margin-top: 10px;
+  border-top: 1px solid var(--borderGray);
+  display: flex;
+  justify-content: space-between;
+}
+#navbarMain .navbarNotifications span #cart .body .cartBottom .cartTotal {
+  display: flex;
+  align-items: center;
+}
+#navbarMain .navbarNotifications span #cart .body .cartBottom .cartTotal p {
+  margin-right: 10px;
+}
+#navbarMain .navbarNotifications span #cart .body .cartBottom .cartTotal p:last-of-type {
+  font-weight: bold;
+  font-size: 101%;
+}
+#navbarMain .navbarNotifications span #cart .body .cartBottom .cartButton {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: var(--borderActive);
+  color: var(--white);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#navbarMain .navbarNotifications span #cart .body .cartBottom .cartButton:hover {
+  background-color: var(--border);
 }/*# sourceMappingURL=Navbar.css.map */
