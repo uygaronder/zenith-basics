@@ -1,9 +1,6 @@
 #searchItems.listView .productMicro {
   margin: 8px 0;
 }
-#searchItems.boxView {
-  border: 1px solid red;
-}
 #searchItems.boxView #items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -90,18 +90,20 @@ function Navbar({user,siteData, product}) {
         cartRef.current.classList.toggle("tabOpen")
     }
 
-    document.addEventListener('click', function(event) {
-        const isClickInside = cartRef.current.contains(event.target) || cartImgRef.current.contains(event.target) || notificationsRef.current.contains(event.target) || notificationsImgRef.current.contains(event.target);
-        const isImgs = cartImgRef.current.contains(event.target) || notificationsImgRef.current.contains(event.target);
-        const tabsOpen = cartRef.current.classList.contains("tabOpen") || notificationsRef.current.classList.contains("tabOpen")
+    useEffect(() => {
+        document.addEventListener('click', function(event) {
+            const isClickInside = cartRef.current.contains(event.target) || cartImgRef.current.contains(event.target) || notificationsRef.current.contains(event.target) || notificationsImgRef.current.contains(event.target);
+            const isImgs = cartImgRef.current.contains(event.target) || notificationsImgRef.current.contains(event.target);
+            const tabsOpen = cartRef.current.classList.contains("tabOpen") || notificationsRef.current.classList.contains("tabOpen")
 
-        if (!isClickInside) {
-            notificationsRef.current.classList.remove("tabOpen")
-            notificationsImgRef.current.classList.remove("tabOpen")
-            cartRef.current.classList.remove("tabOpen")
-            cartImgRef.current.classList.remove("tabOpen")
-        }
-    });
+            if (!isClickInside) {
+                notificationsRef.current.classList.remove("tabOpen")
+                notificationsImgRef.current.classList.remove("tabOpen")
+                cartRef.current.classList.remove("tabOpen")
+                cartImgRef.current.classList.remove("tabOpen")
+            }
+        });
+    }, [])
 
     return (
     <nav id='navbarMain'>
@@ -209,12 +211,7 @@ function Navbar({user,siteData, product}) {
                                 <>
                                     <p>Total:</p>
                                     <p>${user.cart.reduce((total, cartItem) => {
-                                        let product;
-                                        products.forEach((productItem) => {
-                                            if(productItem._id === cartItem.productId){
-                                                product = productItem
-                                            }
-                                        })
+                                        let product = products.filter(product => product._id === cartItem.productId)[0];
                                         return total + (cartItem.quantity * product.productPrice)
                                     }, 0)}</p>
                                 </> : null}
